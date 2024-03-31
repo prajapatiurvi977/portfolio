@@ -9,6 +9,12 @@ interface ITabProps {
   onTabSelected: (id: string) => void;
 }
 
+const UIConstants = {
+  horizontalSpace: '100px',
+  verticalSpace: '40px',
+  fontSize: '72px',
+};
+
 const Tab: FC<ITabProps> = ({
   id,
   title,
@@ -21,16 +27,24 @@ const Tab: FC<ITabProps> = ({
       <div
         className={'tab'}
         style={{
+          display: 'flex',
           flex: isOpen ? 1 : 0,
-          fontSize: '2rem',
-          minWidth: '115px',
-          ...(!isOpen && {
-            cursor: 'pointer',
-            writingMode: 'vertical-rl',
-            textAlign: 'start',
-            paddingTop: '1rem',
-            fontFamily: 'PPFormulaCondensed Black; NoiGrotesk-SemiBold',
-          }),
+          fontSize: '72px',
+          lineHeight: `calc(${UIConstants.fontSize} + 2px)`,
+          minWidth: UIConstants.horizontalSpace,
+          letterSpacing: '5px',
+          fontFamily: 'PPFormula-CondensedBlack, NoiGrotesk-SemiBold',
+          ...(isOpen
+            ? {
+                padding: `${UIConstants.verticalSpace} ${UIConstants.horizontalSpace} ${UIConstants.verticalSpace} ${UIConstants.horizontalSpace}`,
+              }
+            : {
+                alignItems: 'center',
+                cursor: 'pointer',
+                writingMode: 'vertical-rl',
+                textAlign: 'start',
+                paddingTop: UIConstants.verticalSpace,
+              }),
           ...styleProps,
         }}
         onClick={() => {
