@@ -1,6 +1,23 @@
+@font-face {
+  font-family: "NoiGrotesk-Light";
+  src: local("NoiGrotesk-Light"),
+    url(../src/assets/fonts/NoiGrotesk-Light.woff2) format("woff2");
+}
+@font-face {
+  font-family: "NoiGrotesk-Semibold";
+  src: local("NoiGrotesk-Semibold"),
+    url(../src/assets/fonts/NoiGrotesk-Semibold.woff2) format("woff2");
+}
+@font-face {
+  font-family: "PPFormula-CondensedBlack";
+  src: local("PPFormula-CondensedBlack"),
+    url(../src/assets/fonts/PPFormula-CondensedBlack.woff2) format("woff2");
+}
+
 html,
 body {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: NoiGrotesk-Semibold, NoiGrotesk-Light, monospace;
 }
