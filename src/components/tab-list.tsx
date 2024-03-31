@@ -45,9 +45,9 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
           styleProps={{
             backgroundColor:
               index % 2 === 0
-                ? DARK_TAB.backgroundColor
-                : LIGHT_TAB.backgroundColor,
-            color: index % 2 === 0 ? DARK_TAB.color : LIGHT_TAB.color,
+                ? LIGHT_TAB.backgroundColor
+                : DARK_TAB.backgroundColor,
+            color: index % 2 === 0 ? LIGHT_TAB.color : DARK_TAB.color,
             transition: 'all 0.4s ease-in',
           }}
           onTabSelected={onTabSelected}
