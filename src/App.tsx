@@ -12,12 +12,12 @@ const App = (): JSX.Element => {
       title: 'Home',
     },
     {
-      id: 'work',
-      title: 'Work',
-    },
-    {
       id: 'aboutMe',
       title: 'About Me',
+    },
+    {
+      id: 'work',
+      title: 'Work',
     },
     {
       id: 'ontactMe',
