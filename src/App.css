@@ -1,6 +1,17 @@
+:root {
+  --screen-primary-light: "white";
+  --screen-primary-dark: "black";
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
   text-align: center;
+  height: 100%;
+}
+
+#root:nth-child(even) {
+  background-color: var(--screen-primary-light);
+}
+#root:nth-child(odd) {
+  background-color: var(--screen-primary-dark);
 }
