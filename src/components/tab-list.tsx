@@ -1,24 +1,19 @@
 import { FC } from "react";
+import { ITabProps, Tab } from "./tab";
 
-interface TabListItem {
-  title: string;
-  id: string;
-}
 interface ITabListProps {
-  list: Array<TabListItem>;
+  listConfig: Array<ITabProps>;
 }
 
-const TabList: FC<ITabListProps> = ({ list }) => {
+const TabList: FC<ITabListProps> = ({ listConfig }) => {
   return (
     <>
-      {list.map(({ title, id }) => (
-        <>
-          <div> {title}</div>
-          <div> {id}</div>
-        </>
+      {listConfig.map(({ title, id }) => (
+        <Tab id={id} title={title} key={id} />
       ))}
     </>
   );
 };
 
 export { TabList };
+export type { ITabListProps };

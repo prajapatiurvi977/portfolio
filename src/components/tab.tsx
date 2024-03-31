@@ -1,7 +1,17 @@
 import { FC } from "react";
 
-const Tab: FC<any> = () => {
-  return <></>;
+interface ITabProps {
+  title: string;
+  id: string;
+}
+
+const Tab: FC<ITabProps> = ({ id, title }) => {
+  return (
+    <>
+      <div>{title}</div>
+    </>
+  );
 };
 
 export { Tab };
+export type { ITabProps };
