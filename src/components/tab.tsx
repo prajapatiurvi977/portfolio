@@ -1,4 +1,5 @@
-import { CSSProperties, FC } from "react";
+import type { CSSProperties, FC } from 'react';
+import React from 'react';
 
 interface ITabProps {
   title: string;
@@ -18,21 +19,23 @@ const Tab: FC<ITabProps> = ({
   return (
     <>
       <div
-        className={"tab"}
+        className={'tab'}
         style={{
           flex: isOpen ? 1 : 0,
-          fontSize: "2rem",
-          minWidth: "115px",
+          fontSize: '2rem',
+          minWidth: '115px',
           ...(!isOpen && {
-            cursor: "pointer",
-            writingMode: "vertical-rl",
-            textAlign: "start",
-            paddingTop: "1rem",
-            fontFamily: "PPFormulaCondensed Black; NoiGrotesk-SemiBold",
+            cursor: 'pointer',
+            writingMode: 'vertical-rl',
+            textAlign: 'start',
+            paddingTop: '1rem',
+            fontFamily: 'PPFormulaCondensed Black; NoiGrotesk-SemiBold',
           }),
           ...styleProps,
         }}
-        onClick={() => onTabSelected(id)}
+        onClick={() => {
+          onTabSelected(id);
+        }}
       >
         {title}
       </div>
