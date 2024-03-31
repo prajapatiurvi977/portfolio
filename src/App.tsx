@@ -6,6 +6,6 @@ const App = () => {
       <div>Welcome to my website!</div>
     </>
   );
-}
+};
 
 export { App };
