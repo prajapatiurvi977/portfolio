@@ -2,7 +2,7 @@ import { CSSProperties, FC, useState } from "react";
 import { ITabProps, Tab } from "./tab";
 
 interface ITabListProps {
-  listConfig: Array<ITabProps>;
+  listConfig: Array<Pick<ITabProps, "id" | "title">>;
 }
 
 interface ITabUI {
@@ -41,8 +41,8 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
           isOpen={selectedTabId === id}
           styleProps={{
             backgroundColor:
-              index % 2 ? LIGHT_TAB.backgroundColor : DARK_TAB.backgroundColor,
-            color: index % 2 ? LIGHT_TAB.color : DARK_TAB.color,
+              index % 2 ? DARK_TAB.backgroundColor : LIGHT_TAB.backgroundColor,
+            color: index % 2 ? DARK_TAB.color : LIGHT_TAB.color,
             transition: "all 0.4s ease-in",
           }}
           onTabSelected={onTabSelected}

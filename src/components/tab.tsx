@@ -18,10 +18,18 @@ const Tab: FC<ITabProps> = ({
   return (
     <>
       <div
+        className={"tab"}
         style={{
           flex: isOpen ? 1 : 0,
+          fontSize: "2rem",
           minWidth: "115px",
-          ...(!isOpen && { cursor: "pointer" }),
+          ...(!isOpen && {
+            cursor: "pointer",
+            writingMode: "vertical-rl",
+            textAlign: "start",
+            paddingTop: "1rem",
+            fontFamily: "PPFormulaCondensed Black; NoiGrotesk-SemiBold",
+          }),
           ...styleProps,
         }}
         onClick={() => onTabSelected(id)}
