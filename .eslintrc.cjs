@@ -34,6 +34,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/quotes': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
   settings: {
     react: {

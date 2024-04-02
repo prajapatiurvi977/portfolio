@@ -1,5 +1,7 @@
 import type { CSSProperties, FC } from 'react';
 import React from 'react';
+import { AnimatedDiv } from './animated-div';
+import { motion } from 'framer-motion';
 
 interface ITabProps {
   title: string;
@@ -13,6 +15,7 @@ const UIConstants = {
   horizontalSpace: '100px',
   verticalSpace: '40px',
   fontSize: '72px',
+  animationDuration: 0.3,
 };
 
 const Tab: FC<ITabProps> = ({
@@ -21,50 +24,80 @@ const Tab: FC<ITabProps> = ({
   onTabSelected,
   isOpen = false,
   styleProps,
+  children,
 }) => {
   return (
-    <>
+    <motion.div
+      key="container"
+      layout="position"
+      transition={{
+        duration: UIConstants.animationDuration,
+        ease: 'easeIn',
+        bounce: 20,
+      }}
+      style={{
+        display: 'flex',
+        flex: isOpen ? 1 : 0,
+        fontSize: '72px',
+        lineHeight: `calc(${UIConstants.fontSize} + 2px)`,
+        minWidth: UIConstants.horizontalSpace,
+        letterSpacing: '5px',
+        fontFamily: 'PPFormula-CondensedBlack, NoiGrotesk-SemiBold',
+        position: 'relative',
+        ...(!isOpen && {
+          cursor: 'pointer',
+        }),
+        ...styleProps,
+      }}
+      onClick={() => {
+        onTabSelected(id);
+      }}
+    >
       <div
-        className={'tab'}
         style={{
           display: 'flex',
-          flex: isOpen ? 1 : 0,
-          fontSize: '72px',
-          lineHeight: `calc(${UIConstants.fontSize} + 2px)`,
-          minWidth: UIConstants.horizontalSpace,
-          letterSpacing: '5px',
-          fontFamily: 'PPFormula-CondensedBlack, NoiGrotesk-SemiBold',
-          position: 'relative',
-          ...(isOpen
-            ? {
-                padding: `${UIConstants.verticalSpace} ${UIConstants.horizontalSpace} ${UIConstants.verticalSpace} ${UIConstants.horizontalSpace}`,
-              }
-            : {
-                alignItems: 'center',
-                cursor: 'pointer',
-                // writingMode: 'vertical-rl',
-                textAlign: 'start',
-                paddingTop: UIConstants.verticalSpace,
-              }),
-          ...styleProps,
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          flex: 1,
+
+          padding: `${UIConstants.verticalSpace} ${UIConstants.horizontalSpace} ${UIConstants.verticalSpace} ${UIConstants.horizontalSpace}`,
         }}
-        onClick={() => {
-          onTabSelected(id);
+      >
+        <AnimatedDiv
+          isMounted={isOpen}
+          key="tab-title-opened"
+          animationDuration={UIConstants.animationDuration}
+        >
+          {title}
+        </AnimatedDiv>
+        <div style={{ flex: 1 }}></div>
+      </div>
+      <AnimatedDiv
+        animationDuration={UIConstants.animationDuration}
+        isMounted={!isOpen}
+        key="tab-title-closed"
+        styleProps={{
+          exitWidth: 0,
+          fullWidth: '100vh',
         }}
+        className="tab-title title-closed"
       >
         <div
           style={{
-            transform: `rotate(${isOpen ? '0deg' : '90deg'})`,
-            // transformOrigin: '0 0',
-            transition: 'all 0.4s ease-in',
-            ...(!isOpen && { position: 'absolute', top: 0, left: 0 }),
-            // ...(isOpen && { top: 0, left: 0 }),
+            transform: 'rotate(90deg)',
+            transformOrigin: '0 0',
+            position: 'absolute',
+            top: UIConstants.verticalSpace,
+            left: `calc(${UIConstants.verticalSpace} * 2)`,
+            minWidth: '100vh',
+            display: 'flex',
+            alignItems: 'flex-start',
           }}
         >
           {title}
         </div>
-      </div>
-    </>
+      </AnimatedDiv>
+    </motion.div>
   );
 };
 

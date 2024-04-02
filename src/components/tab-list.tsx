@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import type { CSSProperties, FC } from 'react';
+import type { CSSProperties, FC, PropsWithChildren } from 'react';
 import { Tab } from './tab';
 import type { ITabProps } from './tab';
 interface ITabListProps {
-  listConfig: Array<Pick<ITabProps, 'id' | 'title'>>;
+  listConfig: Array<Pick<ITabProps, 'id' | 'title'> & PropsWithChildren>;
 }
 
 interface ITabUI {
@@ -36,7 +36,7 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
         width: '100%',
       }}
     >
-      {listConfig.map(({ title, id }, index) => (
+      {listConfig.map(({ title, id, children }, index) => (
         <Tab
           id={id}
           title={title}
@@ -48,10 +48,11 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
                 ? LIGHT_TAB.backgroundColor
                 : DARK_TAB.backgroundColor,
             color: index % 2 === 0 ? LIGHT_TAB.color : DARK_TAB.color,
-            transition: 'all 0.4s ease-in',
           }}
           onTabSelected={onTabSelected}
-        />
+        >
+          {children}
+        </Tab>
       ))}
     </div>
   );
