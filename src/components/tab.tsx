@@ -34,6 +34,7 @@ const Tab: FC<ITabProps> = ({
           minWidth: UIConstants.horizontalSpace,
           letterSpacing: '5px',
           fontFamily: 'PPFormula-CondensedBlack, NoiGrotesk-SemiBold',
+          position: 'relative',
           ...(isOpen
             ? {
                 padding: `${UIConstants.verticalSpace} ${UIConstants.horizontalSpace} ${UIConstants.verticalSpace} ${UIConstants.horizontalSpace}`,
@@ -41,7 +42,7 @@ const Tab: FC<ITabProps> = ({
             : {
                 alignItems: 'center',
                 cursor: 'pointer',
-                writingMode: 'vertical-rl',
+                // writingMode: 'vertical-rl',
                 textAlign: 'start',
                 paddingTop: UIConstants.verticalSpace,
               }),
@@ -51,7 +52,17 @@ const Tab: FC<ITabProps> = ({
           onTabSelected(id);
         }}
       >
-        {title}
+        <div
+          style={{
+            transform: `rotate(${isOpen ? '0deg' : '90deg'})`,
+            // transformOrigin: '0 0',
+            transition: 'all 0.4s ease-in',
+            ...(!isOpen && { position: 'absolute', top: 0, left: 0 }),
+            // ...(isOpen && { top: 0, left: 0 }),
+          }}
+        >
+          {title}
+        </div>
       </div>
     </>
   );
