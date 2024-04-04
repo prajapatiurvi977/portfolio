@@ -9,14 +9,14 @@ interface IAnimatedDiv {
   styleProps?: CSSProperties;
   isMounted: boolean;
   animationDuration: number;
-  key: string;
+  id: string;
 }
 
 const AnimatedDiv: FC<PropsWithChildren<IAnimatedDiv>> = ({
   entryWidth,
   exitWidth,
   isMounted,
-  key,
+  id,
   animationDuration = 0.4,
   children,
   styleProps,
@@ -25,7 +25,7 @@ const AnimatedDiv: FC<PropsWithChildren<IAnimatedDiv>> = ({
     <AnimatePresence initial={false}>
       {isMounted ? (
         <motion.div
-          key={key}
+          key={id}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

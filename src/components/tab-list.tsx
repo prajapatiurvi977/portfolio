@@ -1,25 +1,10 @@
 import React, { useState } from 'react';
-import type { CSSProperties, FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { Tab } from './tab';
 import type { ITabProps } from './tab';
 interface ITabListProps {
   listConfig: Array<Pick<ITabProps, 'id' | 'title'> & PropsWithChildren>;
 }
-
-interface ITabUI {
-  backgroundColor: CSSProperties['backgroundColor'];
-  color: CSSProperties['color'];
-}
-
-const LIGHT_TAB: ITabUI = {
-  backgroundColor: 'white',
-  color: 'black',
-};
-
-const DARK_TAB: ITabUI = {
-  backgroundColor: 'black',
-  color: 'white',
-};
 
 const TabList: FC<ITabListProps> = ({ listConfig }) => {
   const [selectedTabId, setSelectedTabId] = useState<string>('home');
@@ -42,13 +27,7 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
           title={title}
           key={id}
           isOpen={selectedTabId === id}
-          styleProps={{
-            backgroundColor:
-              index % 2 === 0
-                ? LIGHT_TAB.backgroundColor
-                : DARK_TAB.backgroundColor,
-            color: index % 2 === 0 ? LIGHT_TAB.color : DARK_TAB.color,
-          }}
+          index={index}
           onTabSelected={onTabSelected}
         >
           {children}
@@ -58,5 +37,4 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
   );
 };
 
-export { TabList };
-export type { ITabListProps };
+export { TabList, type ITabListProps };
