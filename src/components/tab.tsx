@@ -84,25 +84,27 @@ const Tab: FC<ITabProps> = ({
         onTabSelected(id);
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          flex: 1,
+      {isOpen && (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            flex: 1,
 
-          padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
-        }}
-      >
-        <AnimatedDiv
-          isMounted={isOpen}
-          id="tab-title-opened"
-          animationDuration={ANIMATION_DURATION}
+            padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
+          }}
         >
-          {title}
-        </AnimatedDiv>
-        <div style={{ flex: 1 }}>Content coming soon yo!</div>
-      </div>
+          <AnimatedDiv
+            isMounted={isOpen}
+            id="tab-title-opened"
+            animationDuration={ANIMATION_DURATION}
+          >
+            {title}
+          </AnimatedDiv>
+          <div style={{ flex: 1 }}>Content coming soon yo!</div>
+        </div>
+      )}
       <AnimatedDiv
         animationDuration={ANIMATION_DURATION}
         isMounted={!isOpen}
