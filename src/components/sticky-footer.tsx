@@ -1,4 +1,4 @@
-import type { AnchorHTMLAttributes, FC } from 'react';
+import type { FC } from 'react';
 import React, { useState } from 'react';
 import {
   ACCENT_COLOR,
@@ -12,7 +12,6 @@ interface IFooterItem {
   iconUrl: string;
   label: string;
   target: string;
-  anchorProps?: Omit<AnchorHTMLAttributes<any>, 'href'>;
   id?: string;
 }
 
@@ -23,13 +22,7 @@ interface IStickyFooterProps {
 const ICON_SIZE = '48px';
 const FONT_SIZE = '18px';
 
-const FooterItem: FC<IFooterItem> = ({
-  label,
-  iconUrl,
-  target,
-  id,
-  anchorProps,
-}) => {
+const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, id }) => {
   const [displayTooltip, setDisplayTooltip] = useState<boolean>(false);
   return (
     <a
@@ -51,7 +44,6 @@ const FooterItem: FC<IFooterItem> = ({
         setDisplayTooltip(false);
       }}
       rel="noreferrer"
-      {...anchorProps}
     >
       {displayTooltip && (
         <span
@@ -90,14 +82,13 @@ const StickyFooter: FC<IStickyFooterProps> = ({ items }) => {
         left: HORIZONTAL_SPACE,
       }}
     >
-      {items.map(({ iconUrl, label, target, anchorProps }, index) => (
+      {items.map(({ iconUrl, label, target }, index) => (
         <FooterItem
           iconUrl={iconUrl}
           label={label}
           target={target}
           key={label + index}
           id={index}
-          anchorProps={anchorProps}
         />
       ))}
     </div>
