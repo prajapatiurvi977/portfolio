@@ -23,12 +23,18 @@ interface IStickyFooterProps {
 const ICON_SIZE = '48px';
 const FONT_SIZE = '18px';
 
-const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, id }) => {
+const FooterItem: FC<IFooterItem> = ({
+  label,
+  iconUrl,
+  target,
+  id,
+  anchorProps,
+}) => {
   const [displayTooltip, setDisplayTooltip] = useState<boolean>(false);
   return (
     <a
       key={id}
-      href={target}
+      {...(Boolean(target) && { href: target })}
       target="_blank"
       aria-label={label}
       style={{
@@ -45,6 +51,7 @@ const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, id }) => {
         setDisplayTooltip(false);
       }}
       rel="noreferrer"
+      {...anchorProps}
     >
       {displayTooltip && (
         <span
@@ -83,13 +90,14 @@ const StickyFooter: FC<IStickyFooterProps> = ({ items }) => {
         left: HORIZONTAL_SPACE,
       }}
     >
-      {items.map(({ iconUrl, label, target }, index) => (
+      {items.map(({ iconUrl, label, target, anchorProps }, index) => (
         <FooterItem
           iconUrl={iconUrl}
           label={label}
           target={target}
           key={label + index}
           id={index}
+          anchorProps={anchorProps}
         />
       ))}
     </div>
