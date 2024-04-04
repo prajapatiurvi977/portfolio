@@ -91,7 +91,6 @@ const Tab: FC<ITabProps> = ({
             flexDirection: 'column',
             alignItems: 'flex-start',
             flex: 1,
-
             padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
           }}
         >
@@ -113,7 +112,6 @@ const Tab: FC<ITabProps> = ({
           exitWidth: 0,
           fullWidth: '100vh',
         }}
-        className="tab-title title-closed"
       >
         <div
           style={{
