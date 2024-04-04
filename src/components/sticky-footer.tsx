@@ -29,6 +29,7 @@ const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, id }) => {
     <a
       key={id}
       href={target}
+      target="_blank"
       aria-label={label}
       style={{
         textDecoration: 'none',
@@ -43,13 +44,13 @@ const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, id }) => {
       onMouseLeave={() => {
         setDisplayTooltip(false);
       }}
+      rel="noreferrer"
     >
       {displayTooltip && (
         <span
           style={{
             position: 'absolute',
             top: `calc(-${ICON_SIZE} + 15px)`,
-            // left: '0',
             transform: 'translateX(-30%)',
             backgroundColor: ACCENT_COLOR,
             padding: '5px',
