@@ -67,7 +67,7 @@ const Tab: FC<ITabProps> = ({
         flex: isOpen ? 1 : 0,
         fontSize: '72px',
         lineHeight: `calc(${FONT_SIZE} + 2px)`,
-        minWidth: HORIZONTAL_SPACE,
+
         letterSpacing: '5px',
         fontFamily: 'PPFormula-CondensedBlack, NoiGrotesk-SemiBold',
         position: 'relative',
@@ -75,6 +75,7 @@ const Tab: FC<ITabProps> = ({
         color: isEven ? DARK_COLOR : LIGHT_COLOR,
         ...(!isOpen && {
           cursor: 'pointer',
+          minWidth: HORIZONTAL_SPACE,
         }),
       }}
       onClick={() => {
@@ -117,7 +118,7 @@ const Tab: FC<ITabProps> = ({
             position: 'absolute',
             top: VERTICAL_SPACE,
             left: `calc(${VERTICAL_SPACE} * 2)`,
-            minWidth: '100vh',
+            minWidth: `calc(100vh - ${isOpen ? 0 : HORIZONTAL_SPACE})`,
             display: 'flex',
             alignItems: 'flex-start',
           }}

@@ -1,17 +1,20 @@
 @font-face {
-  font-family: "NoiGrotesk-Light";
-  src: local("NoiGrotesk-Light"),
-    url(../src/assets/fonts/NoiGrotesk-Light.woff2) format("woff2");
+  font-family: 'NoiGrotesk-Light';
+  src:
+    local('NoiGrotesk-Light'),
+    url(../src/assets/fonts/NoiGrotesk-Light.woff2) format('woff2');
 }
 @font-face {
-  font-family: "NoiGrotesk-Semibold";
-  src: local("NoiGrotesk-Semibold"),
-    url(../src/assets/fonts/NoiGrotesk-Semibold.woff2) format("woff2");
+  font-family: 'NoiGrotesk-Semibold';
+  src:
+    local('NoiGrotesk-Semibold'),
+    url(../src/assets/fonts/NoiGrotesk-Semibold.woff2) format('woff2');
 }
 @font-face {
-  font-family: "PPFormula-CondensedBlack";
-  src: local("PPFormula-CondensedBlack"),
-    url(../src/assets/fonts/PPFormula-CondensedBlack.woff2) format("woff2");
+  font-family: 'PPFormula-CondensedBlack';
+  src:
+    local('PPFormula-CondensedBlack'),
+    url(../src/assets/fonts/PPFormula-CondensedBlack.woff2) format('woff2');
 }
 
 html,

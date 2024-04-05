@@ -12,7 +12,7 @@ interface IFooterItem {
   iconUrl: string;
   label: string;
   target: string;
-  id?: string;
+  index: number;
 }
 
 interface IStickyFooterProps {
@@ -22,11 +22,11 @@ interface IStickyFooterProps {
 const ICON_SIZE = '48px';
 const FONT_SIZE = '18px';
 
-const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, id }) => {
+const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, index }) => {
   const [displayTooltip, setDisplayTooltip] = useState<boolean>(false);
   return (
     <a
-      key={id}
+      key={index}
       {...(Boolean(target) && { href: target })}
       target="_blank"
       aria-label={label}
@@ -36,6 +36,9 @@ const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, id }) => {
         flexDirection: 'column',
         cursor: 'pointer',
         position: 'relative',
+        ...(index !== 0 && {
+          marginLeft: '12px',
+        }),
       }}
       onMouseEnter={() => {
         setDisplayTooltip(true);
@@ -66,6 +69,7 @@ const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, id }) => {
           {label}
         </span>
       )}
+
       <img src={iconUrl} alt={label} width={ICON_SIZE} height={ICON_SIZE} />
     </a>
   );
@@ -88,7 +92,7 @@ const StickyFooter: FC<IStickyFooterProps> = ({ items }) => {
           label={label}
           target={target}
           key={label + index}
-          id={index}
+          index={index}
         />
       ))}
     </div>
