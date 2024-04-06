@@ -24,7 +24,7 @@ const App = (): JSX.Element => {
       content: <Home />,
     },
     {
-      id: 'ontactMe',
+      id: 'contactMe',
       title: 'Contact Me',
       content: <Home />,
     },
