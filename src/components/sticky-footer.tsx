@@ -84,7 +84,7 @@ const StickyFooter: FC<IStickyFooterProps> = ({ items }) => {
         display: 'flex',
         flexDirection: 'row',
         bottom: VERTICAL_SPACE,
-        left: HORIZONTAL_SPACE,
+        left: `calc(${HORIZONTAL_SPACE} - 4px)`,
       }}
     >
       {items.map(({ iconUrl, label, target }, index) => (
