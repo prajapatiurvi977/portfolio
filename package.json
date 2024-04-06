@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "homepage": "https://prajapatiurvi977.github.io/portfolio",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
