@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, ReactElement } from 'react';
 import React from 'react';
 import { AnimatedDiv } from './animated-div';
 import { motion } from 'framer-motion';
@@ -6,7 +6,9 @@ import type { IStickyFooterProps } from './sticky-footer';
 import { StickyFooter } from './sticky-footer';
 import {
   ANIMATION_DURATION,
+  CONDENSED_FONT,
   DARK_COLOR,
+  DARK_FONT,
   FONT_SIZE,
   HORIZONTAL_SPACE,
   LIGHT_COLOR,
@@ -19,6 +21,7 @@ interface ITabProps {
   isOpen: boolean;
   index: number;
   onTabSelected: (id: string) => void;
+  content: ReactElement;
 }
 
 const Tab: FC<ITabProps> = ({
@@ -27,6 +30,7 @@ const Tab: FC<ITabProps> = ({
   onTabSelected,
   isOpen = false,
   index,
+  content,
   children,
 }) => {
   const isEven = index % 2 === 0;
@@ -65,11 +69,9 @@ const Tab: FC<ITabProps> = ({
       style={{
         display: 'flex',
         flex: isOpen ? 1 : 0,
-        fontSize: '72px',
-        lineHeight: `calc(${FONT_SIZE} + 2px)`,
 
         letterSpacing: '5px',
-        fontFamily: 'PPFormula-CondensedBlack, NoiGrotesk-SemiBold',
+        fontFamily: `${CONDENSED_FONT}, ${DARK_FONT}`,
         position: 'relative',
         backgroundColor: isEven ? LIGHT_COLOR : DARK_COLOR,
         color: isEven ? DARK_COLOR : LIGHT_COLOR,
@@ -96,10 +98,14 @@ const Tab: FC<ITabProps> = ({
             isMounted={isOpen}
             id="tab-title-opened"
             animationDuration={ANIMATION_DURATION}
+            styleProps={{
+              fontSize: FONT_SIZE,
+              lineHeight: `calc(${FONT_SIZE} + 2px)`,
+            }}
           >
             {title}
           </AnimatedDiv>
-          <div style={{ flex: 1 }}>Content coming soon yo!</div>
+          <div style={{ flex: 1 }}>{content}</div>
         </div>
       )}
       <AnimatedDiv
@@ -109,6 +115,8 @@ const Tab: FC<ITabProps> = ({
         styleProps={{
           exitWidth: 0,
           fullWidth: '100vh',
+          fontSize: FONT_SIZE,
+          lineHeight: `calc(${FONT_SIZE} + 2px)`,
         }}
       >
         <div

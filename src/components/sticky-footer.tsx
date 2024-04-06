@@ -4,6 +4,7 @@ import {
   ACCENT_COLOR,
   DARK_COLOR,
   HORIZONTAL_SPACE,
+  LIGHT_FONT,
   MAX_Z_INDEX,
   VERTICAL_SPACE,
 } from '../constants';
@@ -61,7 +62,7 @@ const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, index }) => {
             fontSize: FONT_SIZE,
             lineHeight: `calc(${FONT_SIZE} + 2px)`,
             letterSpacing: 1,
-            fontFamily: 'NoiGrotesk-Light',
+            fontFamily: LIGHT_FONT,
             color: DARK_COLOR,
             zIndex: MAX_Z_INDEX,
           }}

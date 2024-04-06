@@ -3,7 +3,9 @@ import type { FC, PropsWithChildren } from 'react';
 import { Tab } from './tab';
 import type { ITabProps } from './tab';
 interface ITabListProps {
-  listConfig: Array<Pick<ITabProps, 'id' | 'title'> & PropsWithChildren>;
+  listConfig: Array<
+    Pick<ITabProps, 'id' | 'title' | 'content'> & PropsWithChildren
+  >;
 }
 
 const TabList: FC<ITabListProps> = ({ listConfig }) => {
@@ -21,7 +23,7 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
         width: '100%',
       }}
     >
-      {listConfig.map(({ title, id, children }, index) => (
+      {listConfig.map(({ title, id, children, content }, index) => (
         <Tab
           id={id}
           title={title}
@@ -29,6 +31,7 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
           isOpen={selectedTabId === id}
           index={index}
           onTabSelected={onTabSelected}
+          content={content}
         >
           {children}
         </Tab>
