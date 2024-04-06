@@ -7,6 +7,10 @@ const VERTICAL_SPACE = '40px';
 
 const FONT_SIZE = '72px';
 
+const LIGHT_FONT = 'NoiGrotesk-Light';
+const DARK_FONT = 'NoiGrotesk-Semibold';
+const CONDENSED_FONT = 'PPFormula-CondensedBlack';
+
 const ANIMATION_DURATION = 0.3;
 
 const MAX_Z_INDEX = 99;
@@ -20,4 +24,7 @@ export {
   FONT_SIZE,
   ANIMATION_DURATION,
   MAX_Z_INDEX,
+  LIGHT_FONT,
+  DARK_FONT,
+  CONDENSED_FONT,
 };
