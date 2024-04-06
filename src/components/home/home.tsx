@@ -30,7 +30,12 @@ const Home: FC = () => {
           textAlign: 'left',
         }}
       >
-        <div style={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}>
+        <div
+          style={{
+            marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
+            fontSize: `calc(${FONT_SIZE} / 2.5)`,
+          }}
+        >
           👋 Hi, I am Urvi !
         </div>
         <div
@@ -54,6 +59,7 @@ const Home: FC = () => {
       <div
         style={{
           fontFamily: LIGHT_FONT,
+          fontSize: `calc(${FONT_SIZE} / 2.5)`,
           marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
         }}
       >
