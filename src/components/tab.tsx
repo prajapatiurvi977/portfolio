@@ -31,7 +31,6 @@ const Tab: FC<ITabProps> = ({
   isOpen = false,
   index,
   content,
-  children,
 }) => {
   const isEven = index % 2 === 0;
 
@@ -113,8 +112,6 @@ const Tab: FC<ITabProps> = ({
         isMounted={!isOpen}
         id="tab-title-closed"
         styleProps={{
-          exitWidth: 0,
-          fullWidth: '100vh',
           fontSize: FONT_SIZE,
           lineHeight: `calc(${FONT_SIZE} + 2px)`,
         }}

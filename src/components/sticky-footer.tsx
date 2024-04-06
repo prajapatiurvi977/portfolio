@@ -17,7 +17,7 @@ interface IFooterItem {
 }
 
 interface IStickyFooterProps {
-  items: IFooterItem[];
+  items: Array<Omit<IFooterItem, 'index'>>;
 }
 
 const ICON_SIZE = '48px';

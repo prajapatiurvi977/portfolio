@@ -23,7 +23,7 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
         width: '100%',
       }}
     >
-      {listConfig.map(({ title, id, children, content }, index) => (
+      {listConfig.map(({ title, id, content }, index) => (
         <Tab
           id={id}
           title={title}
@@ -32,9 +32,7 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
           index={index}
           onTabSelected={onTabSelected}
           content={content}
-        >
-          {children}
-        </Tab>
+        />
       ))}
     </div>
   );

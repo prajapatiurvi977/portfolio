@@ -4,8 +4,6 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface IAnimatedDiv {
-  entryWidth: CSSProperties['width'];
-  exitWidth: CSSProperties['width'];
   styleProps?: CSSProperties;
   isMounted: boolean;
   animationDuration: number;
@@ -13,8 +11,6 @@ interface IAnimatedDiv {
 }
 
 const AnimatedDiv: FC<PropsWithChildren<IAnimatedDiv>> = ({
-  entryWidth,
-  exitWidth,
   isMounted,
   id,
   animationDuration = 0.4,
