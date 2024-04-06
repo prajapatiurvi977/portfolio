@@ -26,7 +26,7 @@ const Home: FC = () => {
     >
       <div
         style={{
-          margin: `calc(${FONT_SIZE} / 2) 0`,
+          margin: `calc(${FONT_SIZE} / 3) 0 calc(${FONT_SIZE} / 1.5) 0`,
           textAlign: 'left',
         }}
       >
