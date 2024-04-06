@@ -93,7 +93,8 @@ const Home: FC = () => {
           flexDirection: 'row',
           alignItems: 'center',
           fontFamily: LIGHT_FONT,
-          fontSize: `calc(${FONT_SIZE} / 3)`,
+          fontSize: `calc(${FONT_SIZE} / 4)`,
+          marginTop: `calc(${VERTICAL_SPACE} / 2)`,
         }}
       >
         Designed and developed with Love
