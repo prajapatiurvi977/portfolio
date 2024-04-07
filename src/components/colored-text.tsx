@@ -1,12 +1,7 @@
 import type { CSSProperties, FC, PropsWithChildren } from 'react';
 import React from 'react';
 
-import {
-  ACCENT_COLOR,
-  DARK_COLOR,
-  DARK_FONT,
-  LIGHT_COLOR,
-} from '../../constants';
+import { ACCENT_COLOR, DARK_COLOR, DARK_FONT, LIGHT_COLOR } from '../constants';
 
 interface IColoredText {
   color: 'light' | 'dark' | 'accent';
