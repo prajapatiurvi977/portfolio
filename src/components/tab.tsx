@@ -1,5 +1,5 @@
 import type { FC, ReactElement } from 'react';
-import React from 'react';
+import React, { useRef } from 'react';
 import { AnimatedDiv } from './animated-div';
 import { motion } from 'framer-motion';
 import type { IStickyFooterProps } from './sticky-footer';
@@ -35,6 +35,8 @@ const Tab: FC<ITabProps> = ({
   isMobileView = false,
 }) => {
   const isEven = index % 2 === 0;
+  const isOpenRef = useRef<boolean>(false);
+  const contentContainerRef = useRef<HTMLDivElement>(null);
 
   const footerItems: IStickyFooterProps['items'] = [
     {
@@ -67,10 +69,20 @@ const Tab: FC<ITabProps> = ({
         ease: 'easeIn',
         bounce: 20,
       }}
+      onLayoutAnimationComplete={() => {
+        if (
+          isOpen &&
+          isMobileView &&
+          !isOpenRef.current &&
+          Boolean(contentContainerRef.current)
+        ) {
+          contentContainerRef.current?.scrollIntoView(true);
+        }
+        isOpenRef.current = isOpen;
+      }}
       style={{
         display: 'flex',
         flex: isOpen ? 1 : 0,
-
         letterSpacing: '5px',
         fontFamily: `${CONDENSED_FONT}, ${DARK_FONT}`,
         position: 'relative',
@@ -104,7 +116,7 @@ const Tab: FC<ITabProps> = ({
               lineHeight: `calc(${FONT_SIZE} + 2px)`,
             }}
           >
-            {title}
+            <span ref={contentContainerRef}>{title}</span>
           </AnimatedDiv>
           <div style={{ flex: 1 }}>{content}</div>
         </div>
