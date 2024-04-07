@@ -123,6 +123,10 @@ const Tab: FC<ITabProps> = ({
             alignItems: 'flex-start',
             flex: 1,
             padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
+            ...(isMobileView && {
+              maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - 48px - (${VERTICAL_SPACE} / 2))`,
+              overflowY: 'hidden',
+            }),
           }}
         >
           <AnimatedDiv
