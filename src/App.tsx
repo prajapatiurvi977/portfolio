@@ -1,5 +1,6 @@
 import './App.css';
 import { Home } from './components/home/home';
+import { About } from './components/about/about';
 import type { ITabListProps } from './components/tab-list';
 import { TabList } from './components/tab-list';
 
@@ -17,7 +18,7 @@ const App = (): JSX.Element => {
     {
       id: 'aboutMe',
       title: 'About Me',
-      content: <Home />,
+      content: <About />,
     },
     {
       id: 'work',
