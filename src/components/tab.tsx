@@ -22,6 +22,7 @@ interface ITabProps {
   index: number;
   onTabSelected: (id: string) => void;
   content: ReactElement;
+  isMobileView?: boolean;
 }
 
 const Tab: FC<ITabProps> = ({
@@ -31,6 +32,7 @@ const Tab: FC<ITabProps> = ({
   isOpen = false,
   index,
   content,
+  isMobileView = false,
 }) => {
   const isEven = index % 2 === 0;
 
@@ -118,14 +120,21 @@ const Tab: FC<ITabProps> = ({
       >
         <div
           style={{
-            transform: 'rotate(90deg)',
-            transformOrigin: '0 0',
-            position: 'absolute',
-            top: VERTICAL_SPACE,
-            left: `calc(${VERTICAL_SPACE} * 2)`,
-            minWidth: `calc(100vh - ${isOpen ? 0 : HORIZONTAL_SPACE})`,
+            ...(isMobileView
+              ? {
+                  minHeight: HORIZONTAL_SPACE,
+                  alignItems: 'center',
+                }
+              : {
+                  transform: 'rotate(90deg)',
+                  transformOrigin: '0 0',
+                  position: 'absolute',
+                  top: VERTICAL_SPACE,
+                  left: `calc(${VERTICAL_SPACE} * 2)`,
+                  minWidth: `calc(100vh - ${isOpen ? 0 : HORIZONTAL_SPACE})`,
+                  alignItems: 'flex-start',
+                }),
             display: 'flex',
-            alignItems: 'flex-start',
           }}
         >
           {title}
