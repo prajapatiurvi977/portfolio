@@ -8,6 +8,7 @@ import {
   MAX_Z_INDEX,
   VERTICAL_SPACE,
 } from '../constants';
+import { useUIContext } from '../state/ui-context';
 
 interface IFooterItem {
   iconUrl: string;
@@ -77,14 +78,22 @@ const FooterItem: FC<IFooterItem> = ({ label, iconUrl, target, index }) => {
 };
 
 const StickyFooter: FC<IStickyFooterProps> = ({ items }) => {
+  const { isMobileView } = useUIContext();
   return (
     <div
       style={{
-        position: 'absolute',
+        ...(isMobileView
+          ? {
+              marginLeft: `calc(${HORIZONTAL_SPACE} - 4px)`,
+              marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
+            }
+          : {
+              position: 'absolute',
+              bottom: VERTICAL_SPACE,
+              left: `calc(${HORIZONTAL_SPACE} - 4px)`,
+            }),
         display: 'flex',
         flexDirection: 'row',
-        bottom: VERTICAL_SPACE,
-        left: `calc(${HORIZONTAL_SPACE} - 4px)`,
       }}
     >
       {items.map(({ iconUrl, label, target }, index) => (

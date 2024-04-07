@@ -93,6 +93,7 @@ const Tab: FC<ITabProps> = ({
       style={{
         display: 'flex',
         flex: isOpen ? 1 : 0,
+        flexDirection: 'column',
         letterSpacing: '5px',
         fontFamily: `${CONDENSED_FONT}, ${DARK_FONT}`,
         position: 'relative',
