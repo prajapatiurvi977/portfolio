@@ -1,7 +1,9 @@
 import type { FC, PropsWithChildren, JSX } from 'react';
 import React from 'react';
 import { ColoredText } from '../colored-text';
-import { DARK_FONT, FONT_SIZE, LIGHT_FONT } from '../../constants';
+import { CONDENSED_FONT, DARK_FONT, FONT_SIZE } from '../../constants';
+import AboutPhoto from '../../assets/images/about-photo.svg';
+import AboutArt from '../../assets/images/about-art.svg';
 
 interface IAboutSections {
   title: string;
@@ -42,9 +44,63 @@ const AboutSections: IAboutSections[] = [
   },
 ];
 
+interface IArtSections {
+  title: string;
+  imgSrc: string;
+}
+
+const ArtSections: IArtSections[] = [
+  {
+    title: 'The Art',
+    imgSrc: AboutArt,
+  },
+  {
+    title: 'The Artist',
+    imgSrc: AboutPhoto,
+  },
+];
+
 const About: FC<PropsWithChildren> = () => {
   return (
     <>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}
+      >
+        {ArtSections.map(({ title, imgSrc }, index) => (
+          <div
+            key={title}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              maxWidth: 'calc(50% - 30px)',
+            }}
+          >
+            <span
+              style={{
+                fontSize: `calc(${FONT_SIZE} / 1.5)`,
+                letterSpacing: 0,
+                lineHeight: `calc((${FONT_SIZE} / 1.5) + 2)`,
+              }}
+            >
+              <ColoredText color="accent">{title}</ColoredText>
+            </span>
+            <img
+              src={imgSrc}
+              alt={title}
+              height="382px"
+              style={{
+                height: '382px',
+                maxWidth: '100%',
+              }}
+            />
+          </div>
+        ))}
+      </div>
       {AboutSections.map(({ title, description }, index) => (
         <div
           key={title}
@@ -60,7 +116,7 @@ const About: FC<PropsWithChildren> = () => {
           <div
             style={{
               textTransform: 'uppercase',
-              fontFamily: LIGHT_FONT,
+              fontFamily: CONDENSED_FONT,
               fontSize: `calc(${FONT_SIZE} / 4)`,
               marginBottom: `calc(${FONT_SIZE} / 4.5)`,
             }}
