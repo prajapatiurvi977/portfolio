@@ -11,8 +11,8 @@ const debounce = (fnc, timeout = 200) => {
 };
 
 interface Dimensions {
-  width: string;
-  height: string;
+  width: number;
+  height: number;
 }
 
 const getWindowDimensions = (): Dimensions => {
