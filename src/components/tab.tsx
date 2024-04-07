@@ -14,6 +14,7 @@ import {
   LIGHT_COLOR,
   VERTICAL_SPACE,
 } from '../constants';
+import Resume from '../assets/Urvi_Prajapati_Resume.pdf';
 
 interface ITabProps {
   title: string;
@@ -57,7 +58,7 @@ const Tab: FC<ITabProps> = ({
     {
       iconUrl: `src/assets/images/download-resume${!isEven ? '-light' : ''}.svg`,
       label: 'Download Resume',
-      target: 'src/assets/Urvi_Prajapati_Resume.pdf',
+      target: Resume,
     },
   ];
   return (
