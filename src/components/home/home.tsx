@@ -8,6 +8,7 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../constants';
+import PinkHeart from '../../assets/images/pink-heart.svg';
 
 const Home: FC = () => {
   return (
@@ -98,11 +99,7 @@ const Home: FC = () => {
         }}
       >
         Designed and developed with Love
-        <img
-          src={'src/assets/images/pink-heart.svg'}
-          alt="heart"
-          style={{ marginLeft: '0.5rem' }}
-        />
+        <img src={PinkHeart} alt="heart" style={{ marginLeft: '0.5rem' }} />
       </div>
     </div>
   );
