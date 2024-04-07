@@ -4,6 +4,7 @@ import { Tab } from './tab';
 import type { ITabProps } from './tab';
 import { useWindowDimensions } from './hooks/use-window-dimensions';
 import { MOBILE_VIEW_WIDTH } from '../constants';
+import { useUIContext } from '../state/ui-context';
 interface ITabListProps {
   listConfig: Array<
     Pick<ITabProps, 'id' | 'title' | 'content'> & PropsWithChildren
@@ -12,13 +13,13 @@ interface ITabListProps {
 
 const TabList: FC<ITabListProps> = ({ listConfig }) => {
   const [selectedTabId, setSelectedTabId] = useState<string>('home');
-  const [isMobileView, setIsMobileView] = useState<boolean>(false);
+  const { isMobileView, setIsMobileView } = useUIContext();
 
   const { width } = useWindowDimensions();
 
   useEffect(() => {
     setIsMobileView(width <= MOBILE_VIEW_WIDTH);
-  }, [width]);
+  }, [width, setIsMobileView]);
 
   const onTabSelected = (id: string): void => {
     setSelectedTabId(id);
@@ -41,7 +42,6 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
           index={index}
           onTabSelected={onTabSelected}
           content={content}
-          isMobileView={isMobileView}
         />
       ))}
     </div>

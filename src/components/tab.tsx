@@ -23,6 +23,7 @@ import GithubLight from '../assets/images/github-light.svg';
 import Github from '../assets/images/github.svg';
 import LinkedinLight from '../assets/images/linkedIn-light.svg';
 import Linkedin from '../assets/images/linkedIn.svg';
+import { useUIContext } from '../state/ui-context';
 
 interface ITabProps {
   title: string;
@@ -41,8 +42,8 @@ const Tab: FC<ITabProps> = ({
   isOpen = false,
   index,
   content,
-  isMobileView = false,
 }) => {
+  const { isMobileView } = useUIContext();
   const isEven = index % 2 === 0;
   const isOpenRef = useRef<boolean>(false);
   const contentContainerRef = useRef<HTMLDivElement>(null);

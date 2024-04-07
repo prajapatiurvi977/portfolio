@@ -5,6 +5,7 @@ import { TabList } from './components/tab-list';
 
 import type { JSX } from 'react';
 import React from 'react';
+import { UIContextProvider } from './state/ui-context';
 
 const App = (): JSX.Element => {
   const tabs: ITabListProps['listConfig'] = [
@@ -31,7 +32,9 @@ const App = (): JSX.Element => {
   ];
   return (
     <>
-      <TabList listConfig={tabs} />
+      <UIContextProvider>
+        <TabList listConfig={tabs} />
+      </UIContextProvider>
     </>
   );
 };
