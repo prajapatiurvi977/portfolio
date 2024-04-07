@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
-import { ColoredText } from './colored-text';
+import { ColoredText } from '../colored-text';
 import {
   DARK_COLOR,
   DARK_FONT,
