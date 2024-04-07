@@ -47,6 +47,7 @@ const Tab: FC<ITabProps> = ({
   const isEven = index % 2 === 0;
   const isOpenRef = useRef<boolean>(false);
   const contentContainerRef = useRef<HTMLDivElement>(null);
+  const fontSize = isMobileView ? `calc(${FONT_SIZE} / 2)` : FONT_SIZE;
 
   const footerItems: IStickyFooterProps['items'] = [
     {
@@ -94,15 +95,21 @@ const Tab: FC<ITabProps> = ({
         display: 'flex',
         flex: isOpen ? 1 : 0,
         flexDirection: 'column',
+        justifyContent: 'center',
         letterSpacing: '5px',
         fontFamily: `${CONDENSED_FONT}, ${DARK_FONT}`,
         position: 'relative',
         backgroundColor: isEven ? LIGHT_COLOR : DARK_COLOR,
         color: isEven ? DARK_COLOR : LIGHT_COLOR,
-        ...(!isOpen && {
-          cursor: 'pointer',
-          minWidth: HORIZONTAL_SPACE,
-        }),
+        ...(!isOpen &&
+          !isMobileView && {
+            cursor: 'pointer',
+            minWidth: HORIZONTAL_SPACE,
+          }),
+        ...(!isOpen &&
+          isMobileView && {
+            minHeight: `calc(${HORIZONTAL_SPACE} - ${VERTICAL_SPACE})`,
+          }),
       }}
       onClick={() => {
         onTabSelected(id);
@@ -123,8 +130,8 @@ const Tab: FC<ITabProps> = ({
             id="tab-title-opened"
             animationDuration={ANIMATION_DURATION}
             styleProps={{
-              fontSize: FONT_SIZE,
-              lineHeight: `calc(${FONT_SIZE} + 2px)`,
+              fontSize,
+              lineHeight: `calc(${fontSize} + 2px)`,
             }}
           >
             <span ref={contentContainerRef}>{title}</span>
@@ -137,15 +144,14 @@ const Tab: FC<ITabProps> = ({
         isMounted={!isOpen}
         id="tab-title-closed"
         styleProps={{
-          fontSize: FONT_SIZE,
-          lineHeight: `calc(${FONT_SIZE} + 2px)`,
+          fontSize,
+          lineHeight: `calc(${fontSize} + 2px)`,
         }}
       >
         <div
           style={{
             ...(isMobileView
               ? {
-                  minHeight: HORIZONTAL_SPACE,
                   alignItems: 'center',
                 }
               : {
