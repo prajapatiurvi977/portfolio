@@ -4,6 +4,7 @@ const ACCENT_COLOR = '#FF70A6';
 
 const HORIZONTAL_SPACE = '100px';
 const VERTICAL_SPACE = '40px';
+const MOBILE_VIEW_WIDTH = 980;
 
 const FONT_SIZE = '72px';
 
@@ -27,4 +28,5 @@ export {
   LIGHT_FONT,
   DARK_FONT,
   CONDENSED_FONT,
+  MOBILE_VIEW_WIDTH,
 };
