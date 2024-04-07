@@ -142,7 +142,19 @@ const Tab: FC<ITabProps> = ({
           >
             {title}
           </AnimatedDiv>
-          <div style={{ flex: 1 }}>{content}</div>
+          <div
+            style={{
+              flex: 1,
+              display: 'flex',
+              height: '100%',
+              width: '100%',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              padding: `calc(${FONT_SIZE} / 3) 0 calc(${FONT_SIZE} / 1.5) 0`,
+            }}
+          >
+            {content}
+          </div>
         </div>
       )}
       <AnimatedDiv
