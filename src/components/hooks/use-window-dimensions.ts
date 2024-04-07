@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 
-const debounce = (fnc, timeout = 200) => {
+const debounce = <T extends (...args: any[]) => any>(fnc: T, timeout = 200) => {
   let timer: number;
+  // @ts-expect-error Rest parameter 'args' implicitly has an 'any[]' type.
   return (...args) => {
     clearInterval(timer);
     timer = setTimeout(() => {
