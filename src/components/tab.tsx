@@ -151,6 +151,7 @@ const Tab: FC<ITabProps> = ({
               flexDirection: 'column',
               alignItems: 'flex-start',
               padding: `calc(${FONT_SIZE} / 3) 0 calc(${FONT_SIZE} / 1.5) 0`,
+              overflowY: 'auto',
             }}
           >
             {content}
