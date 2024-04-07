@@ -25,4 +25,5 @@ body {
   flex: 1;
   margin: 0;
   font-family: NoiGrotesk-Semibold, NoiGrotesk-Light, monospace;
+  scroll-behavior: smooth;
 }
