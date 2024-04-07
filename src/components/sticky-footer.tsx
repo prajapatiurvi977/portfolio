@@ -84,7 +84,7 @@ const StickyFooter: FC<IStickyFooterProps> = ({ items }) => {
       style={{
         ...(isMobileView
           ? {
-              marginLeft: `calc(${HORIZONTAL_SPACE} - 4px)`,
+              marginLeft: `calc(${VERTICAL_SPACE} - 4px)`,
               marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
             }
           : {

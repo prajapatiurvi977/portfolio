@@ -172,7 +172,7 @@ const Tab: FC<ITabProps> = ({
             ...(isMobileView
               ? {
                   alignItems: 'center',
-                  paddingLeft: `calc(${VERTICAL_SPACE} * 2.5)`,
+                  paddingLeft: `calc(${VERTICAL_SPACE})`,
                 }
               : {
                   transform: 'rotate(90deg)',
