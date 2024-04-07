@@ -14,20 +14,17 @@ const Home: FC = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        flex: 1,
-        height: '100%',
-        width: '100%',
-        flexDirection: 'column',
         fontSize: `calc(${FONT_SIZE} / 2)`,
         fontFamily: LIGHT_FONT,
-        alignItems: 'flex-start',
         letterSpacing: 'initial',
+        display: 'flex',
+        flexDirection: 'inherit',
+        alignItems: 'inherit',
       }}
     >
       <div
         style={{
-          margin: `calc(${FONT_SIZE} / 3) 0 calc(${FONT_SIZE} / 1.5) 0`,
+          marginBottom: `calc(${FONT_SIZE} / 1.5)`,
           textAlign: 'left',
         }}
       >
