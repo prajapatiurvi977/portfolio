@@ -126,6 +126,7 @@ const Tab: FC<ITabProps> = ({
             ...(isMobileView && {
               maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - 48px - (${VERTICAL_SPACE} / 2))`,
               overflowY: 'hidden',
+              padding: VERTICAL_SPACE,
             }),
           }}
           ref={contentContainerRef}
