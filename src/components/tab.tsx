@@ -128,6 +128,7 @@ const Tab: FC<ITabProps> = ({
               overflowY: 'hidden',
             }),
           }}
+          ref={contentContainerRef}
         >
           <AnimatedDiv
             isMounted={isOpen}
@@ -138,7 +139,7 @@ const Tab: FC<ITabProps> = ({
               lineHeight: `calc(${fontSize} + 2px)`,
             }}
           >
-            <span ref={contentContainerRef}>{title}</span>
+            {title}
           </AnimatedDiv>
           <div style={{ flex: 1 }}>{content}</div>
         </div>
