@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { AnimatedDiv } from './animated-div';
 import { motion } from 'framer-motion';
 import type { IStickyFooterProps } from './sticky-footer';
-import { StickyFooter } from './sticky-footer';
+import { FOOTER_ICON_SIZE, StickyFooter } from './sticky-footer';
 import {
   ANIMATION_DURATION,
   CONDENSED_FONT,
@@ -126,9 +126,9 @@ const Tab: FC<ITabProps> = ({
             alignItems: 'flex-start',
             flex: 1,
             padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
-            maxHeight: `calc(100% - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE})`,
+            maxHeight: `calc(100vh - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
             ...(isMobileView && {
-              maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - 48px - (${VERTICAL_SPACE} / 2))`,
+              maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - ${FOOTER_ICON_SIZE} - (${VERTICAL_SPACE} / 2))`,
               overflowY: 'hidden',
               padding: VERTICAL_SPACE,
             }),
