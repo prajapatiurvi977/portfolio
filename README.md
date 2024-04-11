@@ -1,3 +1,3 @@
 # Hi, Welcome to my Portfolio!
 
-> > NOTE: Psst, this is still a WIP. Comback later to check up on me!=
+Head over to [https://prajapatiurvi977.github.io/portfolio/](https://prajapatiurvi977.github.io/portfolio/) to see a live version of this portfolio.
