@@ -5,6 +5,7 @@ import { ACCENT_COLOR, DARK_COLOR, DARK_FONT, LIGHT_COLOR } from '../constants';
 
 interface IColoredText {
   color: 'light' | 'dark' | 'accent';
+  styleProps?: CSSProperties;
 }
 
 const ColorMap = new Map<IColoredText['color'], CSSProperties['color']>([
@@ -15,10 +16,17 @@ const ColorMap = new Map<IColoredText['color'], CSSProperties['color']>([
 
 const ColoredText: FC<PropsWithChildren<IColoredText>> = ({
   color,
+  styleProps,
   children,
 }) => {
   return (
-    <span style={{ fontFamily: DARK_FONT, color: ColorMap.get(color) }}>
+    <span
+      style={{
+        fontFamily: DARK_FONT,
+        color: ColorMap.get(color),
+        ...styleProps,
+      }}
+    >
       {children}
     </span>
   );
