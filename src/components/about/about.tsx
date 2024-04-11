@@ -1,7 +1,7 @@
 import type { FC, PropsWithChildren, JSX } from 'react';
 import React from 'react';
 import { ColoredText } from '../colored-text';
-import { CONDENSED_FONT, DARK_FONT, FONT_SIZE } from '../../constants';
+import { DARK_FONT, FONT_SIZE, LIGHT_FONT } from '../../constants';
 import AboutPhoto from '../../assets/images/about-photo.svg';
 import AboutArt from '../../assets/images/about-art.svg';
 
@@ -116,7 +116,7 @@ const About: FC<PropsWithChildren> = () => {
           <div
             style={{
               textTransform: 'uppercase',
-              fontFamily: CONDENSED_FONT,
+              fontFamily: LIGHT_FONT,
               fontSize: `calc(${FONT_SIZE} / 4)`,
               marginBottom: `calc(${FONT_SIZE} / 4.5)`,
             }}
