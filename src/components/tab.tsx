@@ -112,6 +112,9 @@ const Tab: FC<ITabProps> = ({
           }),
       }}
       onClick={() => {
+        if (isOpen) {
+          return;
+        }
         onTabSelected(id);
       }}
     >
