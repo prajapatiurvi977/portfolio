@@ -88,9 +88,9 @@ const StickyFooter: FC<IStickyFooterProps> = ({ items }) => {
               marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
             }
           : {
-              position: 'absolute',
-              bottom: VERTICAL_SPACE,
-              left: `calc(${HORIZONTAL_SPACE} - 4px)`,
+              flex: 0,
+              marginLeft: `calc(${HORIZONTAL_SPACE} - 4px)`,
+              marginBottom: `${VERTICAL_SPACE}`,
             }),
         display: 'flex',
         flexDirection: 'row',

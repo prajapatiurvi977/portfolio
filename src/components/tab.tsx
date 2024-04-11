@@ -123,6 +123,7 @@ const Tab: FC<ITabProps> = ({
             alignItems: 'flex-start',
             flex: 1,
             padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
+            maxHeight: `calc(100% - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE})`,
             ...(isMobileView && {
               maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - 48px - (${VERTICAL_SPACE} / 2))`,
               overflowY: 'hidden',
@@ -146,7 +147,6 @@ const Tab: FC<ITabProps> = ({
             style={{
               flex: 1,
               display: 'flex',
-              height: '100%',
               width: '100%',
               flexDirection: 'column',
               alignItems: 'flex-start',
