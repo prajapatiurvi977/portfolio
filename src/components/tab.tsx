@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import type { FC, ReactElement } from 'react';
-import React, { useRef } from 'react';
+import React from 'react';
 import Resume from '../assets/Urvi_Prajapati_Resume.pdf';
 import DownloadResumeLight from '../assets/images/download-resume-light.svg';
 import DownloadResume from '../assets/images/download-resume.svg';
@@ -45,8 +45,8 @@ const Tab: FC<ITabProps> = ({
 }) => {
   const { isMobileView } = useUIContext();
   const isEven = index % 2 === 0;
-  const isOpenRef = useRef<boolean>(false);
-  const contentContainerRef = useRef<HTMLDivElement>(null);
+  //   const isOpenRef = useRef<boolean>(false);
+  //   const contentContainerRef = useRef<HTMLDivElement>(null);
   const fontSize = isMobileView ? `calc(${FONT_SIZE} / 2)` : FONT_SIZE;
 
   const footerItems: IStickyFooterProps['items'] = [
@@ -80,17 +80,17 @@ const Tab: FC<ITabProps> = ({
         ease: 'easeIn',
         bounce: 20,
       }}
-      onLayoutAnimationComplete={() => {
-        if (
-          isOpen &&
-          isMobileView &&
-          !isOpenRef.current &&
-          Boolean(contentContainerRef.current)
-        ) {
-          contentContainerRef.current?.scrollIntoView(true);
-        }
-        isOpenRef.current = isOpen;
-      }}
+      //   onLayoutAnimationComplete={() => {
+      //     if (
+      //       isOpen &&
+      //       isMobileView &&
+      //       !isOpenRef.current &&
+      //       Boolean(contentContainerRef.current)
+      //     ) {
+      //       contentContainerRef.current?.scrollIntoView(true);
+      //     }
+      //     isOpenRef.current = isOpen;
+      //   }}
       style={{
         display: 'flex',
         flex: isOpen ? 1 : 0,
@@ -133,7 +133,7 @@ const Tab: FC<ITabProps> = ({
               padding: VERTICAL_SPACE,
             }),
           }}
-          ref={contentContainerRef}
+          //   ref={contentContainerRef}
         >
           <AnimatedDiv
             isMounted={isOpen}
