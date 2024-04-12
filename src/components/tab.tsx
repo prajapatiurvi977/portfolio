@@ -101,6 +101,10 @@ const Tab: FC<ITabProps> = ({
         position: 'relative',
         backgroundColor: isEven ? LIGHT_COLOR : DARK_COLOR,
         color: isEven ? DARK_COLOR : LIGHT_COLOR,
+        ...(isOpen &&
+          isMobileView && {
+            maxHeight: `calc(100vh - 3 * (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}))`,
+          }),
         ...(!isOpen &&
           !isMobileView && {
             cursor: 'pointer',
