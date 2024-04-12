@@ -1,9 +1,15 @@
+import { motion } from 'framer-motion';
 import type { FC, ReactElement } from 'react';
 import React, { useRef } from 'react';
-import { AnimatedDiv } from './animated-div';
-import { motion } from 'framer-motion';
-import type { IStickyFooterProps } from './sticky-footer';
-import { FOOTER_ICON_SIZE, StickyFooter } from './sticky-footer';
+import Resume from '../assets/Urvi_Prajapati_Resume.pdf';
+import DownloadResumeLight from '../assets/images/download-resume-light.svg';
+import DownloadResume from '../assets/images/download-resume.svg';
+import EmailLight from '../assets/images/email-light.svg';
+import Email from '../assets/images/email.svg';
+import GithubLight from '../assets/images/github-light.svg';
+import Github from '../assets/images/github.svg';
+import LinkedinLight from '../assets/images/linkedIn-light.svg';
+import Linkedin from '../assets/images/linkedIn.svg';
 import {
   ANIMATION_DURATION,
   CONDENSED_FONT,
@@ -14,16 +20,10 @@ import {
   LIGHT_COLOR,
   VERTICAL_SPACE,
 } from '../constants';
-import Resume from '../assets/Urvi_Prajapati_Resume.pdf';
-import DownloadResumeLight from '../assets/images/download-resume-light.svg';
-import DownloadResume from '../assets/images/download-resume.svg';
-import EmailLight from '../assets/images/email-light.svg';
-import Email from '../assets/images/email.svg';
-import GithubLight from '../assets/images/github-light.svg';
-import Github from '../assets/images/github.svg';
-import LinkedinLight from '../assets/images/linkedIn-light.svg';
-import Linkedin from '../assets/images/linkedIn.svg';
 import { useUIContext } from '../state/ui-context';
+import { AnimatedDiv } from './animated-div';
+import type { IStickyFooterProps } from './sticky-footer';
+import { FOOTER_ICON_SIZE, StickyFooter } from './sticky-footer';
 
 interface ITabProps {
   title: string;
