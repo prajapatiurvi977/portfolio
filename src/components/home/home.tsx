@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
-import { ColoredText } from '../colored-text';
+import PinkHeart from '../../assets/images/pink-heart.svg';
 import {
   DARK_COLOR,
   DARK_FONT,
@@ -8,8 +8,8 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../constants';
-import PinkHeart from '../../assets/images/pink-heart.svg';
 import { useUIContext } from '../../state/ui-context';
+import { ColoredText } from '../colored-text';
 
 const Home: FC = () => {
   const { isMobileView } = useUIContext();

@@ -1,4 +1,4 @@
-import type { PropsWithChildren, FC, CSSProperties } from 'react';
+import type { CSSProperties, FC, PropsWithChildren } from 'react';
 import React from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';

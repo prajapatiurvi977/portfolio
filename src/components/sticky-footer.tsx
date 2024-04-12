@@ -109,4 +109,4 @@ const StickyFooter: FC<IStickyFooterProps> = ({ items }) => {
   );
 };
 
-export { StickyFooter, type IStickyFooterProps, ICON_SIZE as FOOTER_ICON_SIZE };
+export { ICON_SIZE as FOOTER_ICON_SIZE, StickyFooter, type IStickyFooterProps };

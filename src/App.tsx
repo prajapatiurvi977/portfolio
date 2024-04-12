@@ -1,6 +1,6 @@
 import './App.css';
-import { Home } from './components/home/home';
 import { About } from './components/about/about';
+import { Home } from './components/home/home';
 import type { ITabListProps } from './components/tab-list';
 import { TabList } from './components/tab-list';
 

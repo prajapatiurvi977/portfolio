@@ -1,15 +1,15 @@
-import type { FC, PropsWithChildren, JSX } from 'react';
+import type { FC, JSX, PropsWithChildren } from 'react';
 import React from 'react';
-import { ColoredText } from '../colored-text';
+import AboutArt from '../../assets/images/about-art.svg';
+import AboutPhoto from '../../assets/images/about-photo.svg';
 import {
   CONDENSED_FONT,
   DARK_FONT,
   FONT_SIZE,
   LIGHT_FONT,
 } from '../../constants';
-import AboutPhoto from '../../assets/images/about-photo.svg';
-import AboutArt from '../../assets/images/about-art.svg';
 import { useUIContext } from '../../state/ui-context';
+import { ColoredText } from '../colored-text';
 
 interface IAboutSections {
   title: string;
