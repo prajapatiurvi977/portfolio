@@ -9,8 +9,10 @@ import {
   VERTICAL_SPACE,
 } from '../../constants';
 import PinkHeart from '../../assets/images/pink-heart.svg';
+import { useUIContext } from '../../state/ui-context';
 
 const Home: FC = () => {
+  const { isMobileView } = useUIContext();
   return (
     <div
       style={{
@@ -66,7 +68,7 @@ const Home: FC = () => {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: isMobileView ? 'column' : 'row',
           fontFamily: DARK_FONT,
           fontSize: '24px',
           marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
@@ -77,7 +79,12 @@ const Home: FC = () => {
             style={{
               border: `1px solid ${DARK_COLOR}`,
               padding: '8px 16px',
-              ...(index === 0 && { marginRight: VERTICAL_SPACE }),
+              ...(index === 0 &&
+                (isMobileView
+                  ? {
+                      marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
+                    }
+                  : { marginRight: VERTICAL_SPACE })),
             }}
             key={index}
           >
