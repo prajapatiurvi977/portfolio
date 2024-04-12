@@ -1,23 +1,29 @@
-import type { Dispatch, FC, PropsWithChildren } from 'react';
-import React, { createContext, useContext, useState } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { createContext, useContext } from 'react';
+import { useWindowDimensions } from '../components/hooks/use-window-dimensions';
+import { MOBILE_VIEW_WIDTH } from '../constants';
 
 interface IUIContext {
   isMobileView: boolean;
-  setIsMobileView: Dispatch<boolean>;
 }
 
 const UIContext = createContext<IUIContext>({
   isMobileView: false,
-  setIsMobileView: () => {},
 });
 
+const isMobileWidth = (width = window.innerWidth): boolean => {
+  return width <= MOBILE_VIEW_WIDTH;
+};
+
 const UIContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [isMobileView, setIsMobileView] = useState<boolean>(false);
+  const { width } = useWindowDimensions();
+
+  const isMobileView = isMobileWidth(width);
+
   return (
     <UIContext.Provider
       value={{
         isMobileView,
-        setIsMobileView,
       }}
     >
       {children}
@@ -27,4 +33,4 @@ const UIContextProvider: FC<PropsWithChildren> = ({ children }) => {
 
 const useUIContext = () => useContext(UIContext);
 
-export { useUIContext, UIContextProvider };
+export { UIContextProvider, useUIContext };
