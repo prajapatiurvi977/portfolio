@@ -129,7 +129,7 @@ const Tab: FC<ITabProps> = ({
             maxHeight: `calc(100vh - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
             ...(isMobileView && {
               maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - ${FOOTER_ICON_SIZE} - (${VERTICAL_SPACE} / 2))`,
-              overflowY: 'hidden',
+              overflow: 'hidden',
               padding: VERTICAL_SPACE,
             }),
           }}
