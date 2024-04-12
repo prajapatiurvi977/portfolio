@@ -9,6 +9,7 @@ import {
 } from '../../constants';
 import AboutPhoto from '../../assets/images/about-photo.svg';
 import AboutArt from '../../assets/images/about-art.svg';
+import { useUIContext } from '../../state/ui-context';
 
 interface IAboutSections {
   title: string;
@@ -66,6 +67,7 @@ const ArtSections: IArtSections[] = [
 ];
 
 const About: FC<PropsWithChildren> = () => {
+  const { isMobileView } = useUIContext();
   return (
     <>
       {AboutSections.map(({ title, description }, index) => (
@@ -105,9 +107,10 @@ const About: FC<PropsWithChildren> = () => {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: isMobileView ? 'column' : 'row',
           justifyContent: 'space-between',
           marginTop: '64px',
+          ...(isMobileView && { flex: 1, width: '100%' }),
         }}
       >
         {ArtSections.map(({ title, imgSrc }, index) => (
@@ -117,9 +120,13 @@ const About: FC<PropsWithChildren> = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-start',
-              //   maxWidth: 'calc(50% - 30px)',
               ...(index === 0 && {
                 marginRight: '30px',
+              }),
+              ...(isMobileView && {
+                flex: 1,
+                marginRight: 0,
+                marginBottom: '30px',
               }),
             }}
           >
@@ -141,6 +148,8 @@ const About: FC<PropsWithChildren> = () => {
               alt={title}
               style={{
                 height: '382px',
+
+                ...(isMobileView && { width: '100%', height: 'auto' }),
               }}
             />
           </div>
