@@ -16,7 +16,7 @@ const App = (): JSX.Element => {
       content: <Home />,
     },
     {
-      id: 'aboutMe',
+      id: 'about',
       title: 'About Me',
       content: <About />,
     },
@@ -26,7 +26,7 @@ const App = (): JSX.Element => {
       content: <Home />,
     },
     {
-      id: 'contactMe',
+      id: 'contact',
       title: 'Contact Me',
       content: <Home />,
     },
