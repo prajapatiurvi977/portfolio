@@ -28,6 +28,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.hideOnHover,
+.showOnHover {
+  transition: all 0.5s;
+}
 .hideOnHover:hover {
   opacity: 0;
 }
