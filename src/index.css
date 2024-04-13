@@ -32,7 +32,14 @@ body {
 .showOnHover {
   transition: all 0.5s;
 }
+.hideOnHover {
+  opacity: 1;
+}
 .hideOnHover:hover {
+  opacity: 0;
+}
+
+.showOnHover {
   opacity: 0;
 }
 .showOnHover:hover {
