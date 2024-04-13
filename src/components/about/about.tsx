@@ -1,7 +1,7 @@
 import type { FC, JSX, PropsWithChildren } from 'react';
 import React from 'react';
-import AboutArt from '../../assets/images/about-art.svg';
-import AboutPhoto from '../../assets/images/about-photo.svg';
+import AboutArt from '../../assets/images/about-art.png';
+import AboutPhoto from '../../assets/images/about-photo.png';
 import {
   CONDENSED_FONT,
   DARK_FONT,
