@@ -1,4 +1,4 @@
-import type { FC, JSX, PropsWithChildren } from 'react';
+import type { FC, JSX } from 'react';
 import React from 'react';
 import AboutArt from '../../assets/images/about-art.png';
 import AboutPhoto from '../../assets/images/about-photo.png';
@@ -66,7 +66,7 @@ const ArtSections: IArtSections[] = [
   },
 ];
 
-const About: FC<PropsWithChildren> = () => {
+const About: FC = () => {
   const { isMobileView } = useUIContext();
   return (
     <>
