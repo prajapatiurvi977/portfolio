@@ -27,3 +27,10 @@ body {
   font-family: NoiGrotesk-Semibold, NoiGrotesk-Light, monospace;
   scroll-behavior: smooth;
 }
+
+.hideOnHover:hover {
+  opacity: 0;
+}
+.showOnHover:hover {
+  opacity: 1;
+}
