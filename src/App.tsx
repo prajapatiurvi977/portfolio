@@ -3,6 +3,7 @@ import { About } from './components/about/about';
 import { Home } from './components/home/home';
 import type { ITabListProps } from './components/tab-list';
 import { TabList } from './components/tab-list';
+import { Work } from './components/work/work';
 
 import type { JSX } from 'react';
 import React from 'react';
@@ -23,7 +24,7 @@ const App = (): JSX.Element => {
     {
       id: 'work',
       title: 'Work',
-      content: <Home />,
+      content: <Work />,
     },
     // {
     //   id: 'contact',
