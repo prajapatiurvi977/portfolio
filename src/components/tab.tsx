@@ -33,6 +33,7 @@ interface ITabProps {
   onTabSelected: (id: string) => void;
   content: ReactElement;
   isMobileView?: boolean;
+  totalTabs?: number;
 }
 
 const Tab: FC<ITabProps> = ({
@@ -42,6 +43,7 @@ const Tab: FC<ITabProps> = ({
   isOpen = false,
   index,
   content,
+  totalTabs = 4,
 }) => {
   const { isMobileView } = useUIContext();
   const isEven = index % 2 === 0;
@@ -103,7 +105,7 @@ const Tab: FC<ITabProps> = ({
         color: isEven ? DARK_COLOR : LIGHT_COLOR,
         ...(isOpen &&
           isMobileView && {
-            maxHeight: `calc(100vh - 3 * (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}))`,
+            maxHeight: `calc(100vh - ${totalTabs - 1} * (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}))`,
           }),
         ...(!isOpen &&
           !isMobileView && {
@@ -132,7 +134,7 @@ const Tab: FC<ITabProps> = ({
             padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
             maxHeight: `calc(100vh - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
             ...(isMobileView && {
-              maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - ${FOOTER_ICON_SIZE} - (${VERTICAL_SPACE} / 2))`,
+              //   maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - ${FOOTER_ICON_SIZE} - (${VERTICAL_SPACE} / 2))`,
               overflow: 'hidden',
               padding: VERTICAL_SPACE,
             }),
