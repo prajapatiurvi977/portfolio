@@ -22,6 +22,7 @@ import {
 } from '../constants';
 import { useUIContext } from '../state/ui-context';
 import { AnimatedDiv } from './animated-div';
+import { useWindowDimensions } from './hooks/use-window-dimensions';
 import type { IStickyFooterProps } from './sticky-footer';
 import { FOOTER_ICON_SIZE, StickyFooter } from './sticky-footer';
 
@@ -46,6 +47,11 @@ const Tab: FC<ITabProps> = ({
   totalTabs = 4,
 }) => {
   const { isMobileView } = useUIContext();
+  /**
+   * 100vh is not reliable in mobile browsers.
+   * The address bar and bottom bar height is not taken into vh calculations.
+   */
+  const { height: windowHeight } = useWindowDimensions();
   const isEven = index % 2 === 0;
   //   const isOpenRef = useRef<boolean>(false);
   //   const contentContainerRef = useRef<HTMLDivElement>(null);
@@ -105,7 +111,7 @@ const Tab: FC<ITabProps> = ({
         color: isEven ? DARK_COLOR : LIGHT_COLOR,
         ...(isOpen &&
           isMobileView && {
-            maxHeight: `calc(100vh - ${totalTabs - 1} * (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}))`,
+            maxHeight: `calc(${windowHeight}px - ${totalTabs - 1} * (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}))`,
           }),
         ...(!isOpen &&
           !isMobileView && {
@@ -132,7 +138,7 @@ const Tab: FC<ITabProps> = ({
             alignItems: 'flex-start',
             flex: 1,
             padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
-            maxHeight: `calc(100vh - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
+            maxHeight: `calc(${windowHeight}px - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
             ...(isMobileView && {
               //   maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - ${FOOTER_ICON_SIZE} - (${VERTICAL_SPACE} / 2))`,
               overflow: 'hidden',
@@ -189,7 +195,7 @@ const Tab: FC<ITabProps> = ({
                   position: 'absolute',
                   top: VERTICAL_SPACE,
                   left: `calc(${VERTICAL_SPACE} * 2)`,
-                  minWidth: `calc(100vh - ${isOpen ? 0 : HORIZONTAL_SPACE})`,
+                  minWidth: `calc(${windowHeight}px - ${isOpen ? 0 : HORIZONTAL_SPACE})`,
                   alignItems: 'flex-start',
                 }),
             display: 'flex',
