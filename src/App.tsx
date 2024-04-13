@@ -25,11 +25,11 @@ const App = (): JSX.Element => {
       title: 'Work',
       content: <Home />,
     },
-    {
-      id: 'contact',
-      title: 'Contact Me',
-      content: <Home />,
-    },
+    // {
+    //   id: 'contact',
+    //   title: 'Contact Me',
+    //   content: <Home />,
+    // },
   ];
   return (
     <>
