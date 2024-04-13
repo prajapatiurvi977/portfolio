@@ -34,6 +34,7 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
           index={index}
           onTabSelected={onTabSelected}
           content={content}
+          totalTabs={listConfig.length}
         />
       ))}
     </div>
