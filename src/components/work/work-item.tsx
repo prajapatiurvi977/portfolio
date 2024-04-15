@@ -29,7 +29,6 @@ const WorkItem: FC<IWorkItem> = ({
     <div
       style={{
         position: 'relative',
-        backgroundImage: `ur(${backgroundImage})`,
         width: '400px',
         height: '400px',
         transition: 'all 0.5s',
@@ -42,21 +41,15 @@ const WorkItem: FC<IWorkItem> = ({
         setIsHovered(false);
       }}
     >
-      <div
+      <img
+        src={backgroundImage}
         style={{
-          background: `ur(${backgroundImage})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
           position: 'absolute',
           width: '100%',
           height: '100%',
-          transition: 'inherit',
           ...(hovered && { opacity: 0 }),
         }}
-      >
-        <img src={backgroundImage} width="100%" height="100%" />
-      </div>
+      />
       <div
         style={{
           backgroundColor: DARK_COLOR,
@@ -67,7 +60,6 @@ const WorkItem: FC<IWorkItem> = ({
           display: 'flex',
           flexDirection: 'column',
           ...(hovered && { opacity: 1 }),
-          //   padding: '20px',
         }}
       >
         <ColoredText
