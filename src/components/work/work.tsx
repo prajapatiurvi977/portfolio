@@ -4,6 +4,7 @@ import HumberCurrent from '../../assets/images/work-humber-current.png';
 import TicTacToe from '../../assets/images/work-tic-tac-toe.png';
 import TimHortons from '../../assets/images/work-tim-hortons.png';
 import TorontoZoo from '../../assets/images/work-toronto-zoo.png';
+import { FONT_SIZE } from '../../constants';
 import { useUIContext } from '../../state/ui-context';
 import type { IWorkItem } from './work-item';
 import { WorkItem } from './work-item';
@@ -26,18 +27,27 @@ const WorkItems: IWorkItem[] = [
     description:
       'Redesign of Site Navigation, UI/Visual Design, and Ticket Purchasing',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
+    containerStyleProps: {
+      marginleft: FONT_SIZE,
+    },
   },
   {
     backgroundImage: HumberCurrent,
     title: 'HUMBER CURRENT',
     description: 'Redesign of Site Navigation, UI/Visual Design',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
+    containerStyleProps: {
+      marginleft: FONT_SIZE,
+    },
   },
   {
     backgroundImage: TicTacToe,
     title: 'TIC TAC TOE',
     description: 'Fun game out of learning ReactJS with UI Design',
     labels: ['UI Development', 'ReactJS', 'JavaScript', 'Game Development'],
+    containerStyleProps: {
+      marginleft: FONT_SIZE,
+    },
   },
 ];
 
