@@ -147,8 +147,8 @@ const About: FC = () => {
               src={imgSrc}
               alt={title}
               style={{
-                height: '382px',
-
+                maxHeight: '382px',
+                maxWidth: '100%',
                 ...(isMobileView && { width: '100%', height: 'auto' }),
               }}
             />
