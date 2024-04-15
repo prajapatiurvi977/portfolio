@@ -47,6 +47,7 @@ const WorkItem: FC<IWorkItem> = ({
           position: 'absolute',
           width: '100%',
           height: '100%',
+          transition: 'inherit',
           ...(hovered && { opacity: 0 }),
         }}
       />
