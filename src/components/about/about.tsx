@@ -149,7 +149,11 @@ const About: FC = () => {
               style={{
                 maxHeight: '382px',
                 maxWidth: '100%',
-                ...(isMobileView && { width: '100%', height: 'auto' }),
+                ...(isMobileView && {
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: 'none',
+                }),
               }}
             />
           </div>
