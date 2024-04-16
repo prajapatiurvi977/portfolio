@@ -4,7 +4,6 @@ import HumberCurrent from '../../assets/images/work-humber-current.png';
 import TicTacToe from '../../assets/images/work-tic-tac-toe.png';
 import TimHortons from '../../assets/images/work-tim-hortons.png';
 import TorontoZoo from '../../assets/images/work-toronto-zoo.png';
-import { FONT_SIZE } from '../../constants';
 import { useUIContext } from '../../state/ui-context';
 import type { IWorkItem } from './work-item';
 import { WorkItem } from './work-item';
@@ -13,6 +12,7 @@ const UX_UI_DESIGN = 'UX/UI Design';
 const INTERACTION_DESIGN = 'Interaction Design';
 const RESPONSIVE_DESIGN = 'Responsive Design';
 const WEB_DESIGN = 'Web Design';
+const itemSpace = '60px';
 
 const WorkItems: IWorkItem[] = [
   {
@@ -20,6 +20,10 @@ const WorkItems: IWorkItem[] = [
     title: 'TIM HORTONS',
     description: 'Research & Redesign of App Navigation for order path',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, 'User Research', 'App Design'],
+    containerStyleProps: {
+      width: `calc(50% - ${itemSpace} / 2)`,
+      marginBottom: itemSpace,
+    },
   },
   {
     backgroundImage: TorontoZoo,
@@ -28,7 +32,8 @@ const WorkItems: IWorkItem[] = [
       'Redesign of Site Navigation, UI/Visual Design, and Ticket Purchasing',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
     containerStyleProps: {
-      marginLeft: FONT_SIZE,
+      width: `calc(50% - ${itemSpace} / 2)`,
+      marginBottom: itemSpace,
     },
   },
   {
@@ -37,7 +42,8 @@ const WorkItems: IWorkItem[] = [
     description: 'Redesign of Site Navigation, UI/Visual Design',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
     containerStyleProps: {
-      marginLeft: FONT_SIZE,
+      width: `calc(50% - ${itemSpace} / 2)`,
+      marginBottom: itemSpace,
     },
   },
   {
@@ -46,7 +52,8 @@ const WorkItems: IWorkItem[] = [
     description: 'Fun game out of learning ReactJS with UI Design',
     labels: ['UI Development', 'ReactJS', 'JavaScript', 'Game Development'],
     containerStyleProps: {
-      marginLeft: FONT_SIZE,
+      width: `calc(50% - ${itemSpace} / 2)`,
+      marginBottom: itemSpace,
     },
   },
 ];
@@ -58,6 +65,9 @@ const Work: FC = () => {
       style={{
         display: 'flex',
         flexDirection: isMobileView ? 'column' : 'row',
+        width: '100%',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
       }}
     >
       {WorkItems.map(
