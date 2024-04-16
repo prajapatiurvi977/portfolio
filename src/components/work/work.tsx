@@ -13,7 +13,10 @@ const INTERACTION_DESIGN = 'Interaction Design';
 const RESPONSIVE_DESIGN = 'Responsive Design';
 const WEB_DESIGN = 'Web Design';
 const itemSpace = '60px';
-
+const commonStyles = {
+  width: `calc(50% - ${itemSpace} / 2)`,
+  marginBottom: itemSpace,
+};
 const WorkItems: IWorkItem[] = [
   {
     backgroundImage: TimHortons,
@@ -21,8 +24,7 @@ const WorkItems: IWorkItem[] = [
     description: 'Research & Redesign of App Navigation for order path',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, 'User Research', 'App Design'],
     containerStyleProps: {
-      width: `calc(50% - ${itemSpace} / 2)`,
-      marginBottom: itemSpace,
+      ...commonStyles,
     },
   },
   {
@@ -32,8 +34,7 @@ const WorkItems: IWorkItem[] = [
       'Redesign of Site Navigation, UI/Visual Design, and Ticket Purchasing',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
     containerStyleProps: {
-      width: `calc(50% - ${itemSpace} / 2)`,
-      marginBottom: itemSpace,
+      ...commonStyles,
     },
   },
   {
@@ -42,8 +43,7 @@ const WorkItems: IWorkItem[] = [
     description: 'Redesign of Site Navigation, UI/Visual Design',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
     containerStyleProps: {
-      width: `calc(50% - ${itemSpace} / 2)`,
-      marginBottom: itemSpace,
+      ...commonStyles,
     },
   },
   {
@@ -52,8 +52,7 @@ const WorkItems: IWorkItem[] = [
     description: 'Fun game out of learning ReactJS with UI Design',
     labels: ['UI Development', 'ReactJS', 'JavaScript', 'Game Development'],
     containerStyleProps: {
-      width: `calc(50% - ${itemSpace} / 2)`,
-      marginBottom: itemSpace,
+      ...commonStyles,
     },
   },
 ];
