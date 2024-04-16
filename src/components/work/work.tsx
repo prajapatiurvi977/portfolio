@@ -28,7 +28,7 @@ const WorkItems: IWorkItem[] = [
       'Redesign of Site Navigation, UI/Visual Design, and Ticket Purchasing',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
     containerStyleProps: {
-      marginleft: FONT_SIZE,
+      marginLeft: FONT_SIZE,
     },
   },
   {
@@ -37,7 +37,7 @@ const WorkItems: IWorkItem[] = [
     description: 'Redesign of Site Navigation, UI/Visual Design',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
     containerStyleProps: {
-      marginleft: FONT_SIZE,
+      marginLeft: FONT_SIZE,
     },
   },
   {
@@ -46,7 +46,7 @@ const WorkItems: IWorkItem[] = [
     description: 'Fun game out of learning ReactJS with UI Design',
     labels: ['UI Development', 'ReactJS', 'JavaScript', 'Game Development'],
     containerStyleProps: {
-      marginleft: FONT_SIZE,
+      marginLeft: FONT_SIZE,
     },
   },
 ];
