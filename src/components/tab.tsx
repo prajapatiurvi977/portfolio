@@ -51,7 +51,7 @@ const Tab: FC<ITabProps> = ({
    * 100vh is not reliable in mobile browsers.
    * The address bar and bottom bar height is not taken into vh calculations.
    */
-  const { height: windowHeight } = useWindowDimensions();
+  const { height: windowHeight, width: windowWidth } = useWindowDimensions();
   const isEven = index % 2 === 0;
   //   const isOpenRef = useRef<boolean>(false);
   //   const contentContainerRef = useRef<HTMLDivElement>(null);
@@ -121,6 +121,10 @@ const Tab: FC<ITabProps> = ({
         ...(!isOpen &&
           isMobileView && {
             minHeight: `calc(${HORIZONTAL_SPACE} - ${VERTICAL_SPACE})`,
+          }),
+        ...(isOpen &&
+          !isMobileView && {
+            maxWidth: `calc(${windowWidth}px - ${totalTabs - 1} * ${HORIZONTAL_SPACE})`,
           }),
       }}
       onClick={() => {
