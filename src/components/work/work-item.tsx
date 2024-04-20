@@ -28,10 +28,14 @@ const WorkItem: FC<IWorkItem> = ({
   return (
     <div
       style={{
+        display: 'flex',
         position: 'relative',
         width: '400px',
         height: '400px',
         transition: 'all 0.5s',
+        justifyContent: 'center',
+        backgroundColor: LIGHT_COLOR,
+        border: `1px solid ${DARK_COLOR}`,
         ...containerStyleProps,
       }}
       onMouseEnter={() => {
@@ -47,6 +51,7 @@ const WorkItem: FC<IWorkItem> = ({
           position: 'absolute',
           width: '100%',
           height: '100%',
+          maxWidth: '420px',
           transition: 'inherit',
           ...(hovered && { opacity: 0 }),
         }}
@@ -55,11 +60,12 @@ const WorkItem: FC<IWorkItem> = ({
         style={{
           backgroundColor: DARK_COLOR,
           color: LIGHT_COLOR,
-          width: '100%',
-          height: '100%',
           transition: 'inherit',
           display: 'flex',
           flexDirection: 'column',
+          padding: '20px',
+          flex: 1,
+          opacity: 0,
           ...(hovered && { opacity: 1 }),
         }}
       >
