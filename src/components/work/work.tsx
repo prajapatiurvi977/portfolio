@@ -4,6 +4,7 @@ import HumberCurrent from '../../assets/images/work-humber-current.png';
 import TicTacToe from '../../assets/images/work-tic-tac-toe.png';
 import TimHortons from '../../assets/images/work-tim-hortons.png';
 import TorontoZoo from '../../assets/images/work-toronto-zoo.png';
+import { VERTICAL_SPACE } from '../../constants';
 import { useUIContext } from '../../state/ui-context';
 import type { IWorkItem } from './work-item';
 import { WorkItem } from './work-item';
@@ -15,8 +16,7 @@ const WEB_DESIGN = 'Web Design';
 const itemSpace = '60px';
 const commonStyles = {
   marginBottom: itemSpace,
-  maxWidth: `calc(50% - ${itemSpace} / 2)`,
-  marginRight: '80px',
+  maxWidth: `calc(50% - ${itemSpace} / 2 - 4)`,
 };
 const WorkItems: IWorkItem[] = [
   {
@@ -68,23 +68,27 @@ const Work: FC = () => {
         width: '100%',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
+        maxWidth: `calc(100% - 2 * ${VERTICAL_SPACE})`,
       }}
     >
       {WorkItems.map(
-        ({
-          backgroundImage,
-          title,
-          labels,
-          description,
-          containerStyleProps,
-        }) => (
+        (
+          { backgroundImage, title, labels, description, containerStyleProps },
+          index,
+        ) => (
           <WorkItem
             key={title}
             backgroundImage={backgroundImage}
             title={title}
             labels={labels}
             description={description}
-            containerStyleProps={containerStyleProps}
+            containerStyleProps={{
+              ...containerStyleProps,
+              ...(index % 2 === 0 && { marginRight: '80px' }),
+              ...(isMobileView && {
+                marginRight: '0',
+              }),
+            }}
           />
         ),
       )}
