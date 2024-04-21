@@ -4,7 +4,6 @@ import HumberCurrent from '../../assets/images/work-humber-current.png';
 import TicTacToe from '../../assets/images/work-tic-tac-toe.png';
 import TimHortons from '../../assets/images/work-tim-hortons.png';
 import TorontoZoo from '../../assets/images/work-toronto-zoo.png';
-import { VERTICAL_SPACE } from '../../constants';
 import { useUIContext } from '../../state/ui-context';
 import type { IWorkItem } from './work-item';
 import { WorkItem } from './work-item';
@@ -68,7 +67,7 @@ const Work: FC = () => {
         width: '100%',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
-        maxWidth: `calc(100% - 2 * ${VERTICAL_SPACE})`,
+        maxWidth: '100%',
       }}
     >
       {WorkItems.map(
@@ -84,10 +83,7 @@ const Work: FC = () => {
             description={description}
             containerStyleProps={{
               ...containerStyleProps,
-              ...(index % 2 === 0 && { marginRight: '80px' }),
-              ...(isMobileView && {
-                marginRight: '0',
-              }),
+              ...(index % 2 === 0 && { marginRight: '4vw' }),
             }}
           />
         ),
