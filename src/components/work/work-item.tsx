@@ -87,6 +87,7 @@ const WorkItem: FC<IWorkItem> = ({
             fontFamily: LIGHT_FONT,
             fontSize: `calc(${FONT_SIZE} / 3.6)`,
             flex: 0.4,
+            letterSpacing: 3,
           }}
         >
           {description}
@@ -104,6 +105,9 @@ const WorkItem: FC<IWorkItem> = ({
               style={{
                 border: '1px solid',
                 padding: '4px 8px',
+                fontFamily: LIGHT_FONT,
+                fontSize: `calc(${FONT_SIZE} / 6)`,
+                letterSpacing: 0,
                 ...(index !== totalLabels && {
                   marginRight: `calc(${FONT_SIZE} / 3.6)`,
                 }),
