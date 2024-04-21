@@ -25,6 +25,7 @@ const WorkItem: FC<IWorkItem> = ({
   containerStyleProps,
 }) => {
   const [hovered, setIsHovered] = useState<boolean>(false);
+  const totalLabels = labels.length - 1;
   return (
     <div
       style={{
@@ -66,6 +67,8 @@ const WorkItem: FC<IWorkItem> = ({
           padding: '20px',
           flex: 1,
           opacity: 0,
+          maxWidth: '100%',
+          boxSizing: 'border-box',
           ...(hovered && { opacity: 1 }),
         }}
       >
@@ -101,7 +104,9 @@ const WorkItem: FC<IWorkItem> = ({
               style={{
                 border: '1px solid',
                 padding: '4px 8px',
-                ...(index !== 0 && { marginRight: `calc(${FONT_SIZE} / 3.6)` }),
+                ...(index !== totalLabels && {
+                  marginRight: `calc(${FONT_SIZE} / 3.6)`,
+                }),
               }}
             >
               {label}
