@@ -14,8 +14,9 @@ const RESPONSIVE_DESIGN = 'Responsive Design';
 const WEB_DESIGN = 'Web Design';
 const itemSpace = '60px';
 const commonStyles = {
-  width: `calc(50% - ${itemSpace} / 2)`,
   marginBottom: itemSpace,
+  maxWidth: `calc(50% - ${itemSpace} / 2)`,
+  marginRight: '80px',
 };
 const WorkItems: IWorkItem[] = [
   {
@@ -66,7 +67,7 @@ const Work: FC = () => {
         flexDirection: isMobileView ? 'column' : 'row',
         width: '100%',
         flexWrap: 'wrap',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
       }}
     >
       {WorkItems.map(

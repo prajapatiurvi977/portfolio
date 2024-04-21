@@ -6,6 +6,7 @@ import {
   FONT_SIZE,
   LIGHT_COLOR,
   LIGHT_FONT,
+  VERTICAL_SPACE,
 } from '../../constants';
 import { ColoredText } from '../colored-text';
 
@@ -31,12 +32,13 @@ const WorkItem: FC<IWorkItem> = ({
       style={{
         display: 'flex',
         position: 'relative',
-        width: '400px',
-        height: '400px',
+        maxHeight: '400px',
+        maxWidth: `calc(100% - ${VERTICAL_SPACE} * 2)`,
         transition: 'all 0.5s',
         justifyContent: 'center',
         backgroundColor: LIGHT_COLOR,
         border: `1px solid ${DARK_COLOR}`,
+        aspectRatio: 1,
         ...containerStyleProps,
       }}
       onMouseEnter={() => {
