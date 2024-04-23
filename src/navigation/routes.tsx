@@ -1,7 +1,7 @@
 import React from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { App } from '../App';
-import { WorkDetail } from '../components/work-detail/work-detail';
+import { WorkDetail } from '../components/work-detail';
 import { ROUTES } from './constants';
 
 const routes: RouteObject[] = [
@@ -10,15 +10,9 @@ const routes: RouteObject[] = [
     element: <App />,
     children: [
       {
-        path: ROUTES.WORK_DETAIL.ROOT,
+        path: ROUTES.WORK_DETAIL.ROOT + '/:id',
         element: <WorkDetail />,
         errorElement: <WorkDetail />,
-        children: [
-          {
-            path: ROUTES.WORK_DETAIL?.HUMBER_CURRENT,
-            element: <></>,
-          },
-        ],
       },
     ],
   },
