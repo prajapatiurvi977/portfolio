@@ -53,8 +53,6 @@ const Tab: FC<ITabProps> = ({
    */
   const { height: windowHeight, width: windowWidth } = useWindowDimensions();
   const isEven = index % 2 === 0;
-  //   const isOpenRef = useRef<boolean>(false);
-  //   const contentContainerRef = useRef<HTMLDivElement>(null);
   const fontSize = isMobileView ? `calc(${FONT_SIZE} / 2)` : FONT_SIZE;
 
   const footerItems: IStickyFooterProps['items'] = [
@@ -88,17 +86,6 @@ const Tab: FC<ITabProps> = ({
         ease: 'easeIn',
         bounce: 20,
       }}
-      //   onLayoutAnimationComplete={() => {
-      //     if (
-      //       isOpen &&
-      //       isMobileView &&
-      //       !isOpenRef.current &&
-      //       Boolean(contentContainerRef.current)
-      //     ) {
-      //       contentContainerRef.current?.scrollIntoView(true);
-      //     }
-      //     isOpenRef.current = isOpen;
-      //   }}
       style={{
         display: 'flex',
         flex: isOpen ? 1 : 0,
@@ -144,12 +131,10 @@ const Tab: FC<ITabProps> = ({
             padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
             maxHeight: `calc(${windowHeight}px - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
             ...(isMobileView && {
-              //   maxHeight: `calc(100vh - (${HORIZONTAL_SPACE} - ${VERTICAL_SPACE}) * 4 - ${FOOTER_ICON_SIZE} - (${VERTICAL_SPACE} / 2))`,
               overflow: 'hidden',
               padding: VERTICAL_SPACE,
             }),
           }}
-          //   ref={contentContainerRef}
         >
           <AnimatedDiv
             isMounted={isOpen}
