@@ -112,6 +112,7 @@ const WorkItem: FC<IWorkItem> = ({
                 fontSize: `calc(${FONT_SIZE} / 6)`,
                 letterSpacing: 0,
                 whiteSpace: 'nowrap',
+                marginBottom: `calc(${FONT_SIZE} / 3.6)`,
                 ...(index !== totalLabels && {
                   marginRight: `calc(${FONT_SIZE} / 3.6)`,
                 }),
