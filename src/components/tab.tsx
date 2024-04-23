@@ -35,6 +35,7 @@ interface ITabProps {
   content: ReactElement;
   isMobileView?: boolean;
   totalTabs?: number;
+  includeFooter?: boolean;
 }
 
 const Tab: FC<ITabProps> = ({
@@ -45,6 +46,7 @@ const Tab: FC<ITabProps> = ({
   index,
   content,
   totalTabs = 4,
+  includeFooter = true,
 }) => {
   const { isMobileView } = useUIContext();
   /**
@@ -55,28 +57,31 @@ const Tab: FC<ITabProps> = ({
   const isEven = index % 2 === 0;
   const fontSize = isMobileView ? `calc(${FONT_SIZE} / 2)` : FONT_SIZE;
 
-  const footerItems: IStickyFooterProps['items'] = [
-    {
-      iconUrl: isEven ? Email : EmailLight,
-      label: 'E-Mail',
-      target: 'mailto:urvi.prajapati203096@gmail.com',
-    },
-    {
-      iconUrl: isEven ? Linkedin : LinkedinLight,
-      label: 'LinkedIn',
-      target: 'https://www.linkedin.com/in/urvi-prajapati/',
-    },
-    {
-      iconUrl: isEven ? Github : GithubLight,
-      label: 'Github',
-      target: 'https://github.com/prajapatiurvi977',
-    },
-    {
-      iconUrl: isEven ? DownloadResume : DownloadResumeLight,
-      label: 'Download Resume',
-      target: Resume,
-    },
-  ];
+  const showFooter = isOpen && includeFooter;
+  const footerItems: IStickyFooterProps['items'] = showFooter
+    ? [
+        {
+          iconUrl: isEven ? Email : EmailLight,
+          label: 'E-Mail',
+          target: 'mailto:urvi.prajapati203096@gmail.com',
+        },
+        {
+          iconUrl: isEven ? Linkedin : LinkedinLight,
+          label: 'LinkedIn',
+          target: 'https://www.linkedin.com/in/urvi-prajapati/',
+        },
+        {
+          iconUrl: isEven ? Github : GithubLight,
+          label: 'Github',
+          target: 'https://github.com/prajapatiurvi977',
+        },
+        {
+          iconUrl: isEven ? DownloadResume : DownloadResumeLight,
+          label: 'Download Resume',
+          target: Resume,
+        },
+      ]
+    : [];
   return (
     <motion.div
       key="container"
@@ -194,7 +199,7 @@ const Tab: FC<ITabProps> = ({
         </div>
       </AnimatedDiv>
 
-      {isOpen && <StickyFooter items={footerItems} />}
+      {showFooter && <StickyFooter items={footerItems} />}
     </motion.div>
   );
 };
