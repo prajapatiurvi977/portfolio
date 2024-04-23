@@ -1,5 +1,6 @@
 import type { CSSProperties, FC } from 'react';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   CONDENSED_FONT,
   DARK_COLOR,
@@ -11,6 +12,7 @@ import {
 import { ColoredText } from '../colored-text';
 
 interface IWorkItem {
+  destination: string;
   backgroundImage: string;
   title: string;
   description: string;
@@ -24,9 +26,11 @@ const WorkItem: FC<IWorkItem> = ({
   description,
   labels,
   containerStyleProps,
+  destination,
 }) => {
   const [hovered, setIsHovered] = useState<boolean>(false);
   const totalLabels = labels.length - 1;
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -39,6 +43,7 @@ const WorkItem: FC<IWorkItem> = ({
         backgroundColor: LIGHT_COLOR,
         border: `1px solid ${DARK_COLOR}`,
         aspectRatio: 1,
+        cursor: 'pointer',
         ...containerStyleProps,
       }}
       onMouseEnter={() => {
@@ -46,6 +51,9 @@ const WorkItem: FC<IWorkItem> = ({
       }}
       onMouseLeave={() => {
         setIsHovered(false);
+      }}
+      onClick={() => {
+        navigate(destination);
       }}
     >
       <img

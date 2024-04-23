@@ -4,6 +4,7 @@ import HumberCurrent from '../../assets/images/work-humber-current.png';
 import TicTacToe from '../../assets/images/work-tic-tac-toe.png';
 import TimHortons from '../../assets/images/work-tim-hortons.png';
 import TorontoZoo from '../../assets/images/work-toronto-zoo.png';
+import { ROUTES } from '../../navigation/constants';
 import { useUIContext } from '../../state/ui-context';
 import type { IWorkItem } from './work-item';
 import { WorkItem } from './work-item';
@@ -23,6 +24,7 @@ const WorkItems: IWorkItem[] = [
     title: 'TIM HORTONS',
     description: 'Research & Redesign of App Navigation for order path',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, 'User Research', 'App Design'],
+    destination: ROUTES.WORK_DETAIL.TIM_HORTONS,
     containerStyleProps: {
       ...commonStyles,
     },
@@ -33,6 +35,7 @@ const WorkItems: IWorkItem[] = [
     description:
       'Redesign of Site Navigation, UI/Visual Design, and Ticket Purchasing',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
+    destination: ROUTES.WORK_DETAIL.TORONTO_ZOO,
     containerStyleProps: {
       ...commonStyles,
     },
@@ -42,6 +45,7 @@ const WorkItems: IWorkItem[] = [
     title: 'HUMBER CURRENT',
     description: 'Redesign of Site Navigation, UI/Visual Design',
     labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
+    destination: ROUTES.WORK_DETAIL.HUMBER_CURRENT,
     containerStyleProps: {
       ...commonStyles,
     },
@@ -51,6 +55,7 @@ const WorkItems: IWorkItem[] = [
     title: 'TIC TAC TOE',
     description: 'Fun game out of learning ReactJS with UI Design',
     labels: ['UI Development', 'ReactJS', 'JavaScript', 'Game Development'],
+    destination: ROUTES.WORK_DETAIL.TIC_TAC_TOE,
     containerStyleProps: {
       ...commonStyles,
     },
@@ -72,7 +77,14 @@ const Work: FC = () => {
     >
       {WorkItems.map(
         (
-          { backgroundImage, title, labels, description, containerStyleProps },
+          {
+            backgroundImage,
+            title,
+            labels,
+            description,
+            containerStyleProps,
+            destination,
+          },
           index,
         ) => (
           <WorkItem
@@ -81,6 +93,7 @@ const Work: FC = () => {
             title={title}
             labels={labels}
             description={description}
+            destination={destination}
             containerStyleProps={{
               ...containerStyleProps,
               ...(index % 2 === 0 && { marginRight: '4vw' }),

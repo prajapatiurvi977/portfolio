@@ -7,9 +7,10 @@ interface ITabListProps {
   listConfig: Array<
     Pick<ITabProps, 'id' | 'title' | 'content'> & PropsWithChildren
   >;
+  includeFooter?: boolean;
 }
 
-const TabList: FC<ITabListProps> = ({ listConfig }) => {
+const TabList: FC<ITabListProps> = ({ listConfig, includeFooter = true }) => {
   const [selectedTabId, setSelectedTabId] = useState<string>('home');
   const { isMobileView } = useUIContext();
 
@@ -35,6 +36,7 @@ const TabList: FC<ITabListProps> = ({ listConfig }) => {
           onTabSelected={onTabSelected}
           content={content}
           totalTabs={listConfig.length}
+          includeFooter={includeFooter}
         />
       ))}
     </div>
