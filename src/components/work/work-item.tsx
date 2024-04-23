@@ -87,9 +87,12 @@ const WorkItem: FC<IWorkItem> = ({
         <div
           style={{
             fontFamily: LIGHT_FONT,
-            fontSize: `calc(${FONT_SIZE} / 3.6)`,
+            fontSize: '20px',
             flex: 0.4,
             letterSpacing: 3,
+            display: 'flex',
+            alignItems: 'flex-end',
+            marginBottom: '20px',
           }}
         >
           {description}
