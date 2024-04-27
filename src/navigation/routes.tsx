@@ -8,6 +8,7 @@ const routes: RouteObject[] = [
   {
     path: ROUTES.ROOT,
     element: <App />,
+    errorElement: <App />,
   },
   {
     path: ROUTES.WORK_DETAIL.ROOT,
