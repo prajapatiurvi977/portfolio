@@ -8,9 +8,12 @@ const routes: RouteObject[] = [
   {
     path: ROUTES.ROOT,
     element: <App />,
+  },
+  {
+    path: ROUTES.WORK_DETAIL.ROOT,
     children: [
       {
-        path: ROUTES.WORK_DETAIL.ROOT + '/:id',
+        path: ':id',
         element: <WorkDetail />,
         errorElement: <WorkDetail />,
       },
