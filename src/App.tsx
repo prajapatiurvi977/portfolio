@@ -26,11 +26,6 @@ const App = (): JSX.Element => {
       title: 'Work',
       content: <Work />,
     },
-    // {
-    //   id: 'contact',
-    //   title: 'Contact Me',
-    //   content: <Home />,
-    // },
   ];
   const initialSelectedTabId = tabs[0].id;
   return (
