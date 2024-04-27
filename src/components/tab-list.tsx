@@ -3,15 +3,23 @@ import React, { useState } from 'react';
 import { useUIContext } from '../state/ui-context';
 import type { ITabProps } from './tab';
 import { Tab } from './tab';
+
+type TabListConfig = Array<
+  Pick<ITabProps, 'id' | 'title' | 'content'> & PropsWithChildren
+>;
 interface ITabListProps {
-  listConfig: Array<
-    Pick<ITabProps, 'id' | 'title' | 'content'> & PropsWithChildren
-  >;
+  listConfig: TabListConfig;
   includeFooter?: boolean;
+  initialSelectedTabId?: TabListConfig[number]['id'];
 }
 
-const TabList: FC<ITabListProps> = ({ listConfig, includeFooter = true }) => {
-  const [selectedTabId, setSelectedTabId] = useState<string>('home');
+const TabList: FC<ITabListProps> = ({
+  listConfig,
+  includeFooter = true,
+  initialSelectedTabId = listConfig[0].id,
+}) => {
+  const [selectedTabId, setSelectedTabId] =
+    useState<string>(initialSelectedTabId);
   const { isMobileView } = useUIContext();
 
   const onTabSelected = (id: string): void => {

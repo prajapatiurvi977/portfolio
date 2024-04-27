@@ -32,10 +32,14 @@ const App = (): JSX.Element => {
     //   content: <Home />,
     // },
   ];
+  const initialSelectedTabId = tabs[0].id;
   return (
     <>
       <UIContextProvider>
-        <TabList listConfig={tabs} />
+        <TabList
+          listConfig={tabs}
+          initialSelectedTabId={initialSelectedTabId}
+        />
       </UIContextProvider>
     </>
   );
