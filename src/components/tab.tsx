@@ -95,7 +95,6 @@ const Tab: FC<ITabProps> = ({
         display: 'flex',
         flex: isOpen ? 1 : 0,
         flexDirection: 'column',
-        justifyContent: 'center',
         letterSpacing: '5px',
         fontFamily: `${CONDENSED_FONT}, ${DARK_FONT}`,
         position: 'relative',
