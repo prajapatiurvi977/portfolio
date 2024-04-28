@@ -11,19 +11,22 @@ interface ITabListProps {
   listConfig: TabListConfig;
   includeFooter?: boolean;
   initialSelectedTabId?: TabListConfig[number]['id'];
+  onTabSelected?: (tabId: TabListConfig[number]['id']) => void;
 }
 
 const TabList: FC<ITabListProps> = ({
   listConfig,
   includeFooter = true,
   initialSelectedTabId = listConfig[0].id,
+  onTabSelected,
 }) => {
   const [selectedTabId, setSelectedTabId] =
     useState<string>(initialSelectedTabId);
   const { isMobileView } = useUIContext();
 
-  const onTabSelected = (id: string): void => {
+  const handleTabClick = (id: string): void => {
     setSelectedTabId(id);
+    onTabSelected?.(id);
   };
   return (
     <div
@@ -41,7 +44,7 @@ const TabList: FC<ITabListProps> = ({
           key={id}
           isOpen={selectedTabId === id}
           index={index}
-          onTabSelected={onTabSelected}
+          onTabSelected={handleTabClick}
           content={content}
           totalTabs={listConfig.length}
           includeFooter={includeFooter}
