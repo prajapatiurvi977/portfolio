@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ArrowLeftCircle from '../../assets/images/arrow-left-circle.svg';
 import { ROUTES } from '../../navigation/constants';
 import type { ITabListProps } from '../tab-list';
@@ -26,6 +26,7 @@ const listConfig: ITabListProps['listConfig'] = [
 
 const WorkDetail = () => {
   const { id: urlID } = useParams<WorkDetailParams>();
+  const navigate = useNavigate();
   const initialSelectedTabId = urlID ?? listConfig[0].id;
   return (
     <div
@@ -48,6 +49,9 @@ const WorkDetail = () => {
         listConfig={listConfig}
         includeFooter={false}
         initialSelectedTabId={initialSelectedTabId}
+        onTabSelected={(tabId) => {
+          navigate(`${ROUTES.WORK_DETAIL.ROOT}/${tabId}`);
+        }}
       />
     </div>
   );
