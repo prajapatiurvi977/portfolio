@@ -12,11 +12,11 @@ const routes: RouteObject[] = [
   },
   {
     path: ROUTES.WORK_DETAIL.ROOT,
+    errorElement: <WorkDetail />,
     children: [
       {
         path: ':id',
         element: <WorkDetail />,
-        errorElement: <WorkDetail />,
       },
     ],
   },
