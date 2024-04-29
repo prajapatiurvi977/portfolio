@@ -1,10 +1,10 @@
 {
-    "eslint.format.enable": true,
-    "editor.detectIndentation": false,
-    "typescript.validate.enable": true,
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "always",
-        "source.organizeImports": "always"
-    }
+  "eslint.format.enable": true,
+  "editor.detectIndentation": false,
+  "typescript.validate.enable": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
+  }
 }
