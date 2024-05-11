@@ -12,6 +12,7 @@ interface ITabListProps {
   includeFooter?: boolean;
   initialSelectedTabId?: TabListConfig[number]['id'];
   onTabSelected?: (tabId: TabListConfig[number]['id']) => void;
+  backNavButtonTarget?: string;
 }
 
 const TabList: FC<ITabListProps> = ({
@@ -19,6 +20,7 @@ const TabList: FC<ITabListProps> = ({
   includeFooter = true,
   initialSelectedTabId = listConfig[0].id,
   onTabSelected,
+  backNavButtonTarget,
 }) => {
   const [selectedTabId, setSelectedTabId] =
     useState<string>(initialSelectedTabId);
@@ -48,6 +50,7 @@ const TabList: FC<ITabListProps> = ({
           content={content}
           totalTabs={listConfig.length}
           includeFooter={includeFooter}
+          backNavButtonTarget={backNavButtonTarget}
         />
       ))}
     </div>

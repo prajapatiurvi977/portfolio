@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import type { CSSProperties, FC, ReactElement } from 'react';
 import React, { useCallback } from 'react';
+import type { LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Resume from '../assets/Urvi_Prajapati_Resume.pdf';
+import ArrowLeftCircle from '../assets/images/arrow-left-circle.svg';
 import DownloadResumeLight from '../assets/images/download-resume-light.svg';
 import DownloadResume from '../assets/images/download-resume.svg';
 import EmailLight from '../assets/images/email-light.svg';
@@ -34,6 +37,7 @@ interface ITabProps {
   content: ReactElement;
   totalTabs?: number;
   includeFooter?: boolean;
+  backNavButtonTarget?: string;
 }
 
 const Tab: FC<ITabProps> = ({
@@ -45,6 +49,7 @@ const Tab: FC<ITabProps> = ({
   content,
   totalTabs = 4,
   includeFooter,
+  backNavButtonTarget,
 }) => {
   const { isMobileView } = useUIContext();
   /**
@@ -135,6 +140,7 @@ const Tab: FC<ITabProps> = ({
             fontSize,
             lineHeight: `calc(${fontSize} + 2px)`,
           }}
+          backNavButtonTarget={backNavButtonTarget}
         />
       )}
       <ClosedTab
@@ -206,12 +212,14 @@ interface IOpenedTab {
   title: string;
   content: ReactElement;
   titleContainerStyleProps: CSSProperties;
+  backNavButtonTarget?: string;
 }
 
 const OpenedTab: FC<IOpenedTab> = ({
   title,
   content,
   titleContainerStyleProps,
+  backNavButtonTarget,
 }) => {
   const { isMobileView } = useUIContext();
   /**
@@ -219,6 +227,7 @@ const OpenedTab: FC<IOpenedTab> = ({
    * The address bar and bottom bar height is not taken into vh calculations.
    */
   const { height: windowHeight } = useWindowDimensions();
+  const backButtonSize = '68px';
   return (
     <div
       style={{
@@ -234,6 +243,22 @@ const OpenedTab: FC<IOpenedTab> = ({
         }),
       }}
     >
+      {Boolean(backNavButtonTarget) && (
+        <div
+          style={{
+            position: 'absolute',
+            left: `calc(${HORIZONTAL_SPACE}/2 - ${backButtonSize} / 2 )`,
+          }}
+        >
+          <BackNavButton
+            to={backNavButtonTarget}
+            linkContainerProps={{
+              width: backButtonSize,
+              height: backButtonSize,
+            }}
+          />
+        </div>
+      )}
       <AnimatedDiv
         isMounted={true}
         id="tab-title-opened"
@@ -259,4 +284,23 @@ const OpenedTab: FC<IOpenedTab> = ({
   );
 };
 
+interface IBackNavButton {
+  to: LinkProps['to'];
+  linkContainerProps?: CSSProperties;
+}
+
+const BackNavButton: FC<IBackNavButton> = ({ to, linkContainerProps }) => {
+  return (
+    <Link
+      to={to}
+      style={{
+        position: 'absolute',
+        zIndex: '1',
+        ...linkContainerProps,
+      }}
+    >
+      <img src={ArrowLeftCircle} alt="Go back to Home screen." />
+    </Link>
+  );
+};
 export { Tab, type ITabProps };
