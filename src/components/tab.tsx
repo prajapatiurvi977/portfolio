@@ -44,7 +44,7 @@ const Tab: FC<ITabProps> = ({
   index,
   content,
   totalTabs = 4,
-  includeFooter = true,
+  includeFooter,
 }) => {
   const { isMobileView } = useUIContext();
   /**
@@ -55,7 +55,7 @@ const Tab: FC<ITabProps> = ({
   const isEven = index % 2 === 0;
   const fontSize = isMobileView ? `calc(${FONT_SIZE} / 2)` : FONT_SIZE;
 
-  const showFooter = isOpen && includeFooter;
+  const showFooter = isOpen && includeFooter === true;
   const getFooterItems = useCallback(() => {
     if (!showFooter) {
       return [];
