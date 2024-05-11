@@ -33,7 +33,6 @@ interface ITabProps {
   index: number;
   onTabSelected: (id: string) => void;
   content: ReactElement;
-  isMobileView?: boolean;
   totalTabs?: number;
   includeFooter?: boolean;
 }
