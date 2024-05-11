@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import type { FC, ReactElement } from 'react';
+import type { CSSProperties, FC, ReactElement } from 'react';
 import React, { useCallback } from 'react';
 import Resume from '../assets/Urvi_Prajapati_Resume.pdf';
 import DownloadResumeLight from '../assets/images/download-resume-light.svg';
@@ -168,40 +168,64 @@ const Tab: FC<ITabProps> = ({
           </div>
         </div>
       )}
-      <AnimatedDiv
-        animationDuration={ANIMATION_DURATION}
-        isMounted={!isOpen}
-        id="tab-title-closed"
-        styleProps={{
+      <ClosedTab
+        isOpen={isOpen}
+        title={title}
+        containerStyleProps={{
           fontSize,
           lineHeight: `calc(${fontSize} + 2px)`,
         }}
-      >
-        <div
-          style={{
-            ...(isMobileView
-              ? {
-                  alignItems: 'center',
-                  paddingLeft: `calc(${VERTICAL_SPACE})`,
-                }
-              : {
-                  transform: 'rotate(90deg)',
-                  transformOrigin: '0 0',
-                  position: 'absolute',
-                  top: VERTICAL_SPACE,
-                  left: `calc(${VERTICAL_SPACE} * 2)`,
-                  minWidth: `calc(${windowHeight}px - ${isOpen ? 0 : HORIZONTAL_SPACE})`,
-                  alignItems: 'flex-start',
-                }),
-            display: 'flex',
-          }}
-        >
-          {title}
-        </div>
-      </AnimatedDiv>
+      />
 
       {showFooter && <StickyFooter items={getFooterItems()} />}
     </motion.div>
+  );
+};
+
+interface IClosedTab {
+  isOpen: boolean;
+  title: string;
+  containerStyleProps?: CSSProperties;
+}
+
+const ClosedTab: FC<IClosedTab> = ({ isOpen, title, containerStyleProps }) => {
+  const { isMobileView } = useUIContext();
+  /**
+   * 100vh is not reliable in mobile browsers.
+   * The address bar and bottom bar height is not taken into vh calculations.
+   */
+  const { height: windowHeight } = useWindowDimensions();
+  return (
+    <AnimatedDiv
+      animationDuration={ANIMATION_DURATION}
+      isMounted={!isOpen}
+      id="tab-title-closed"
+      styleProps={{
+        ...containerStyleProps,
+      }}
+    >
+      <div
+        style={{
+          ...(isMobileView
+            ? {
+                alignItems: 'center',
+                paddingLeft: `calc(${VERTICAL_SPACE})`,
+              }
+            : {
+                transform: 'rotate(90deg)',
+                transformOrigin: '0 0',
+                position: 'absolute',
+                top: VERTICAL_SPACE,
+                left: `calc(${VERTICAL_SPACE} * 2)`,
+                minWidth: `calc(${windowHeight}px - ${isOpen ? 0 : HORIZONTAL_SPACE})`,
+                alignItems: 'flex-start',
+              }),
+          display: 'flex',
+        }}
+      >
+        {title}
+      </div>
+    </AnimatedDiv>
   );
 };
 
