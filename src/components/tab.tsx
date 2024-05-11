@@ -128,48 +128,17 @@ const Tab: FC<ITabProps> = ({
       }}
     >
       {isOpen && (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            flex: 1,
-            padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
-            maxHeight: `calc(${windowHeight}px - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
-            ...(isMobileView && {
-              overflow: 'hidden',
-              padding: VERTICAL_SPACE,
-            }),
+        <OpenedTab
+          title={title}
+          content={content}
+          titleContainerStyleProps={{
+            fontSize,
+            lineHeight: `calc(${fontSize} + 2px)`,
           }}
-        >
-          <AnimatedDiv
-            isMounted={isOpen}
-            id="tab-title-opened"
-            animationDuration={ANIMATION_DURATION}
-            styleProps={{
-              fontSize,
-              lineHeight: `calc(${fontSize} + 2px)`,
-            }}
-          >
-            {title}
-          </AnimatedDiv>
-          <div
-            style={{
-              flex: 1,
-              display: 'flex',
-              width: '100%',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              padding: `calc(${FONT_SIZE} / 3) 0 calc(${FONT_SIZE} / 1.5) 0`,
-              overflowY: 'auto',
-            }}
-          >
-            {content}
-          </div>
-        </div>
+        />
       )}
       <ClosedTab
-        isOpen={isOpen}
+        isMounted={!isOpen}
         title={title}
         containerStyleProps={{
           fontSize,
@@ -183,12 +152,16 @@ const Tab: FC<ITabProps> = ({
 };
 
 interface IClosedTab {
-  isOpen: boolean;
+  isMounted: boolean;
   title: string;
   containerStyleProps?: CSSProperties;
 }
 
-const ClosedTab: FC<IClosedTab> = ({ isOpen, title, containerStyleProps }) => {
+const ClosedTab: FC<IClosedTab> = ({
+  isMounted,
+  title,
+  containerStyleProps,
+}) => {
   const { isMobileView } = useUIContext();
   /**
    * 100vh is not reliable in mobile browsers.
@@ -198,7 +171,7 @@ const ClosedTab: FC<IClosedTab> = ({ isOpen, title, containerStyleProps }) => {
   return (
     <AnimatedDiv
       animationDuration={ANIMATION_DURATION}
-      isMounted={!isOpen}
+      isMounted={isMounted}
       id="tab-title-closed"
       styleProps={{
         ...containerStyleProps,
@@ -217,7 +190,7 @@ const ClosedTab: FC<IClosedTab> = ({ isOpen, title, containerStyleProps }) => {
                 position: 'absolute',
                 top: VERTICAL_SPACE,
                 left: `calc(${VERTICAL_SPACE} * 2)`,
-                minWidth: `calc(${windowHeight}px - ${isOpen ? 0 : HORIZONTAL_SPACE})`,
+                minWidth: `calc(${windowHeight}px - ${isMounted ? HORIZONTAL_SPACE : 0})`,
                 alignItems: 'flex-start',
               }),
           display: 'flex',
@@ -226,6 +199,63 @@ const ClosedTab: FC<IClosedTab> = ({ isOpen, title, containerStyleProps }) => {
         {title}
       </div>
     </AnimatedDiv>
+  );
+};
+
+interface IOpenedTab {
+  title: string;
+  content: ReactElement;
+  titleContainerStyleProps: CSSProperties;
+}
+
+const OpenedTab: FC<IOpenedTab> = ({
+  title,
+  content,
+  titleContainerStyleProps,
+}) => {
+  const { isMobileView } = useUIContext();
+  /**
+   * 100vh is not reliable in mobile browsers.
+   * The address bar and bottom bar height is not taken into vh calculations.
+   */
+  const { height: windowHeight } = useWindowDimensions();
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        flex: 1,
+        padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
+        maxHeight: `calc(${windowHeight}px - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
+        ...(isMobileView && {
+          overflow: 'hidden',
+          padding: VERTICAL_SPACE,
+        }),
+      }}
+    >
+      <AnimatedDiv
+        isMounted={true}
+        id="tab-title-opened"
+        animationDuration={ANIMATION_DURATION}
+        styleProps={{ ...titleContainerStyleProps }}
+      >
+        {title}
+      </AnimatedDiv>
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          width: '100%',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          padding: `calc(${FONT_SIZE} / 3) 0 calc(${FONT_SIZE} / 1.5) 0`,
+          overflowY: 'auto',
+        }}
+      >
+        {content}
+      </div>
+    </div>
   );
 };
 
