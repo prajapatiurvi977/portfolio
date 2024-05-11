@@ -112,6 +112,7 @@ const Tab: FC<ITabProps> = ({
         ...(!isOpen &&
           isMobileView && {
             minHeight: `calc(${HORIZONTAL_SPACE} - ${VERTICAL_SPACE})`,
+            justifyContent: 'center',
           }),
         ...(isOpen &&
           !isMobileView && {
