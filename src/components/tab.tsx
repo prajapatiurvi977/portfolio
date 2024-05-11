@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import type { FC, ReactElement } from 'react';
-import React from 'react';
+import React, { useCallback } from 'react';
 import Resume from '../assets/Urvi_Prajapati_Resume.pdf';
 import DownloadResumeLight from '../assets/images/download-resume-light.svg';
 import DownloadResume from '../assets/images/download-resume.svg';
@@ -23,7 +23,6 @@ import {
 import { useUIContext } from '../state/ui-context';
 import { AnimatedDiv } from './animated-div';
 import { useWindowDimensions } from './hooks/use-window-dimensions';
-import type { IStickyFooterProps } from './sticky-footer';
 import { FOOTER_ICON_SIZE, StickyFooter } from './sticky-footer';
 
 interface ITabProps {
@@ -57,30 +56,33 @@ const Tab: FC<ITabProps> = ({
   const fontSize = isMobileView ? `calc(${FONT_SIZE} / 2)` : FONT_SIZE;
 
   const showFooter = isOpen && includeFooter;
-  const footerItems: IStickyFooterProps['items'] = showFooter
-    ? [
-        {
-          iconUrl: isEven ? Email : EmailLight,
-          label: 'E-Mail',
-          target: 'mailto:urvi.prajapati203096@gmail.com',
-        },
-        {
-          iconUrl: isEven ? Linkedin : LinkedinLight,
-          label: 'LinkedIn',
-          target: 'https://www.linkedin.com/in/urvi-prajapati/',
-        },
-        {
-          iconUrl: isEven ? Github : GithubLight,
-          label: 'Github',
-          target: 'https://github.com/prajapatiurvi977',
-        },
-        {
-          iconUrl: isEven ? DownloadResume : DownloadResumeLight,
-          label: 'Download Resume',
-          target: Resume,
-        },
-      ]
-    : [];
+  const getFooterItems = useCallback(() => {
+    if (!showFooter) {
+      return [];
+    }
+    return [
+      {
+        iconUrl: isEven ? Email : EmailLight,
+        label: 'E-Mail',
+        target: 'mailto:urvi.prajapati203096@gmail.com',
+      },
+      {
+        iconUrl: isEven ? Linkedin : LinkedinLight,
+        label: 'LinkedIn',
+        target: 'https://www.linkedin.com/in/urvi-prajapati/',
+      },
+      {
+        iconUrl: isEven ? Github : GithubLight,
+        label: 'Github',
+        target: 'https://github.com/prajapatiurvi977',
+      },
+      {
+        iconUrl: isEven ? DownloadResume : DownloadResumeLight,
+        label: 'Download Resume',
+        target: Resume,
+      },
+    ];
+  }, [showFooter, isEven]);
   return (
     <motion.div
       key="container"
@@ -198,7 +200,7 @@ const Tab: FC<ITabProps> = ({
         </div>
       </AnimatedDiv>
 
-      {showFooter && <StickyFooter items={footerItems} />}
+      {showFooter && <StickyFooter items={getFooterItems()} />}
     </motion.div>
   );
 };
