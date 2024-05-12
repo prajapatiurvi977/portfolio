@@ -142,7 +142,13 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
           </a>
         </div>
         <div>
-          <img src={imageSrc} aria-hidden />
+          <img
+            src={imageSrc}
+            aria-hidden
+            style={{
+              width: '100%',
+            }}
+          />
         </div>
       </div>
     </div>
