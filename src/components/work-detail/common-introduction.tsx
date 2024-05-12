@@ -46,6 +46,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
               border: `1px solid ${isEven ? DARK_COLOR : LIGHT_COLOR}`,
               padding: '4px 8px',
               marginBottom: '0.5em',
+              fontFamily: DARK_FONT,
             }}
           >
             {tag}
