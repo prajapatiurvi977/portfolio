@@ -30,7 +30,6 @@ const WorkItem: FC<IWorkItem> = ({
   destination,
 }) => {
   const [hovered, setIsHovered] = useState<boolean>(false);
-  const totalLabels = labels.length - 1;
   const navigate = useNavigate();
   return (
     <div
