@@ -19,7 +19,7 @@ const TimHortons: FC<ITimHortons> = ({ isEven }) => {
         screenSize="iPhone 13 & 14"
         duration="May 2023 - July 2023"
         tools="Figma, FigJam"
-        hifiProtoTypeLink="www.google.com"
+        hifiProtoTypeLink="https://www.figma.com/proto/tG2riE7WCJJim6dhOaZVut/Tim-Hortons--Portfolio-1?page-id=0%3A1&type=design&node-id=11-66&viewport=676%2C273%2C0.15&t=VlRP24AAt1eo8f1L-1&scaling=scale-down&mode=design"
         imageSrc={WorkTimHortonsIntro}
       />
     </div>

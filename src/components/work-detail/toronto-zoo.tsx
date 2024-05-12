@@ -19,7 +19,7 @@ const TorontoZoo: FC<ITorontoZoo> = ({ isEven }) => {
         screenSize="Desktop, iPhone 13 & 14"
         duration="Jan 2023 - April 2023"
         tools="Figma, FigJam, Canva"
-        hifiProtoTypeLink="www.google.com"
+        hifiProtoTypeLink="https://www.figma.com/proto/8PBbMggHeXXXcKvLDIHF0N/5111---Group-7-(Portfolio)?page-id=0%3A1&type=design&node-id=808-8250&viewport=468%2C-534%2C0.11&t=3V6OxqzS5hQKfNBB-1&scaling=scale-down&starting-point-node-id=808%3A8250&show-proto-sidebar=1&mode=design"
         imageSrc={WorkTorontoZooIntro}
       />
     </div>
