@@ -21,7 +21,6 @@ import { WorkItem } from './work-item';
 
 const itemSpace = '60px';
 const commonStyles = {
-  marginBottom: itemSpace,
   maxWidth: `calc(50% - ${itemSpace} / 2 - 4)`,
 };
 
@@ -79,6 +78,7 @@ const Work: FC = () => {
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
         maxWidth: '100%',
+        gap: itemSpace,
       }}
     >
       {WorkItems.map(
@@ -102,7 +102,6 @@ const Work: FC = () => {
             destination={destination}
             containerStyleProps={{
               ...containerStyleProps,
-              ...(index % 2 === 0 && { marginRight: '4vw' }),
             }}
           />
         ),
