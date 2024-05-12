@@ -112,6 +112,7 @@ const WorkItem: FC<IWorkItem> = ({
             flexDirection: 'row',
             width: '100%',
             flexWrap: 'wrap',
+            gap: `calc(${FONT_SIZE} / 6) calc(${FONT_SIZE} / 3)`,
           }}
         >
           {labels.map((label, index) => (
@@ -124,10 +125,6 @@ const WorkItem: FC<IWorkItem> = ({
                 fontSize: `calc(${FONT_SIZE} / 6)`,
                 letterSpacing: 0,
                 whiteSpace: 'nowrap',
-                marginBottom: `calc(${FONT_SIZE} / 3.6)`,
-                ...(index !== totalLabels && {
-                  marginRight: `calc(${FONT_SIZE} / 3.6)`,
-                }),
               }}
             >
               {label}
