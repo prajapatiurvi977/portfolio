@@ -10,9 +10,16 @@ const TicTacToe: FC<ITicTacToe> = ({ isEven }) => {
   return (
     <div>
       <CommonIntroduction
-        description={TicTacToeDescription}
+        subTitle={TicTacToeDescription}
         isEven={isEven}
         categories={[...TicTacToeCategories]}
+        description=""
+        role=""
+        screenSize=""
+        duration=""
+        tools=""
+        hifiProtoTypeLink="www.google.com"
+        imageSrc="./"
       />
     </div>
   );

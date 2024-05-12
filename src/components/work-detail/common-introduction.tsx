@@ -6,20 +6,37 @@ import {
   DARK_FONT,
   FONT_SIZE,
   LIGHT_COLOR,
+  LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../constants';
 
 interface ICommonIntroduction {
-  description: string;
+  subTitle: string;
   categories: string[];
   isEven: boolean;
+  role: string;
+  screenSize: string;
+  duration: string;
+  tools: string;
+  imageSrc: string;
+  hifiProtoTypeLink: string;
+  description: string;
 }
 
 const CommonIntroduction: FC<ICommonIntroduction> = ({
+  subTitle,
   description,
   categories: tags,
   isEven,
+  role,
+  screenSize,
+  duration,
+  tools,
+  imageSrc,
+  hifiProtoTypeLink,
 }) => {
+  const borderStyle = `1px solid ${isEven ? DARK_COLOR : LIGHT_COLOR}`;
+  const gap = '20px';
   return (
     <div>
       <div
@@ -30,7 +47,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
           margin: `calc(${VERTICAL_SPACE} / 2) 0`,
         }}
       >
-        {description}
+        {subTitle}
       </div>
       <div
         style={{
@@ -43,7 +60,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
           <span
             key={tag + index}
             style={{
-              border: `1px solid ${isEven ? DARK_COLOR : LIGHT_COLOR}`,
+              border: borderStyle,
               padding: '4px 8px',
               marginBottom: '0.5em',
               fontFamily: DARK_FONT,
@@ -52,6 +69,81 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
             {tag}
           </span>
         ))}
+      </div>
+      <div
+        style={{
+          border: borderStyle,
+          display: 'flex',
+          padding: gap,
+          gap,
+        }}
+      >
+        <div
+          style={{
+            fontSize: gap,
+            display: 'flex',
+            flexDirection: 'column',
+            gap,
+            alignItems: 'flex-start',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap }}>
+            <div style={{ fontSize: `calc(${FONT_SIZE} / 3)` }}>
+              {description}
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap,
+              }}
+            >
+              {[
+                {
+                  label: 'My Role',
+                  value: role,
+                },
+                {
+                  label: 'Screen Size',
+                  value: screenSize,
+                },
+                {
+                  label: 'Duration',
+                  value: duration,
+                },
+                {
+                  label: 'Tools',
+                  value: tools,
+                },
+              ].map(({ label, value }) => (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                  }}
+                  key={label}
+                >
+                  <div>{label}</div>
+                  <div style={{ fontFamily: LIGHT_FONT }}>{value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <a
+            href={hifiProtoTypeLink}
+            style={{
+              textDecoration: 'none',
+              backgroundColor: ACCENT_COLOR,
+              padding: '8px 12px',
+              color: DARK_COLOR,
+            }}
+          >
+            View Hi-Fi prototype
+          </a>
+        </div>
+        <div>
+          <img src={imageSrc} aria-hidden />
+        </div>
       </div>
     </div>
   );

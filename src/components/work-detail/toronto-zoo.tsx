@@ -10,9 +10,16 @@ const TorontoZoo: FC<ITorontoZoo> = ({ isEven }) => {
   return (
     <div>
       <CommonIntroduction
-        description={TorontoZooDescription}
+        subTitle={TorontoZooDescription}
         isEven={isEven}
         categories={[...TorontoZooCategories]}
+        description="Redesigned the Toronto Zoo website's ticket purchasing flow by implementing an intuitive step-by-step process, optimizing the ticket selection interface, and simplifying transaction steps to enhance user experience and streamline the path to purchase."
+        role="UX/UI Designer, UX Researcher"
+        screenSize="Desktop, iPhone 13 & 14"
+        duration="Jan 2023 - April 2023"
+        tools="Figma, FigJam, Canva"
+        hifiProtoTypeLink="www.google.com"
+        imageSrc="./"
       />
     </div>
   );
