@@ -131,6 +131,8 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
           </div>
           <a
             href={hifiProtoTypeLink}
+            target="_blank"
+            rel="noreferrer"
             style={{
               textDecoration: 'none',
               backgroundColor: ACCENT_COLOR,
