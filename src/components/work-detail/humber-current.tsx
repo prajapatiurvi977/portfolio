@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
+import WorkHumberCurrentIntro from '../../assets/images/work-humber-current-intro.png';
 import {
   HumberCurrentCategories,
   HumberCurrentDescription,
@@ -22,7 +23,7 @@ const HumberCurrent: FC<IHumberCurrent> = ({ isEven }) => {
         duration="May 2022 - July 2022"
         tools="Figma, FigJam, Photoshop"
         hifiProtoTypeLink="www.google.com"
-        imageSrc="./"
+        imageSrc={WorkHumberCurrentIntro}
       />
     </div>
   );

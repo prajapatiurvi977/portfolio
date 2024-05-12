@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
+import WorkTorontoZooIntro from '../../assets/images/work-toronto-zoo-intro.png';
 import { TorontoZooCategories, TorontoZooDescription } from '../constants';
 import { CommonIntroduction } from './common-introduction';
 
@@ -19,7 +20,7 @@ const TorontoZoo: FC<ITorontoZoo> = ({ isEven }) => {
         duration="Jan 2023 - April 2023"
         tools="Figma, FigJam, Canva"
         hifiProtoTypeLink="www.google.com"
-        imageSrc="./"
+        imageSrc={WorkTorontoZooIntro}
       />
     </div>
   );

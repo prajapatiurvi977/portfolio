@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
+import WorkTimHortonsIntro from '../../assets/images/work-tim-hortons-intro.png';
 import { TimHortonsCategories, TimHortonsDescription } from '../constants';
 import { CommonIntroduction } from './common-introduction';
 
@@ -19,7 +20,7 @@ const TimHortons: FC<ITimHortons> = ({ isEven }) => {
         duration="May 2023 - July 2023"
         tools="Figma, FigJam"
         hifiProtoTypeLink="www.google.com"
-        imageSrc="./"
+        imageSrc={WorkTimHortonsIntro}
       />
     </div>
   );
