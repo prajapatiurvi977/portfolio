@@ -40,7 +40,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
           <span
             key={tag + index}
             style={{
-              border: `1px solid ${isEven ? LIGHT_COLOR : DARK_COLOR}`,
+              border: `1px solid ${isEven ? DARK_COLOR : LIGHT_COLOR}`,
               padding: '4px 8px',
               marginBottom: '0.5em',
               ...(index > 0 && { marginLeft: '1em' }),
