@@ -89,6 +89,7 @@ const WorkItem: FC<IWorkItem> = ({
             fontSize: `calc(${FONT_SIZE} / 2)`,
             fontFamily: CONDENSED_FONT,
             flex: 1,
+            letterSpacing: '5px',
           }}
         >
           {title}
