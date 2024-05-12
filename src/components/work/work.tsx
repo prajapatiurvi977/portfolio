@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
 import HumberCurrent from '../../assets/images/work-humber-current.png';
-import TicTacToe from '../../assets/images/work-tic-tac-toe.png';
 import TimHortons from '../../assets/images/work-tim-hortons.png';
 import TorontoZoo from '../../assets/images/work-toronto-zoo.png';
 import { ROUTES } from '../../navigation/constants';
@@ -9,8 +8,6 @@ import { useUIContext } from '../../state/ui-context';
 import {
   HumberCurrentCategories,
   HumberCurrentDescription,
-  TicTacToeCategories,
-  TicTacToeDescription,
   TimHortonsCategories,
   TimHortonsDescription,
   TorontoZooCategories,
@@ -55,16 +52,16 @@ const WorkItems: IWorkItem[] = [
       ...commonStyles,
     },
   },
-  {
-    backgroundImage: TicTacToe,
-    title: 'TIC TAC TOE',
-    description: TicTacToeDescription,
-    labels: [...TicTacToeCategories],
-    destination: ROUTES.WORK_DETAIL.TIC_TAC_TOE,
-    containerStyleProps: {
-      ...commonStyles,
-    },
-  },
+  //   {
+  //     backgroundImage: TicTacToe,
+  //     title: 'TIC TAC TOE',
+  //     description: TicTacToeDescription,
+  //     labels: [...TicTacToeCategories],
+  //     destination: ROUTES.WORK_DETAIL.TIC_TAC_TOE,
+  //     containerStyleProps: {
+  //       ...commonStyles,
+  //     },
+  //   },
 ];
 
 const Work: FC = () => {
