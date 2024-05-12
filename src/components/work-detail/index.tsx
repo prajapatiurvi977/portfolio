@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ROUTES } from '../../navigation/constants';
+import { UIContextProvider } from '../../state/ui-context';
 import type { ITabListProps } from '../tab-list';
 import { TabList } from '../tab-list';
 import { HumberCurrent } from './humber-current';
@@ -36,15 +37,17 @@ const WorkDetail = () => {
         width: '100%',
       }}
     >
-      <TabList
-        listConfig={listConfig}
-        includeFooter={false}
-        backNavButtonTarget={ROUTES.ROOT}
-        initialSelectedTabId={initialSelectedTabId}
-        onTabSelected={(tabId) => {
-          navigate(`${ROUTES.WORK_DETAIL.ROOT}/${tabId}`);
-        }}
-      />
+      <UIContextProvider>
+        <TabList
+          listConfig={listConfig}
+          includeFooter={false}
+          backNavButtonTarget={ROUTES.ROOT}
+          initialSelectedTabId={initialSelectedTabId}
+          onTabSelected={(tabId) => {
+            navigate(`${ROUTES.WORK_DETAIL.ROOT}/${tabId}`);
+          }}
+        />
+      </UIContextProvider>
     </div>
   );
 };
