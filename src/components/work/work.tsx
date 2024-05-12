@@ -6,24 +6,27 @@ import TimHortons from '../../assets/images/work-tim-hortons.png';
 import TorontoZoo from '../../assets/images/work-toronto-zoo.png';
 import { ROUTES } from '../../navigation/constants';
 import { useUIContext } from '../../state/ui-context';
+import {
+  HumberCurrentCategories,
+  TicTacToeCategories,
+  TimHortonsCategories,
+  TorontoZooCategories,
+} from '../constants';
 import type { IWorkItem } from './work-item';
 import { WorkItem } from './work-item';
 
-const UX_UI_DESIGN = 'UX/UI Design';
-const INTERACTION_DESIGN = 'Interaction Design';
-const RESPONSIVE_DESIGN = 'Responsive Design';
-const WEB_DESIGN = 'Web Design';
 const itemSpace = '60px';
 const commonStyles = {
   marginBottom: itemSpace,
   maxWidth: `calc(50% - ${itemSpace} / 2 - 4)`,
 };
+
 const WorkItems: IWorkItem[] = [
   {
     backgroundImage: TimHortons,
     title: 'TIM HORTONS',
     description: 'Research & Redesign of App Navigation for order path',
-    labels: [UX_UI_DESIGN, INTERACTION_DESIGN, 'User Research', 'App Design'],
+    labels: [...TimHortonsCategories],
     destination: ROUTES.WORK_DETAIL.TIM_HORTONS,
     containerStyleProps: {
       ...commonStyles,
@@ -34,7 +37,7 @@ const WorkItems: IWorkItem[] = [
     title: 'TORONTO ZOO',
     description:
       'Redesign of Site Navigation, UI/Visual Design, and Ticket Purchasing',
-    labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
+    labels: [...TorontoZooCategories],
     destination: ROUTES.WORK_DETAIL.TORONTO_ZOO,
     containerStyleProps: {
       ...commonStyles,
@@ -44,7 +47,7 @@ const WorkItems: IWorkItem[] = [
     backgroundImage: HumberCurrent,
     title: 'HUMBER CURRENT',
     description: 'Redesign of Site Navigation, UI/Visual Design',
-    labels: [UX_UI_DESIGN, INTERACTION_DESIGN, RESPONSIVE_DESIGN, WEB_DESIGN],
+    labels: [...HumberCurrentCategories],
     destination: ROUTES.WORK_DETAIL.HUMBER_CURRENT,
     containerStyleProps: {
       ...commonStyles,
@@ -54,7 +57,7 @@ const WorkItems: IWorkItem[] = [
     backgroundImage: TicTacToe,
     title: 'TIC TAC TOE',
     description: 'Fun game out of learning ReactJS with UI Design',
-    labels: ['UI Development', 'ReactJS', 'JavaScript', 'Game Development'],
+    labels: [...TicTacToeCategories],
     destination: ROUTES.WORK_DETAIL.TIC_TAC_TOE,
     containerStyleProps: {
       ...commonStyles,

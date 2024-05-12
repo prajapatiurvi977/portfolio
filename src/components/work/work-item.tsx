@@ -10,13 +10,14 @@ import {
   VERTICAL_SPACE,
 } from '../../constants';
 import { ColoredText } from '../colored-text';
+import type { LabelsArray } from '../constants';
 
 interface IWorkItem {
   destination: string;
   backgroundImage: string;
   title: string;
   description: string;
-  labels: string[];
+  labels: LabelsArray;
   containerStyleProps?: Omit<CSSProperties, 'position' | 'backgroundImage'>;
 }
 
@@ -115,7 +116,7 @@ const WorkItem: FC<IWorkItem> = ({
         >
           {labels.map((label, index) => (
             <div
-              key={label}
+              key={label + String(index)}
               style={{
                 border: '1px solid',
                 padding: '4px 8px',
