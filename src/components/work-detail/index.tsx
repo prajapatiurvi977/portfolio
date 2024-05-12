@@ -14,14 +14,26 @@ interface WorkDetailParams extends Record<PropertyKey, any> {
 }
 
 const listConfig: ITabListProps['listConfig'] = [
-  { id: 'tim-hortons', title: 'TIM HORTONS', content: <TimHortons /> },
-  { id: 'toronto-zoo', title: 'TORONTO ZOO', content: <TorontoZoo /> },
+  {
+    id: 'tim-hortons',
+    title: 'TIM HORTONS',
+    content: <TimHortons isEven={true} />,
+  },
+  {
+    id: 'toronto-zoo',
+    title: 'TORONTO ZOO',
+    content: <TorontoZoo isEven={false} />,
+  },
   {
     id: 'humber-current',
     title: 'HUMBER CURRENT',
-    content: <HumberCurrent />,
+    content: <HumberCurrent isEven={true} />,
   },
-  { id: 'tic-tac-toe', title: 'TIC TAC TOE', content: <TicTacToe /> },
+  {
+    id: 'tic-tac-toe',
+    title: 'TIC TAC TOE',
+    content: <TicTacToe isEven={false} />,
+  },
 ];
 
 const WorkDetail = () => {
