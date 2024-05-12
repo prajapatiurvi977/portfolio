@@ -36,6 +36,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
         style={{
           display: 'flex',
           flexWrap: 'wrap',
+          gap: '0.5em 1em',
         }}
       >
         {tags.map((tag, index) => (
@@ -45,7 +46,6 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
               border: `1px solid ${isEven ? DARK_COLOR : LIGHT_COLOR}`,
               padding: '4px 8px',
               marginBottom: '0.5em',
-              ...(index > 0 && { marginLeft: '1em' }),
             }}
           >
             {tag}
