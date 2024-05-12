@@ -6,6 +6,7 @@ import {
   DARK_FONT,
   FONT_SIZE,
   LIGHT_COLOR,
+  VERTICAL_SPACE,
 } from '../../constants';
 
 interface ICommonIntroduction {
@@ -26,6 +27,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
           color: ACCENT_COLOR,
           fontFamily: DARK_FONT,
           fontSize: `calc(${FONT_SIZE} / 3)`,
+          margin: `calc(${VERTICAL_SPACE} / 2) 0`,
         }}
       >
         {description}
