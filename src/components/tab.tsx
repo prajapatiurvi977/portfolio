@@ -248,6 +248,14 @@ const OpenedTab: FC<IOpenedTab> = ({
           style={{
             position: 'absolute',
             left: `calc(${HORIZONTAL_SPACE}/2 - ${backButtonSize} / 2 )`,
+            width: backButtonSize,
+            height: backButtonSize,
+
+            ...(isMobileView && {
+              position: 'initial',
+              marginTop: `calc(-${HORIZONTAL_SPACE}/4)`,
+              marginBottom: `calc(${VERTICAL_SPACE} / 4)`,
+            }),
           }}
         >
           <BackNavButton
