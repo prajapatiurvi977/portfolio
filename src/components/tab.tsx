@@ -251,7 +251,7 @@ const OpenedTab: FC<IOpenedTab> = ({
           }}
         >
           <BackNavButton
-            to={backNavButtonTarget}
+            to={backNavButtonTarget ?? ''}
             linkContainerProps={{
               width: backButtonSize,
               height: backButtonSize,
