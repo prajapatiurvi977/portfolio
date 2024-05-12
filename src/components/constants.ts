@@ -3,6 +3,13 @@ const INTERACTION_DESIGN = 'Interaction Design';
 const RESPONSIVE_DESIGN = 'Responsive Design';
 const WEB_DESIGN = 'Web Design';
 
+const TimHortonsDescription =
+  'Research & Redesign of App Navigation for order path';
+const TorontoZooDescription =
+  'Redesign of Site Navigation, UI/Visual Design, and Ticket Purchasing';
+const HumberCurrentDescription =
+  'Redesign of Site Navigation, UI/Visual Design';
+const TicTacToeDescription = 'Fun game out of learning ReactJS with UI Design';
 const TimHortonsCategories = [
   UX_UI_DESIGN,
   INTERACTION_DESIGN,
@@ -36,8 +43,12 @@ type LabelsArray =
 
 export {
   HumberCurrentCategories,
+  HumberCurrentDescription,
   TicTacToeCategories,
+  TicTacToeDescription,
   TimHortonsCategories,
+  TimHortonsDescription,
   TorontoZooCategories,
+  TorontoZooDescription,
 };
 export type { LabelsArray };

@@ -8,9 +8,13 @@ import { ROUTES } from '../../navigation/constants';
 import { useUIContext } from '../../state/ui-context';
 import {
   HumberCurrentCategories,
+  HumberCurrentDescription,
   TicTacToeCategories,
+  TicTacToeDescription,
   TimHortonsCategories,
+  TimHortonsDescription,
   TorontoZooCategories,
+  TorontoZooDescription,
 } from '../constants';
 import type { IWorkItem } from './work-item';
 import { WorkItem } from './work-item';
@@ -25,7 +29,7 @@ const WorkItems: IWorkItem[] = [
   {
     backgroundImage: TimHortons,
     title: 'TIM HORTONS',
-    description: 'Research & Redesign of App Navigation for order path',
+    description: TimHortonsDescription,
     labels: [...TimHortonsCategories],
     destination: ROUTES.WORK_DETAIL.TIM_HORTONS,
     containerStyleProps: {
@@ -35,8 +39,7 @@ const WorkItems: IWorkItem[] = [
   {
     backgroundImage: TorontoZoo,
     title: 'TORONTO ZOO',
-    description:
-      'Redesign of Site Navigation, UI/Visual Design, and Ticket Purchasing',
+    description: TorontoZooDescription,
     labels: [...TorontoZooCategories],
     destination: ROUTES.WORK_DETAIL.TORONTO_ZOO,
     containerStyleProps: {
@@ -46,7 +49,7 @@ const WorkItems: IWorkItem[] = [
   {
     backgroundImage: HumberCurrent,
     title: 'HUMBER CURRENT',
-    description: 'Redesign of Site Navigation, UI/Visual Design',
+    description: HumberCurrentDescription,
     labels: [...HumberCurrentCategories],
     destination: ROUTES.WORK_DETAIL.HUMBER_CURRENT,
     containerStyleProps: {
@@ -56,7 +59,7 @@ const WorkItems: IWorkItem[] = [
   {
     backgroundImage: TicTacToe,
     title: 'TIC TAC TOE',
-    description: 'Fun game out of learning ReactJS with UI Design',
+    description: TicTacToeDescription,
     labels: [...TicTacToeCategories],
     destination: ROUTES.WORK_DETAIL.TIC_TAC_TOE,
     containerStyleProps: {
