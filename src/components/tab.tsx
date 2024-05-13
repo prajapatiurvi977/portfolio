@@ -255,6 +255,8 @@ const OpenedTab: FC<IOpenedTab> = ({
               position: 'initial',
               marginTop: `calc(-${HORIZONTAL_SPACE}/4)`,
               marginBottom: `calc(${VERTICAL_SPACE} / 4)`,
+              width: `calc(${backButtonSize} / 1.5)`,
+              height: `calc(${backButtonSize} / 1.5)`,
             }),
           }}
         >
@@ -263,6 +265,10 @@ const OpenedTab: FC<IOpenedTab> = ({
             linkContainerProps={{
               width: backButtonSize,
               height: backButtonSize,
+              ...(isMobileView && {
+                width: `calc(${backButtonSize} / 1.5)`,
+                height: `calc(${backButtonSize} / 1.5)`,
+              }),
             }}
           />
         </div>
@@ -308,7 +314,12 @@ const BackNavButton: FC<IBackNavButton> = ({ to, linkContainerProps }) => {
         ...linkContainerProps,
       }}
     >
-      <img src={ArrowLeftCircle} alt="Go back to Home screen." />
+      <img
+        src={ArrowLeftCircle}
+        alt="Go back to Home screen."
+        width="100%"
+        height="100%"
+      />
     </Link>
   );
 };
