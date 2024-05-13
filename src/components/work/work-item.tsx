@@ -98,7 +98,6 @@ const WorkItem: FC<IWorkItem> = ({
             fontFamily: LIGHT_FONT,
             fontSize: '20px',
             flex: 0.4,
-            letterSpacing: 3,
             display: 'flex',
             alignItems: 'flex-end',
             marginBottom: '20px',
