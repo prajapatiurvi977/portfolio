@@ -9,6 +9,7 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../constants';
+import { useUIContext } from '../../state/ui-context';
 
 interface ICommonIntroduction {
   subTitle: string;
@@ -35,6 +36,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
   imageSrc,
   hifiProtoTypeLink,
 }) => {
+  const { isMobileView } = useUIContext();
   const borderStyle = `1px solid ${isEven ? DARK_COLOR : LIGHT_COLOR}`;
   const gap = '20px';
   return (
@@ -76,6 +78,9 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
           display: 'flex',
           padding: gap,
           gap,
+          ...(isMobileView && {
+            flexDirection: 'column-reverse',
+          }),
         }}
       >
         <div
