@@ -56,6 +56,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
           display: 'flex',
           flexWrap: 'wrap',
           gap: '0.5em 1em',
+          marginBottom: `${VERTICAL_SPACE}`,
         }}
       >
         {tags.map((tag, index) => (
