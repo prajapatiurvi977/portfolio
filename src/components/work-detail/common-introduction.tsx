@@ -148,6 +148,10 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
               backgroundColor: ACCENT_COLOR,
               padding: '8px 12px',
               color: DARK_COLOR,
+              ...(isMobileView && {
+                alignSelf: 'stretch',
+                textAlign: 'center',
+              }),
             }}
           >
             View Hi-Fi prototype
