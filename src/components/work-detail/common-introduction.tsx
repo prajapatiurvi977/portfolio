@@ -40,7 +40,11 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
   const borderStyle = `1px solid ${isEven ? DARK_COLOR : LIGHT_COLOR}`;
   const gap = '20px';
   return (
-    <div>
+    <div
+      style={{
+        fontFamily: DARK_FONT,
+      }}
+    >
       <div
         style={{
           color: ACCENT_COLOR,
