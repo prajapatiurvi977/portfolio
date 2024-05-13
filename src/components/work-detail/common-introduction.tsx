@@ -128,7 +128,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
                   }}
                   key={label}
                 >
-                  <div>{label}</div>
+                  <div style={{ marginRight: '0.25em' }}>{label}:</div>
                   <div style={{ fontFamily: LIGHT_FONT }}>{value}</div>
                 </div>
               ))}
