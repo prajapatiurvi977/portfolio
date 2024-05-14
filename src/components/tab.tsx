@@ -235,8 +235,7 @@ const OpenedTab: FC<IOpenedTab> = ({
         flexDirection: 'column',
         alignItems: 'flex-start',
         flex: 1,
-        padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
-        maxHeight: `calc(${windowHeight}px - (2 * ${VERTICAL_SPACE}) - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
+        maxHeight: `calc(${windowHeight}px  - ${VERTICAL_SPACE} - ${FOOTER_ICON_SIZE})`,
         ...(isMobileView && {
           overflow: 'hidden',
           padding: VERTICAL_SPACE,
@@ -277,7 +276,10 @@ const OpenedTab: FC<IOpenedTab> = ({
         isMounted={true}
         id="tab-title-opened"
         animationDuration={ANIMATION_DURATION}
-        styleProps={{ ...titleContainerStyleProps }}
+        styleProps={{
+          padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
+          ...titleContainerStyleProps,
+        }}
       >
         {title}
       </AnimatedDiv>
@@ -285,10 +287,9 @@ const OpenedTab: FC<IOpenedTab> = ({
         style={{
           flex: 1,
           display: 'flex',
-          width: '100%',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          padding: `calc(${FONT_SIZE} / 3) 0 calc(${FONT_SIZE} / 1.5) 0`,
+          padding: `0 ${HORIZONTAL_SPACE} 0 ${HORIZONTAL_SPACE}`,
           overflowY: 'auto',
           letterSpacing: 'normal',
         }}
