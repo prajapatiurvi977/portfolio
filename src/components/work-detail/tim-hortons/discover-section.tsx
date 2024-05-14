@@ -60,12 +60,10 @@ const DiscoverSection = ({ isOnEvenTab }: { isOnEvenTab: boolean }) => {
         <ColoredText color="dark">missing dietary information</ColoredText>.
       </div>
       <br />
-      <div>
-        <ColoredText color="dark">
-          I interviewed 6 friends between 27-45 years old who uses Tim Hortons
-          in their day to day life.
-        </ColoredText>
-      </div>
+      <ColoredText color="dark">
+        I interviewed 6 friends between 27-45 years old who uses Tim Hortons in
+        their day to day life.
+      </ColoredText>
     </>
   );
 };
