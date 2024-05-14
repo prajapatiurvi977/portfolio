@@ -12,6 +12,7 @@ import {
 import { ColoredText } from '../colored-text';
 import { TimHortonsCategories, TimHortonsDescription } from '../constants';
 import { CommonIntroduction } from './common-introduction';
+import { SectionDivider } from './section-divider';
 import { SubHeading } from './sub-heading';
 
 interface ITimHortons {
@@ -47,6 +48,7 @@ const TimHortons: FC<ITimHortons> = ({ isEven }) => {
       </div>
       <SubHeading text="Design Process" isOnEvenTab={isEven} />
       <DesignProcessTable />
+      <SectionDivider text="Discover" isOnEvenTab={isEven} />
     </div>
   );
 };
