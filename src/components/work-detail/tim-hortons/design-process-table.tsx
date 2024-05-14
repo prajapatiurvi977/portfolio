@@ -8,75 +8,76 @@ import {
   LIGHT_FONT,
 } from '../../../constants';
 
-const DesignProcessTable = () => {
-  interface Link {
-    label: string;
-    target: string;
-  }
-  interface ITableColumn {
-    header: string;
-    links: Link[];
-  }
-  const discoverColumn: ITableColumn = {
-    header: 'Discover',
-    links: [
-      {
-        label: 'Research Process',
-        target: '#research-process',
-      },
-      {
-        label: 'How users feel?',
-        target: '#how-users-feel',
-      },
-    ],
-  };
-  const defineColumn: ITableColumn = {
-    header: 'Define',
-    links: [
-      {
-        label: 'HMW',
-        target: '#hmw',
-      },
-      {
-        label: 'Solution to HMW',
-        target: '#solution-to-hmw',
-      },
-    ],
-  };
-  const ideateColumn: ITableColumn = {
-    header: 'Ideate',
-    links: [
-      {
-        label: 'Pruning the User Flow',
-        target: '#pruning-user-flow',
-      },
-      {
-        label: 'Sketches',
-        target: '#sketches',
-      },
-      {
-        label: 'Iteration 1 Results',
-        target: '#iteration-1-results',
-      },
-    ],
-  };
-  const designColumn: ITableColumn = {
-    header: 'Design',
-    links: [
-      {
-        label: 'Hi-Fidelity Designs',
-        target: '#high-fidelity-designs',
-      },
-    ],
-  };
-  const deliverColumn: ITableColumn = {
-    header: 'Deliver',
-    links: [
-      { label: 'What next?', target: '#what-next' },
+interface Link {
+  label: string;
+  target: string;
+}
+interface ITableColumn {
+  header: string;
+  links: Link[];
+}
+const discoverColumn: ITableColumn = {
+  header: 'Discover',
+  links: [
+    {
+      label: 'Research Process',
+      target: 'research-process',
+    },
+    {
+      label: 'How users feel?',
+      target: 'how-users-feel',
+    },
+  ],
+};
+const defineColumn: ITableColumn = {
+  header: 'Define',
+  links: [
+    {
+      label: 'HMW',
+      target: 'hmw',
+    },
+    {
+      label: 'Solution to HMW',
+      target: 'solution-to-hmw',
+    },
+  ],
+};
+const ideateColumn: ITableColumn = {
+  header: 'Ideate',
+  links: [
+    {
+      label: 'Pruning the User Flow',
+      target: 'pruning-user-flow',
+    },
+    {
+      label: 'Sketches',
+      target: 'sketches',
+    },
+    {
+      label: 'Iteration 1 Results',
+      target: 'iteration-1-results',
+    },
+  ],
+};
+const designColumn: ITableColumn = {
+  header: 'Design',
+  links: [
+    {
+      label: 'Hi-Fidelity Designs',
+      target: 'high-fidelity-designs',
+    },
+  ],
+};
+const deliverColumn: ITableColumn = {
+  header: 'Deliver',
+  links: [
+    { label: 'What next?', target: 'what-next' },
 
-      { label: 'What I learned', target: '#what-i-learned' },
-    ],
-  };
+    { label: 'What I learned', target: 'what-i-learned' },
+  ],
+};
+
+const DesignProcessTable = () => {
   const tableSections: ITableColumn[] = [
     discoverColumn,
     defineColumn,
@@ -130,7 +131,7 @@ const DesignProcessTable = () => {
               {links.map(({ label, target }) => (
                 <li key={label}>
                   <a
-                    href={target}
+                    href={`#${target}`}
                     style={{
                       fontFamily: LIGHT_FONT,
                       color: DARK_COLOR,
@@ -148,4 +149,11 @@ const DesignProcessTable = () => {
   );
 };
 
-export { DesignProcessTable };
+export {
+  DesignProcessTable,
+  defineColumn,
+  deliverColumn,
+  designColumn,
+  discoverColumn,
+  ideateColumn,
+};
