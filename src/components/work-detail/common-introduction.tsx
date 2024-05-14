@@ -95,6 +95,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
             flexDirection: 'column',
             gap,
             alignItems: 'flex-start',
+            flex: 0.8,
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap }}>
@@ -157,7 +158,13 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
             View Hi-Fi prototype
           </a>
         </div>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            flex: 0.2,
+          }}
+        >
           <img
             src={imageSrc}
             aria-hidden
