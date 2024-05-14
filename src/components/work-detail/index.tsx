@@ -51,7 +51,7 @@ const WorkDetail = () => {
       <UIContextProvider>
         <TabList
           listConfig={listConfig}
-          includeFooter={false}
+          includeFooter={true}
           backNavButtonTarget={ROUTES.ROOT}
           initialSelectedTabId={initialSelectedTabId}
           onTabSelected={(tabId) => {
