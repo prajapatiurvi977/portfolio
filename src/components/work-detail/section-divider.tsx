@@ -28,8 +28,9 @@ const SectionDivider: FC<ISectionDivider> = ({
         color: ACCENT_COLOR,
         backgroundColor: isOnEvenTab ? DARK_COLOR : LIGHT_COLOR,
         padding: '20px',
-        paddingLeft: '120px',
+        paddingLeft: HORIZONTAL_SPACE,
         margin: `24px calc(-${HORIZONTAL_SPACE})`,
+        letterSpacing: '2px',
       }}
       {...containerAttributes}
     >
