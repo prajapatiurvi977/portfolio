@@ -4,10 +4,9 @@ import { LIGHT_FONT } from '../../../constants';
 import { ColoredText } from '../../colored-text';
 import { TimHortonsCategories, TimHortonsDescription } from '../../constants';
 import { CommonIntroduction } from '../common-introduction';
-import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
 import { DesignProcessTable } from './design-process-table';
-import { ResearchProcessTable } from './research-process-table';
+import { DiscoverSection } from './discover-section';
 
 interface ITimHortons {
   isEven: boolean;
@@ -42,30 +41,7 @@ const TimHortons = ({ isEven }: ITimHortons) => {
       </div>
       <SubHeading text="Design Process" isOnEvenTab={isEven} />
       <DesignProcessTable />
-      <SectionDivider text="Discover" isOnEvenTab={isEven} />
-      <SubHeading text="Research Process" isOnEvenTab={isEven} />
-      <div
-        style={{
-          fontFamily: LIGHT_FONT,
-        }}
-      >
-        I compared the features, strengths, and weaknesses of 2 food ordering
-        applications: Starbucks, Dunkin&apos; Donuts. This{' '}
-        <ColoredText color="dark">
-          helped prepare me for the user interviews
-        </ColoredText>{' '}
-        by giving me a better frame of reference for the types of resources our
-        users currently had available. Also, identifying competitors&apos;
-        common strengths and weaknesses helped me identify{' '}
-        <ColoredText color="dark">elements to mimic or avoid</ColoredText> in
-        developing our product.
-      </div>
-      <ResearchProcessTable
-        tableStyleProps={{
-          alignSelf: 'center',
-          margin: '64px auto',
-        }}
-      />
+      <DiscoverSection isOnEvenTab={isEven} />
     </div>
   );
 };

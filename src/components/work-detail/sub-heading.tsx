@@ -1,13 +1,18 @@
-import type { FC } from 'react';
+import type { HTMLAttributes } from 'react';
 import React from 'react';
 import { DARK_FONT, FONT_SIZE } from '../../constants';
 
 interface ISubHeading {
   text: string;
   isOnEvenTab: boolean;
+  containerAttributes?: HTMLAttributes<HTMLDivElement>;
 }
 
-const SubHeading: FC<ISubHeading> = ({ text, isOnEvenTab }) => {
+const SubHeading = ({
+  text,
+  isOnEvenTab,
+  containerAttributes,
+}: ISubHeading) => {
   return (
     <div
       style={{
@@ -18,6 +23,7 @@ const SubHeading: FC<ISubHeading> = ({ text, isOnEvenTab }) => {
         marginTop: '24px',
         marginBottom: '20px',
       }}
+      {...containerAttributes}
     >
       {text}
     </div>
