@@ -1,0 +1,73 @@
+import React from 'react';
+import WorkTimHortonsIntro from '../../../assets/images/work-tim-hortons-intro.png';
+import { LIGHT_FONT } from '../../../constants';
+import { ColoredText } from '../../colored-text';
+import { TimHortonsCategories, TimHortonsDescription } from '../../constants';
+import { CommonIntroduction } from '../common-introduction';
+import { SectionDivider } from '../section-divider';
+import { SubHeading } from '../sub-heading';
+import { DesignProcessTable } from './design-process-table';
+import { ResearchProcessTable } from './research-process-table';
+
+interface ITimHortons {
+  isEven: boolean;
+}
+
+const TimHortons = ({ isEven }: ITimHortons) => {
+  return (
+    <div>
+      <CommonIntroduction
+        subTitle={TimHortonsDescription}
+        isEven={isEven}
+        categories={[...TimHortonsCategories]}
+        description="Enhanced user interface with a simple grid menu, in-app navigation map, streamlined menu design, and direct cart addition feature to improve accessibility and shopping efficiency."
+        role="UX/UI Designer, UX Researcher"
+        screenSize="iPhone 13 & 14"
+        duration="May 2023 - July 2023"
+        tools="Figma, FigJam"
+        hifiProtoTypeLink="https://www.figma.com/proto/tG2riE7WCJJim6dhOaZVut/Tim-Hortons--Portfolio-1?page-id=0%3A1&type=design&node-id=11-66&viewport=676%2C273%2C0.15&t=VlRP24AAt1eo8f1L-1&scaling=scale-down&mode=design"
+        imageSrc={WorkTimHortonsIntro}
+      />
+      <SubHeading text="The Problem I knew" isOnEvenTab={isEven} />
+      <div
+        style={{
+          fontFamily: LIGHT_FONT,
+        }}
+      >
+        Tim Hortons&apos; millions of customers still prefer to{' '}
+        <ColoredText color="dark">order in person</ColoredText>. When I asked
+        customers about it, many said that the ordering process was{' '}
+        <ColoredText color="accent">too complicated</ColoredText> and the menu
+        was <ColoredText color="accent">hard to understand</ColoredText>.
+      </div>
+      <SubHeading text="Design Process" isOnEvenTab={isEven} />
+      <DesignProcessTable />
+      <SectionDivider text="Discover" isOnEvenTab={isEven} />
+      <SubHeading text="Research Process" isOnEvenTab={isEven} />
+      <div
+        style={{
+          fontFamily: LIGHT_FONT,
+        }}
+      >
+        I compared the features, strengths, and weaknesses of 2 food ordering
+        applications: Starbucks, Dunkin&apos; Donuts. This{' '}
+        <ColoredText color="dark">
+          helped prepare me for the user interviews
+        </ColoredText>{' '}
+        by giving me a better frame of reference for the types of resources our
+        users currently had available. Also, identifying competitors&apos;
+        common strengths and weaknesses helped me identify{' '}
+        <ColoredText color="dark">elements to mimic or avoid</ColoredText> in
+        developing our product.
+      </div>
+      <ResearchProcessTable
+        tableStyleProps={{
+          alignSelf: 'center',
+          margin: '64px auto',
+        }}
+      />
+    </div>
+  );
+};
+
+export { TimHortons };
