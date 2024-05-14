@@ -247,6 +247,7 @@ const OpenedTab: FC<IOpenedTab> = ({
           style={{
             position: 'absolute',
             left: `calc(${HORIZONTAL_SPACE}/2 - ${backButtonSize} / 2 )`,
+            top: `calc(${VERTICAL_SPACE} - 4px )`,
             width: backButtonSize,
             height: backButtonSize,
 
