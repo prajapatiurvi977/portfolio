@@ -8,6 +8,7 @@ import { SubHeading } from '../sub-heading';
 import { DefineSection } from './define-section';
 import { DesignProcessTable } from './design-process-table';
 import { DiscoverSection } from './discover-section';
+import { IdeateSection } from './ideate-section';
 
 interface ITimHortons {
   isEven: boolean;
@@ -44,6 +45,7 @@ const TimHortons = ({ isEven }: ITimHortons) => {
       <DesignProcessTable />
       <DiscoverSection isOnEvenTab={isEven} />
       <DefineSection isOnEvenTab={isEven} />
+      <IdeateSection isOnEvenTab={isEven} />
     </div>
   );
 };
