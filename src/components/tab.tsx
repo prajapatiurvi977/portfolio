@@ -294,9 +294,10 @@ const OpenedTab: FC<IOpenedTab> = ({
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          padding: `0 ${HORIZONTAL_SPACE} 0 ${HORIZONTAL_SPACE}`,
+          padding: `0 ${HORIZONTAL_SPACE}`,
           overflowY: 'auto',
           letterSpacing: 'normal',
+          width: `calc(100% - ${HORIZONTAL_SPACE} * 2)`,
         }}
       >
         {content}
