@@ -8,10 +8,10 @@ import {
   HORIZONTAL_SPACE,
   LIGHT_COLOR,
 } from '../../constants';
+import type { TabElementsConfig } from '../../types';
 
-interface ISectionDivider {
+interface ISectionDivider extends TabElementsConfig {
   text: string;
-  isOnEvenTab: boolean;
   containerAttributes?: HTMLAttributes<HTMLDivElement>;
 }
 

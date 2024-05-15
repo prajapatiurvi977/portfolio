@@ -6,3 +6,9 @@ declare module '*.svg' {
   const src: string;
   export default src;
 }
+
+interface TabElementsConfig {
+  isOnEvenTab: boolean;
+}
+
+export type { TabElementsConfig };

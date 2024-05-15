@@ -6,12 +6,12 @@ import {
   HORIZONTAL_SPACE,
   LIGHT_COLOR,
 } from '../../constants';
+import type { TabElementsConfig } from '../../types';
 import { SubHeading } from './sub-heading';
 
-interface IHowMightWeStatement {
+interface IHowMightWeStatement extends TabElementsConfig {
   problem: React.JSX.Element;
   statement: React.JSX.Element;
-  isOnEvenTab: boolean;
 }
 
 const HowMightWeStatement = ({

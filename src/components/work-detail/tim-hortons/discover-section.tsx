@@ -1,5 +1,6 @@
 import React from 'react';
 import { LIGHT_FONT } from '../../../constants';
+import type { TabElementsConfig } from '../../../types';
 import { ColoredText } from '../../colored-text';
 import { Persona } from '../persona';
 import { SectionDivider } from '../section-divider';
@@ -7,7 +8,7 @@ import { SubHeading } from '../sub-heading';
 import { discoverColumn } from './design-process-table';
 import { ResearchProcessTable } from './research-process-table';
 
-const DiscoverSection = ({ isOnEvenTab }: { isOnEvenTab: boolean }) => {
+const DiscoverSection = ({ isOnEvenTab }: TabElementsConfig) => {
   return (
     <>
       <SectionDivider text="Discover" isOnEvenTab={isOnEvenTab} />

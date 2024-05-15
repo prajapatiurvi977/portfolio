@@ -10,9 +10,10 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../constants';
+import type { TabElementsConfig } from '../../types';
 import { ColoredText } from '../colored-text';
 
-interface IPersona {
+interface IPersona extends TabElementsConfig {
   name: string;
   age: number;
   location: string;
@@ -20,7 +21,6 @@ interface IPersona {
   goals: string[];
   needs: string[];
   painPoints: string[];
-  isOnEvenTab: boolean;
   opportunity?: string[];
   userQuote?: string;
 }

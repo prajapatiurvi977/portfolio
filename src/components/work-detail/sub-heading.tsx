@@ -1,10 +1,10 @@
 import type { HTMLAttributes } from 'react';
 import React from 'react';
 import { DARK_FONT, FONT_SIZE } from '../../constants';
+import type { TabElementsConfig } from '../../types';
 
-interface ISubHeading {
+interface ISubHeading extends TabElementsConfig {
   text: string;
-  isOnEvenTab: boolean;
   containerAttributes?: HTMLAttributes<HTMLDivElement>;
 }
 

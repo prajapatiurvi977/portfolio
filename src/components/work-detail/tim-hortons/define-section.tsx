@@ -1,15 +1,12 @@
 import React from 'react';
 import { DARK_FONT } from '../../../constants';
+import type { TabElementsConfig } from '../../../types';
 import { ColoredText } from '../../colored-text';
 import { HowMightWeStatement } from '../how-might-we-statement';
 import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
 
-interface IDefineSection {
-  isOnEvenTab: boolean;
-}
-
-const DefineSection = ({ isOnEvenTab }: IDefineSection) => {
+const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
   return (
     <>
       <SectionDivider text="Define" isOnEvenTab={isOnEvenTab} />

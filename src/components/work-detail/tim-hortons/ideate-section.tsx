@@ -1,0 +1,3 @@
+const IdeateSection = () => {};
+
+export { IdeateSection };
