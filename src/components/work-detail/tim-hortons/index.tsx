@@ -16,7 +16,7 @@ interface ITimHortons {
 
 const TimHortons = ({ isEven }: ITimHortons) => {
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <CommonIntroduction
         subTitle={TimHortonsDescription}
         isEven={isEven}
