@@ -72,8 +72,8 @@ const deliverColumn: ITableColumn = {
   header: 'Deliver',
   links: [
     { label: 'What next?', target: 'what-next' },
-
     { label: 'What I learned', target: 'what-i-learned' },
+    { label: 'Achievements', target: 'achievements' },
   ],
 };
 
