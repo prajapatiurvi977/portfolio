@@ -1,7 +1,7 @@
 import React from 'react';
 import { LIGHT_FONT } from '../../../constants';
-import type { TabElementsConfig } from '../../../types';
 import { ColoredText } from '../../colored-text';
+import type { TabElementsConfig } from '../../tab';
 import { Persona } from '../persona';
 import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';

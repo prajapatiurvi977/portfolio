@@ -40,6 +40,10 @@ interface ITabProps {
   backNavButtonTarget?: string;
 }
 
+interface TabElementsConfig {
+  isOnEvenTab: boolean;
+}
+
 const Tab: FC<ITabProps> = ({
   id,
   title,
@@ -325,4 +329,5 @@ const BackNavButton: FC<IBackNavButton> = ({ to, linkContainerProps }) => {
     </Link>
   );
 };
-export { Tab, type ITabProps };
+export { Tab };
+export type { ITabProps, TabElementsConfig };

@@ -6,7 +6,7 @@ import {
   HORIZONTAL_SPACE,
   LIGHT_COLOR,
 } from '../../constants';
-import type { TabElementsConfig } from '../../types';
+import type { TabElementsConfig } from '../tab';
 import { SubHeading } from './sub-heading';
 
 interface IHowMightWeStatement extends TabElementsConfig {

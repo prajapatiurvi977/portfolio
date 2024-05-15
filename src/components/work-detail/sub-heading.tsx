@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
 import React from 'react';
 import { DARK_FONT, FONT_SIZE } from '../../constants';
-import type { TabElementsConfig } from '../../types';
+import type { TabElementsConfig } from '../tab';
 
 interface ISubHeading extends TabElementsConfig {
   text: string;

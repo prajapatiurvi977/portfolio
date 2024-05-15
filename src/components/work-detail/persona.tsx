@@ -10,8 +10,8 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../constants';
-import type { TabElementsConfig } from '../../types';
 import { ColoredText } from '../colored-text';
+import type { TabElementsConfig } from '../tab';
 
 interface IPersona extends TabElementsConfig {
   name: string;

@@ -8,7 +8,7 @@ import {
   HORIZONTAL_SPACE,
   LIGHT_COLOR,
 } from '../../constants';
-import type { TabElementsConfig } from '../../types';
+import type { TabElementsConfig } from '../tab';
 
 interface ISectionDivider extends TabElementsConfig {
   text: string;
