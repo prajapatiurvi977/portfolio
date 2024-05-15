@@ -1,6 +1,7 @@
 import React from 'react';
 import { LIGHT_FONT } from '../../../constants';
 import { ColoredText } from '../../colored-text';
+import { Persona } from '../persona';
 import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
 import { discoverColumn } from './design-process-table';
@@ -64,6 +65,47 @@ const DiscoverSection = ({ isOnEvenTab }: { isOnEvenTab: boolean }) => {
         I interviewed 6 friends between 27-45 years old who uses Tim Hortons in
         their day to day life.
       </ColoredText>
+      <Persona
+        name="Lydia Martin"
+        age={27}
+        location="Toronto, CA"
+        position="Studying at Humber College"
+        isOnEvenTab={isOnEvenTab}
+        goals={[
+          'Reach college and work on time.',
+          'Minimal cooking while studying.',
+        ]}
+        needs={[
+          'Save time and order food on the way.',
+          'Get cheap affordable food.',
+        ]}
+        painPoints={[
+          'Offers does not navigate to actual menu item.',
+          'Not sure how many points would get added on current purchase items.',
+          'There is a cap on minimum order of 9$, which is mentioned at the very last checkout page. She had to go back and order extra food item.',
+        ]}
+      />
+      <Persona
+        name="Jameson Peralta"
+        age={35}
+        location="Toronto, CA"
+        position="Works at BMO"
+        isOnEvenTab={isOnEvenTab}
+        goals={[
+          'Reach office on time with breakfast and coffee.',
+          'Minimal cooking while working.',
+        ]}
+        needs={[
+          'Within half hour have to reach store, complete lunch, and return to work.',
+          'On time lunch.',
+          'Get cheap affordable food.',
+        ]}
+        painPoints={[
+          'Orders food via app, still have to wait at store.',
+          'Does not like that address needs to be added every time.',
+          'User expects to see actual time for order pickup.',
+        ]}
+      />
     </>
   );
 };
