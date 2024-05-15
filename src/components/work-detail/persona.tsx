@@ -40,6 +40,8 @@ const Persona = ({
   const divider = `1px solid ${isOnEvenTab ? DARK_COLOR : LIGHT_COLOR}`;
   const leftColFlex = 0.25;
   const rightColFlex = 0.75;
+  const leftColFontSize = `calc(${FONT_SIZE} / 2.5)`;
+  const rightColFontSize = `calc(${FONT_SIZE} / 4)`;
   const data: Array<{
     leftColumn: string;
     rightColumn: string[];
@@ -67,7 +69,7 @@ const Persona = ({
         border: `4px solid ${ACCENT_COLOR}`,
         padding: '20px',
         fontFamily: LIGHT_FONT,
-        margin: `${VERTICAL_SPACE} 0`,
+        margin: `calc(${VERTICAL_SPACE} *  1.5) 0`,
         color: isOnEvenTab ? DARK_COLOR : LIGHT_COLOR,
       }}
     >
@@ -140,7 +142,7 @@ const Persona = ({
           <div
             style={{
               fontFamily: DARK_FONT,
-              fontSize: `calc(${FONT_SIZE} / 3)`,
+              fontSize: leftColFontSize,
               flex: leftColFlex,
             }}
           >
@@ -154,6 +156,7 @@ const Persona = ({
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '8px',
+                fontSize: rightColFontSize,
                 ...(Boolean(shouldBoldRightColumn) && {
                   fontFamily: DARK_FONT,
                 }),
@@ -178,13 +181,13 @@ const Persona = ({
           <div
             style={{
               fontFamily: DARK_FONT,
-              fontSize: `calc(${FONT_SIZE} / 3)`,
+              fontSize: leftColFontSize,
               flex: leftColFlex,
             }}
           >
             Opportunity
           </div>
-          <div style={{ flex: rightColFlex }}>
+          <div style={{ flex: rightColFlex, fontSize: rightColFontSize }}>
             <ul
               style={{
                 margin: 0,
