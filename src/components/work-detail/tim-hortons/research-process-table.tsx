@@ -25,77 +25,81 @@ const ResearchProcessTable = ({
         ...tableStyleProps,
       }}
     >
-      <tr
-        style={{
-          fontFamily: DARK_FONT,
-          fontSize: `calc(${FONT_SIZE} / 2)`,
-        }}
-      >
-        <th
+      <thead>
+        <tr
           style={{
-            textAlign: 'left',
+            fontFamily: DARK_FONT,
+            fontSize: `calc(${FONT_SIZE} / 2)`,
           }}
         >
-          Feature
-        </th>
-        <th>
-          <img src={TimHortonsLogo} alt="TimHortons Logo" />
-        </th>
-        <th>
-          <img src={StarbucksLogo} alt="Starbucks Logo" />
-        </th>
-        <th>
-          <img src={DunkinLogo} alt="Dunkin Donuts Logo" />
-        </th>
-      </tr>
-      <tr>
-        <td
-          style={{
-            textAlign: 'left',
-          }}
-        >
-          Customization of items with clear names
-        </td>
-        <td>{SadSmiley}</td>
-        <td>{Smiley}</td>
-        <td>{Smiley}</td>
-      </tr>
-      <tr>
-        <td
-          style={{
-            textAlign: 'left',
-          }}
-        >
-          User Interface & Navigation
-        </td>
-        <td>{SadSmiley}</td>
-        <td>{SadSmiley}</td>
-        <td>{Smiley}</td>
-      </tr>
-      <tr>
-        <td
-          style={{
-            textAlign: 'left',
-          }}
-        >
-          Order process & Post Checkout process
-        </td>
-        <td>{SadSmiley}</td>
-        <td>{Smiley}</td>
-        <td>{SadSmiley}</td>
-      </tr>
-      <tr>
-        <td
-          style={{
-            textAlign: 'left',
-          }}
-        >
-          Store locator feature
-        </td>
-        <td>{SadSmiley}</td>
-        <td>{Smiley}</td>
-        <td>{Smiley}</td>
-      </tr>
+          <th
+            style={{
+              textAlign: 'left',
+            }}
+          >
+            Feature
+          </th>
+          <th>
+            <img src={TimHortonsLogo} alt="TimHortons Logo" />
+          </th>
+          <th>
+            <img src={StarbucksLogo} alt="Starbucks Logo" />
+          </th>
+          <th>
+            <img src={DunkinLogo} alt="Dunkin Donuts Logo" />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            style={{
+              textAlign: 'left',
+            }}
+          >
+            Customization of items with clear names
+          </td>
+          <td>{SadSmiley}</td>
+          <td>{Smiley}</td>
+          <td>{Smiley}</td>
+        </tr>
+        <tr>
+          <td
+            style={{
+              textAlign: 'left',
+            }}
+          >
+            User Interface & Navigation
+          </td>
+          <td>{SadSmiley}</td>
+          <td>{SadSmiley}</td>
+          <td>{Smiley}</td>
+        </tr>
+        <tr>
+          <td
+            style={{
+              textAlign: 'left',
+            }}
+          >
+            Order process & Post Checkout process
+          </td>
+          <td>{SadSmiley}</td>
+          <td>{Smiley}</td>
+          <td>{SadSmiley}</td>
+        </tr>
+        <tr>
+          <td
+            style={{
+              textAlign: 'left',
+            }}
+          >
+            Store locator feature
+          </td>
+          <td>{SadSmiley}</td>
+          <td>{Smiley}</td>
+          <td>{Smiley}</td>
+        </tr>
+      </tbody>
     </table>
   );
 };

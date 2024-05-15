@@ -37,10 +37,10 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         }}
         isOnEvenTab={isOnEvenTab}
       />
-      <text>
+      <div>
         I brainstormed the solution and started my ideas drawing on plain cards
         first.
-      </text>
+      </div>
       <img
         src={LowFiDesigns}
         alt="Low-Fi designs"

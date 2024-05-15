@@ -90,17 +90,17 @@ const Persona = ({
           <div
             style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
           >
-            <text
+            <div
               style={{
                 fontFamily: DARK_FONT,
                 fontSize: `calc(${FONT_SIZE} / 2)`,
               }}
             >
               {name}
-            </text>
-            <text style={{ fontSize: `calc(${FONT_SIZE} / 2.5)` }}>
+            </div>
+            <div style={{ fontSize: `calc(${FONT_SIZE} / 2.5)` }}>
               <ColoredText color="dark">Age:</ColoredText> {age}
-            </text>
+            </div>
           </div>
           <div
             style={{
@@ -119,13 +119,11 @@ const Persona = ({
               }}
             >
               <img src={LocationMarkerImg} alt="Location marker" aria-hidden />
-              <text style={{ fontSize: `calc(${FONT_SIZE} / 2.5)` }}>
+              <div style={{ fontSize: `calc(${FONT_SIZE} / 2.5)` }}>
                 {location}
-              </text>
+              </div>
             </div>
-            <text style={{ fontSize: `calc(${FONT_SIZE} / 3)` }}>
-              {position}
-            </text>
+            <div style={{ fontSize: `calc(${FONT_SIZE} / 3)` }}>{position}</div>
           </div>
         </div>
       </div>
@@ -213,9 +211,9 @@ const Persona = ({
             alignItems: 'center',
           }}
         >
-          <text>&quot;{userQuote}&quot;</text>
+          <div>&quot;{userQuote}&quot;</div>
           <br />
-          <text>-User Quote</text>
+          <div>-User Quote</div>
         </div>
       )}
     </div>
