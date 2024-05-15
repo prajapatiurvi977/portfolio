@@ -46,6 +46,7 @@ const WorkDetail = () => {
         margin: 0,
         height: '100%',
         width: '100%',
+        fontSize: '20px',
       }}
     >
       <UIContextProvider>
