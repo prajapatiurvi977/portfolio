@@ -10,6 +10,7 @@ import {
   VERTICAL_SPACE,
 } from '../../constants';
 import { useUIContext } from '../../state/ui-context';
+import { HiFiDesignLink } from './hifi-design-link';
 
 interface ICommonIntroduction {
   subTitle: string;
@@ -140,23 +141,7 @@ const CommonIntroduction: FC<ICommonIntroduction> = ({
               ))}
             </div>
           </div>
-          <a
-            href={hifiProtoTypeLink}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              textDecoration: 'none',
-              backgroundColor: ACCENT_COLOR,
-              padding: '8px 12px',
-              color: DARK_COLOR,
-              ...(isMobileView && {
-                alignSelf: 'stretch',
-                textAlign: 'center',
-              }),
-            }}
-          >
-            View Hi-Fi prototype
-          </a>
+          <HiFiDesignLink link={hifiProtoTypeLink} />
         </div>
         <div
           style={{
