@@ -5,6 +5,7 @@ import { ColoredText } from '../../colored-text';
 import { TimHortonsCategories, TimHortonsDescription } from '../../constants';
 import { CommonIntroduction } from '../common-introduction';
 import { SubHeading } from '../sub-heading';
+import { DefineSection } from './define-section';
 import { DesignProcessTable } from './design-process-table';
 import { DiscoverSection } from './discover-section';
 
@@ -42,6 +43,7 @@ const TimHortons = ({ isEven }: ITimHortons) => {
       <SubHeading text="Design Process" isOnEvenTab={isEven} />
       <DesignProcessTable />
       <DiscoverSection isOnEvenTab={isEven} />
+      <DefineSection isOnEvenTab={isEven} />
     </div>
   );
 };
