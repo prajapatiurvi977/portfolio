@@ -5,6 +5,7 @@ import type { TabElementsConfig } from '../../tab';
 import { HowMightWeStatement } from '../how-might-we-statement';
 import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
+import { defineColumn } from './design-process-table';
 
 const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
   return (
@@ -34,7 +35,13 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
         information they are looking for where they think the information should
         be.
       </text>
-      <SubHeading text="Solution to HMW" isOnEvenTab={isOnEvenTab} />
+      <SubHeading
+        text={defineColumn.links[1].label}
+        containerAttributes={{
+          id: defineColumn.links[1].target,
+        }}
+        isOnEvenTab={isOnEvenTab}
+      />
       <text style={{ fontFamily: DARK_FONT }}>
         Users search for the information they need, to address this, I
         customized menu design to see the exact prize and category. For store

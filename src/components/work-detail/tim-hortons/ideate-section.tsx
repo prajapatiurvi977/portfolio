@@ -6,12 +6,19 @@ import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
 import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
+import { ideateColumn } from './design-process-table';
 
 const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
   return (
     <div style={{ fontFamily: LIGHT_FONT }}>
       <SectionDivider text="Ideate" isOnEvenTab={isOnEvenTab} />
-      <SubHeading text="Pruning the user flow" isOnEvenTab={isOnEvenTab} />
+      <SubHeading
+        text={ideateColumn.links[0].label}
+        containerAttributes={{
+          id: ideateColumn.links[0].target,
+        }}
+        isOnEvenTab={isOnEvenTab}
+      />
       <img
         src={IdeateFlowChart}
         alt="Tim's flow chart"
@@ -23,7 +30,13 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         <ColoredText color="dark">minimizing the number of clicks</ColoredText>{' '}
         the user would have to make to reach the key features.
       </div>
-      <SubHeading text="Sketches" isOnEvenTab={isOnEvenTab} />
+      <SubHeading
+        text={ideateColumn.links[1].label}
+        containerAttributes={{
+          id: ideateColumn.links[1].target,
+        }}
+        isOnEvenTab={isOnEvenTab}
+      />
       <text>
         I brainstormed the solution and started my ideas drawing on plain cards
         first.
@@ -38,7 +51,13 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         Conducted moderated usability tests on sketches with 5 participants via
         Zoom.
       </div>
-      <SubHeading text="Iteration 1 Results" isOnEvenTab={isOnEvenTab} />
+      <SubHeading
+        text={ideateColumn.links[2].label}
+        containerAttributes={{
+          id: ideateColumn.links[2].target,
+        }}
+        isOnEvenTab={isOnEvenTab}
+      />
       <div style={{ marginBottom: VERTICAL_SPACE }}>
         After conducting a usability test, feedback revealed several issues with
         the design. Users expressed{' '}
