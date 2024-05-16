@@ -6,7 +6,9 @@ import { TimHortonsCategories, TimHortonsDescription } from '../../constants';
 import { CommonIntroduction } from '../common-introduction';
 import { SubHeading } from '../sub-heading';
 import { DefineSection } from './define-section';
+import { DeliverSection } from './deliver-section';
 import { DesignProcessTable } from './design-process-table';
+import { DesignSection } from './design-section';
 import { DiscoverSection } from './discover-section';
 import { IdeateSection } from './ideate-section';
 
@@ -46,6 +48,8 @@ const TimHortons = ({ isEven }: ITimHortons) => {
       <DiscoverSection isOnEvenTab={isEven} />
       <DefineSection isOnEvenTab={isEven} />
       <IdeateSection isOnEvenTab={isEven} />
+      <DesignSection isOnEvenTab={isEven} />
+      <DeliverSection isOnEvenTab={isEven} />
     </div>
   );
 };
