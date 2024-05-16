@@ -108,6 +108,7 @@ const DesignProcessTable = () => {
               padding: '20px',
               fontFamily: CONDENSED_FONT,
               fontSize: `calc(${FONT_SIZE} / 3)`,
+              letterSpacing: '2px',
             }}
           >
             {header}
