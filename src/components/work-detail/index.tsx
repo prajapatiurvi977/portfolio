@@ -5,6 +5,7 @@ import { UIContextProvider } from '../../state/ui-context';
 import type { ITabListProps } from '../tab-list';
 import { TabList } from '../tab-list';
 import { HumberCurrent } from './humber-current';
+import { TicTacToe } from './tic-tac-toe';
 import { TimHortons } from './tim-hortons';
 import { TorontoZoo } from './toronto-zoo';
 
@@ -28,11 +29,11 @@ const listConfig: ITabListProps['listConfig'] = [
     title: 'HUMBER CURRENT',
     content: <HumberCurrent isEven={true} />,
   },
-  //   {
-  //     id: 'tic-tac-toe',
-  //     title: 'TIC TAC TOE',
-  //     content: <TicTacToe isEven={false} />,
-  //   },
+  {
+    id: 'tic-tac-toe',
+    title: 'TIC TAC TOE',
+    content: <TicTacToe isEven={false} />,
+  },
 ];
 
 const WorkDetail = () => {
