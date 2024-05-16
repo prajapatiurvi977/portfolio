@@ -1,5 +1,5 @@
 import React from 'react';
-import { DARK_FONT } from '../../../constants';
+import { LIGHT_FONT } from '../../../constants';
 import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
 import { HowMightWeStatement } from '../how-might-we-statement';
@@ -29,7 +29,7 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
           </div>
         }
       />
-      <div style={{ fontFamily: DARK_FONT }}>
+      <div style={{ fontFamily: LIGHT_FONT }}>
         I wanted to better understand our user&apos;s mental model to inform how
         the ordering process should be. I want the users to be able to find the
         information they are looking for where they think the information should
@@ -42,7 +42,7 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
         }}
         isOnEvenTab={isOnEvenTab}
       />
-      <div style={{ fontFamily: DARK_FONT }}>
+      <div style={{ fontFamily: LIGHT_FONT }}>
         Users search for the information they need, to address this, I
         customized menu design to see the exact prize and category. For store
         navigation, added map on screen to give better sense of directions. To
