@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ChevronRight from '../../assets/images/chevron-right.svg';
+import { VERTICAL_SPACE } from '../../constants';
 const Carousel = ({ items }: { items: React.JSX.Element[] }) => {
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
   return (
@@ -7,6 +8,7 @@ const Carousel = ({ items }: { items: React.JSX.Element[] }) => {
       style={{
         position: 'relative',
         flex: 1,
+        margin: `${VERTICAL_SPACE} 0`,
       }}
     >
       {focusedIndex > 0 && (
@@ -73,8 +75,11 @@ const Arrow = ({
       style={{
         position: 'absolute',
         top: '50%',
+        border: '1px solid',
+        alignItems: 'center',
+        display: 'flex',
         ...(orientation === 'left'
-          ? { left: 0, rotate: '180deg' }
+          ? { left: 0, transform: 'rotate(180deg)' }
           : { right: 0 }),
       }}
       onClick={() => {
