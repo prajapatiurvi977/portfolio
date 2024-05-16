@@ -296,6 +296,7 @@ const OpenedTab: FC<IOpenedTab> = ({
           alignItems: 'flex-start',
           padding: `0 ${HORIZONTAL_SPACE}`,
           overflowY: 'auto',
+          scrollBehavior: 'smooth',
           letterSpacing: 'normal',
           width: `calc(100% - ${HORIZONTAL_SPACE} * 2)`,
         }}
