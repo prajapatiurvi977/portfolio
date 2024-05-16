@@ -20,7 +20,7 @@ const SubHeading = ({
         fontSize: `calc(${FONT_SIZE} / 1.5)`,
         color: isOnEvenTab ? '#000000' : '#FFFFFF',
         opacity: isOnEvenTab ? '50%' : '60%',
-        marginTop: '24px',
+        marginTop: '64px',
         marginBottom: '20px',
       }}
       {...containerAttributes}
