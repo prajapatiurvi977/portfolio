@@ -52,7 +52,7 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
           key={`what-next-${index}`}
           style={{
             border: '1px solid',
-            margin: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
+            margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE}) 0 calc(2 * ${HORIZONTAL_SPACE})`,
             padding: '20px',
           }}
         >
@@ -99,6 +99,8 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
           color: ACCENT_COLOR,
           fontFamily: DARK_FONT,
           marginBottom: VERTICAL_SPACE,
+          marginLeft: `calc(2 * ${HORIZONTAL_SPACE})`,
+          marginRight: `calc(2 * ${HORIZONTAL_SPACE})`,
         }}
       >
         <li

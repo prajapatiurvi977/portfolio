@@ -37,7 +37,7 @@ const HowMightWeStatement = ({
           fontFamily: DARK_FONT,
           fontSize: `calc(${FONT_SIZE} / 2.5)`,
           border: `1px solid ${isOnEvenTab ? DARK_COLOR : LIGHT_COLOR}`,
-          margin: `32px ${HORIZONTAL_SPACE}`,
+          margin: `32px calc(2 * ${HORIZONTAL_SPACE})`,
         }}
       >
         <div
