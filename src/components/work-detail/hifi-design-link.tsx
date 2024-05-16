@@ -1,5 +1,5 @@
 import React from 'react';
-import { ACCENT_COLOR, DARK_COLOR } from '../../constants';
+import { ACCENT_COLOR, DARK_COLOR, DARK_FONT } from '../../constants';
 import { useUIContext } from '../../state/ui-context';
 
 const HiFiDesignLink = ({
@@ -18,6 +18,7 @@ const HiFiDesignLink = ({
         backgroundColor: ACCENT_COLOR,
         padding: '8px 12px',
         color: DARK_COLOR,
+        fontFamily: DARK_FONT,
         ...(isMobileView && {
           alignSelf: 'stretch',
           textAlign: 'center',
