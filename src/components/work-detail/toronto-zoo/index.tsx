@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import React from 'react';
-import WorkTorontoZooIntro from '../../assets/images/work-toronto-zoo-intro.png';
-import { LIGHT_FONT } from '../../constants';
-import { TorontoZooCategories, TorontoZooDescription } from '../constants';
-import { CommonIntroduction } from './common-introduction';
-import { SubHeading } from './sub-heading';
+import WorkTorontoZooIntro from '../../../assets/images/work-toronto-zoo-intro.png';
+import { LIGHT_FONT } from '../../../constants';
+import { TorontoZooCategories, TorontoZooDescription } from '../../constants';
+import { CommonIntroduction } from '../common-introduction';
+import { SubHeading } from '../sub-heading';
 
 interface ITorontoZoo {
   isEven: boolean;
