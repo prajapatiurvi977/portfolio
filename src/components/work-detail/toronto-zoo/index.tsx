@@ -6,13 +6,14 @@ import { ColoredText } from '../../colored-text';
 import { TorontoZooCategories, TorontoZooDescription } from '../../constants';
 import { CommonIntroduction } from '../common-introduction';
 import { SubHeading } from '../sub-heading';
+import { DesignProcessTable } from './design-process-table';
 
 interface ITorontoZoo {
   isEven: boolean;
 }
 const TorontoZoo: FC<ITorontoZoo> = ({ isEven }) => {
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <CommonIntroduction
         subTitle={TorontoZooDescription}
         isEven={isEven}
@@ -43,6 +44,8 @@ const TorontoZoo: FC<ITorontoZoo> = ({ isEven }) => {
         revenue via ticket sales, increasing volunteers and generating online
         donations.
       </div>
+      <SubHeading text="Design Process" isOnEvenTab={isEven} />
+      <DesignProcessTable />
     </div>
   );
 };
