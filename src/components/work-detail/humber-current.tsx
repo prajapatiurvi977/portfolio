@@ -1,6 +1,6 @@
-import type { FC } from 'react';
 import React from 'react';
 import WorkHumberCurrentIntro from '../../assets/images/work-humber-current-intro.png';
+import type { IsEvenProp } from '../../common-types';
 import {
   HumberCurrentCategories,
   HumberCurrentDescription,
@@ -8,10 +8,7 @@ import {
 import { CommonIntroduction } from './common-introduction';
 import { SubHeading } from './sub-heading';
 
-interface IHumberCurrent {
-  isEven: boolean;
-}
-const HumberCurrent: FC<IHumberCurrent> = ({ isEven }) => {
+const HumberCurrent = ({ isEven }: IsEvenProp) => {
   return (
     <div>
       <CommonIntroduction

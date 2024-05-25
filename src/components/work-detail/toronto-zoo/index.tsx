@@ -1,6 +1,6 @@
-import type { FC } from 'react';
 import React from 'react';
 import WorkTorontoZooIntro from '../../../assets/images/work-toronto-zoo-intro.png';
+import type { IsEvenProp } from '../../../common-types';
 import { LIGHT_FONT } from '../../../constants';
 import { ColoredText } from '../../colored-text';
 import { TorontoZooCategories, TorontoZooDescription } from '../../constants';
@@ -8,10 +8,7 @@ import { CommonIntroduction } from '../common-introduction';
 import { SubHeading } from '../sub-heading';
 import { DesignProcessTable } from './design-process-table';
 
-interface ITorontoZoo {
-  isEven: boolean;
-}
-const TorontoZoo: FC<ITorontoZoo> = ({ isEven }) => {
+const TorontoZoo = ({ isEven }: IsEvenProp) => {
   return (
     <div style={{ width: '100%' }}>
       <CommonIntroduction

@@ -1,5 +1,6 @@
 import React from 'react';
 import WorkTimHortonsIntro from '../../../assets/images/work-tim-hortons-intro.png';
+import type { IsEvenProp } from '../../../common-types';
 import { LIGHT_FONT } from '../../../constants';
 import { ColoredText } from '../../colored-text';
 import { TimHortonsCategories, TimHortonsDescription } from '../../constants';
@@ -12,11 +13,7 @@ import { DesignSection } from './design-section';
 import { DiscoverSection } from './discover-section';
 import { IdeateSection } from './ideate-section';
 
-interface ITimHortons {
-  isEven: boolean;
-}
-
-const TimHortons = ({ isEven }: ITimHortons) => {
+const TimHortons = ({ isEven }: IsEvenProp) => {
   return (
     <div style={{ width: '100%' }}>
       <CommonIntroduction

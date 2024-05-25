@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
+import type { IsEvenProp } from '../../common-types';
 import {
   ACCENT_COLOR,
   DARK_COLOR,
@@ -11,11 +12,9 @@ import {
 } from '../../constants';
 import { useUIContext } from '../../state/ui-context';
 import { HiFiDesignLink } from './hifi-design-link';
-
-interface ICommonIntroduction {
+interface ICommonIntroduction extends IsEvenProp {
   subTitle: string;
   categories: string[];
-  isEven: boolean;
   role: string;
   screenSize: string;
   duration: string;

@@ -1,12 +1,9 @@
-import type { FC } from 'react';
 import React from 'react';
+import type { IsEvenProp } from '../../common-types';
 import { TicTacToeCategories, TicTacToeDescription } from '../constants';
 import { CommonIntroduction } from './common-introduction';
 
-interface ITicTacToe {
-  isEven: boolean;
-}
-const TicTacToe: FC<ITicTacToe> = ({ isEven }) => {
+const TicTacToe = ({ isEven }: IsEvenProp) => {
   return (
     <div>
       <CommonIntroduction
