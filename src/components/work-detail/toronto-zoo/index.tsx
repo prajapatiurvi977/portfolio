@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React from 'react';
 import WorkTorontoZooIntro from '../../../assets/images/work-toronto-zoo-intro.png';
 import { LIGHT_FONT } from '../../../constants';
+import { ColoredText } from '../../colored-text';
 import { TorontoZooCategories, TorontoZooDescription } from '../../constants';
 import { CommonIntroduction } from '../common-introduction';
 import { SubHeading } from '../sub-heading';
@@ -32,10 +33,15 @@ const TorontoZoo: FC<ITorontoZoo> = ({ isEven }) => {
       >
         During the problem sessions of Toronto Zoo website, we discovered some
         difficulty and uncertainty about ticket booking on Toronto zoo website.
-        The main goal of this project is to revamp the Toronto Zoo website to
-        cater to users&apos; need to purchase zoo tickets online, while also
-        fulfilling the Zoo&apos;s business objectives of generating revenue via
-        ticket sales, increasing volunteers and generating online donations.
+        The main goal of this project is to{' '}
+        <ColoredText color="accent">revamp</ColoredText> the Toronto Zoo website
+        to cater to{' '}
+        <ColoredText color="accent">
+          users&apos; need to purchase zoo tickets online
+        </ColoredText>
+        , while also fulfilling the Zoo&apos;s business objectives of generating
+        revenue via ticket sales, increasing volunteers and generating online
+        donations.
       </div>
     </div>
   );
