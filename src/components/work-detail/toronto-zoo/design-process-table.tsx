@@ -3,6 +3,10 @@ import React from 'react';
 import DesignSystemImage from '../../../assets/images/toronto-zoo/design-system-diagram.png';
 import type { IsEvenProp } from '../../../common-types';
 import { LIGHT_COLOR, LIGHT_FONT } from '../../../constants';
+import type {
+  HeaderRowTemplate,
+  ITableColumn,
+} from '../design-process-table-template';
 import {
   HeaderCell,
   HeaderRow,
@@ -10,15 +14,6 @@ import {
   RowContentWrapper,
   TableWrapper,
 } from '../design-process-table-template';
-
-interface Link {
-  label: string;
-  target: string;
-}
-interface ITableColumn {
-  header: string;
-  links: Link[];
-}
 
 const Row = ({ children }: PropsWithChildren) => {
   return (
@@ -34,12 +29,11 @@ const Row = ({ children }: PropsWithChildren) => {
 };
 
 const DesignProcessTable = ({ isEven }: IsEvenProp) => {
-  const headerRow: Array<ITableColumn['header']> = [
-    'Discover',
-    'Define',
-    'Ideate',
-    'Design',
-    'Deliver',
+  const headerRow: HeaderRowTemplate = [
+    { header: 'Discover', subHeader: 'Research' },
+    { header: 'Define', subHeader: 'Insights ' },
+    { header: 'Ideate', subHeader: 'Brainstorm' },
+    { header: 'Prototype', subHeader: 'Test ' },
   ];
   const dataRows: Array<ITableColumn['links']> = [
     [
@@ -103,8 +97,13 @@ const DesignProcessTable = ({ isEven }: IsEvenProp) => {
   return (
     <TableWrapper isEven={isEven}>
       <HeaderRow isEven={isEven}>
-        {headerRow.map((header) => (
-          <HeaderCell key={header} isEven={isEven} label={header} />
+        {headerRow.map(({ header, subHeader }) => (
+          <HeaderCell
+            key={header}
+            isEven={isEven}
+            header={header}
+            subHeader={subHeader}
+          />
         ))}
       </HeaderRow>
       <Row>

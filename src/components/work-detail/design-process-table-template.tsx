@@ -16,6 +16,7 @@ interface Link {
 }
 interface ITableColumn {
   header: string;
+  subHeader?: IHeaderCell['subHeader'];
   links: Link[];
 }
 
@@ -28,9 +29,10 @@ interface ITableStructure extends IsEvenProp {
 }
 
 interface IHeaderCell extends IsEvenProp {
-  label: string;
+  header: string;
+  subHeader?: string;
 }
-const HeaderCell = ({ isEven, label }: IHeaderCell) => {
+const HeaderCell = ({ isEven, header, subHeader }: IHeaderCell) => {
   return (
     <div
       style={{
@@ -41,9 +43,24 @@ const HeaderCell = ({ isEven, label }: IHeaderCell) => {
         fontSize: `calc(${FONT_SIZE} / 3)`,
         letterSpacing: '2px',
         flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
-      {label}
+      <div>{header}</div>
+      {subHeader !== undefined && (
+        <div
+          style={{
+            color: isEven ? LIGHT_COLOR : DARK_COLOR,
+            fontFamily: LIGHT_FONT,
+            fontSize: `calc(${FONT_SIZE} / 4.5)`,
+            letterSpacing: '0',
+          }}
+        >
+          {subHeader}
+        </div>
+      )}
     </div>
   );
 };
@@ -125,6 +142,8 @@ const TableWrapper = ({ isEven, children }: ITableWrapper) => {
   );
 };
 
+type HeaderRowTemplate = Array<Pick<ITableColumn, 'header' | 'subHeader'>>;
+
 const DesignProcessTableTemplate = ({
   discoverColumn,
   defineColumn,
@@ -133,13 +152,14 @@ const DesignProcessTableTemplate = ({
   deliverColumn,
   isEven,
 }: ITableStructure) => {
-  const headerRow: Array<ITableColumn['header']> = [
-    discoverColumn.header,
-    defineColumn.header,
-    ideateColumn.header,
-    designColumn.header,
-    deliverColumn.header,
-  ];
+  const headerRow: HeaderRowTemplate = [
+    discoverColumn,
+    defineColumn,
+    ideateColumn,
+    designColumn,
+    deliverColumn,
+  ].map(({ header, subHeader }) => ({ header, subHeader }));
+
   const dataRows: Array<ITableColumn['links']> = [
     discoverColumn.links,
     defineColumn.links,
@@ -150,8 +170,13 @@ const DesignProcessTableTemplate = ({
   return (
     <TableWrapper isEven={isEven}>
       <HeaderRow isEven={isEven}>
-        {headerRow.map((header) => (
-          <HeaderCell key={header} isEven={isEven} label={header} />
+        {headerRow.map(({ header, subHeader }) => (
+          <HeaderCell
+            key={header}
+            isEven={isEven}
+            header={header}
+            subHeader={subHeader}
+          />
         ))}
       </HeaderRow>
       <Row>
@@ -196,6 +221,7 @@ export {
   RowCell,
   RowContentWrapper,
   TableWrapper,
+  type HeaderRowTemplate,
   type ITableColumn,
   type Link,
 };
