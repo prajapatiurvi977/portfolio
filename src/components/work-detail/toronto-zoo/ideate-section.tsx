@@ -183,6 +183,26 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D304-4317%26viewport%3D522%252C-106%252C0.1%26t%3DJ8F0BSObGCnEsUcH-1%26scaling%3Dcontain%26starting-point-node-id%3D304%253A4317"
         styleProps={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}
       />
+      <SubHeading
+        text={ideateColumn.links[4].label}
+        containerAttributes={{
+          id: ideateColumn.links[4].target,
+        }}
+        isOnEvenTab={isOnEvenTab}
+      />
+      <p>
+        I conducted <ColoredText color="accent">usability testing</ColoredText>{' '}
+        with a low-fidelity prototype on six individuals, focusing on their task
+        to purchase tickets for a group. This testing highlighted usability
+        issues, particularly with the booking page layout.
+      </p>
+      <p>
+        Participants suggested the{' '}
+        <ColoredText color="accent">inclusion of a progress bar</ColoredText> to
+        track completed steps. In response, I implemented a progress bar to
+        enhance clarity and improve the user experience during the booking
+        process.
+      </p>
     </div>
   );
 };
