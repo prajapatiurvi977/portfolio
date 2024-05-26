@@ -7,6 +7,7 @@ import {
 } from '../../constants';
 import { CommonIntroduction } from '../common-introduction';
 import { SubHeading } from '../sub-heading';
+import { DesignProcessTable } from './design-process-table';
 
 const HumberCurrent = ({ isEven }: IsEvenProp) => {
   return (
@@ -24,6 +25,7 @@ const HumberCurrent = ({ isEven }: IsEvenProp) => {
         imageSrc={WorkHumberCurrentIntro}
       />
       <SubHeading text="Design Process" isOnEvenTab={isEven} />
+      <DesignProcessTable isEven={isEven} />
     </div>
   );
 };
