@@ -42,7 +42,7 @@ const TorontoZoo = ({ isEven }: IsEvenProp) => {
         donations.
       </div>
       <SubHeading text="Design Process" isOnEvenTab={isEven} />
-      <DesignProcessTable />
+      <DesignProcessTable isEven={isEven} />
     </div>
   );
 };

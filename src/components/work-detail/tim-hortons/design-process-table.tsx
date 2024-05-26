@@ -1,21 +1,8 @@
 import React from 'react';
-import {
-  ACCENT_COLOR,
-  CONDENSED_FONT,
-  DARK_COLOR,
-  FONT_SIZE,
-  LIGHT_COLOR,
-  LIGHT_FONT,
-} from '../../../constants';
+import type { IsEvenProp } from '../../../common-types';
+import type { ITableColumn } from '../design-process-table-template';
+import { DesignProcessTableTemplate } from '../design-process-table-template';
 
-interface Link {
-  label: string;
-  target: string;
-}
-interface ITableColumn {
-  header: string;
-  links: Link[];
-}
 const discoverColumn: ITableColumn = {
   header: 'Discover',
   links: [
@@ -77,76 +64,16 @@ const deliverColumn: ITableColumn = {
   ],
 };
 
-const DesignProcessTable = () => {
-  const tableSections: ITableColumn[] = [
-    discoverColumn,
-    defineColumn,
-    ideateColumn,
-    designColumn,
-    deliverColumn,
-  ];
+const DesignProcessTable = ({ isEven }: IsEvenProp) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        border: '1px solid',
-      }}
-    >
-      {tableSections.map(({ header, links }) => (
-        <div
-          style={{
-            flexDirection: 'column',
-            display: 'flex',
-            flex: 1,
-          }}
-          key={header}
-        >
-          <div
-            style={{
-              backgroundColor: DARK_COLOR,
-              color: ACCENT_COLOR,
-              padding: '20px',
-              fontFamily: CONDENSED_FONT,
-              fontSize: `calc(${FONT_SIZE} / 3)`,
-              letterSpacing: '2px',
-            }}
-          >
-            {header}
-          </div>
-          <div
-            style={{
-              backgroundColor: LIGHT_COLOR,
-              padding: '20px',
-              fontSize: `calc(${FONT_SIZE} / 4)`,
-            }}
-          >
-            <ul
-              style={{
-                margin: 0,
-                paddingLeft: '20px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '8px',
-              }}
-            >
-              {links.map(({ label, target }) => (
-                <li key={label}>
-                  <a
-                    href={`#${target}`}
-                    style={{
-                      fontFamily: LIGHT_FONT,
-                      color: DARK_COLOR,
-                    }}
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ))}
-    </div>
+    <DesignProcessTableTemplate
+      isEven={isEven}
+      discoverColumn={discoverColumn}
+      defineColumn={defineColumn}
+      ideateColumn={ideateColumn}
+      designColumn={designColumn}
+      deliverColumn={deliverColumn}
+    />
   );
 };
 

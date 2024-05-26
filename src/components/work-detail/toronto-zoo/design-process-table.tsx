@@ -1,14 +1,15 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 import DesignSystemImage from '../../../assets/images/toronto-zoo/design-system-diagram.png';
+import type { IsEvenProp } from '../../../common-types';
+import { LIGHT_COLOR, LIGHT_FONT } from '../../../constants';
 import {
-  ACCENT_COLOR,
-  CONDENSED_FONT,
-  DARK_COLOR,
-  FONT_SIZE,
-  LIGHT_COLOR,
-  LIGHT_FONT,
-} from '../../../constants';
+  HeaderCell,
+  HeaderRow,
+  RowCell,
+  RowContentWrapper,
+  TableWrapper,
+} from '../design-process-table-template';
 
 interface Link {
   label: string;
@@ -31,7 +32,8 @@ const Row = ({ children }: PropsWithChildren) => {
     </div>
   );
 };
-const DesignProcessTable = () => {
+
+const DesignProcessTable = ({ isEven }: IsEvenProp) => {
   const headerRow: Array<ITableColumn['header']> = [
     'Discover',
     'Define',
@@ -99,58 +101,19 @@ const DesignProcessTable = () => {
     ],
   ];
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        border: '1px solid',
-      }}
-    >
-      <Row>
+    <TableWrapper isEven={isEven}>
+      <HeaderRow isEven={isEven}>
         {headerRow.map((header) => (
-          <div
-            style={{
-              flexDirection: 'column',
-              display: 'flex',
-              flex: 1,
-              backgroundColor: LIGHT_COLOR,
-            }}
-            key={header}
-          >
-            <div
-              style={{
-                color: ACCENT_COLOR,
-                padding: '20px',
-                fontFamily: CONDENSED_FONT,
-                fontSize: `calc(${FONT_SIZE} / 3)`,
-                letterSpacing: '2px',
-                backgroundColor: DARK_COLOR,
-              }}
-            >
-              {header}
-            </div>
-          </div>
+          <HeaderCell key={header} isEven={isEven} label={header} />
         ))}
-      </Row>
+      </HeaderRow>
       <Row>
         <img src={DesignSystemImage} alt={'Design System'} width="100%" />
       </Row>
       <Row>
         {dataRows.map((links, index) => (
-          <div
-            style={{
-              flexDirection: 'column',
-              display: 'flex',
-              flex: 1,
-            }}
-            key={`data-row-${index}`}
-          >
-            <div
-              style={{
-                padding: '20px',
-                fontSize: `calc(${FONT_SIZE} / 4)`,
-              }}
-            >
+          <RowContentWrapper key={`data-row-${index}`}>
+            <RowCell isEven={isEven}>
               <ul
                 style={{
                   margin: 0,
@@ -175,11 +138,11 @@ const DesignProcessTable = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
+            </RowCell>
+          </RowContentWrapper>
         ))}
       </Row>
-    </div>
+    </TableWrapper>
   );
 };
 

@@ -41,7 +41,7 @@ const TimHortons = ({ isEven }: IsEvenProp) => {
         was <ColoredText color="accent">hard to understand</ColoredText>.
       </div>
       <SubHeading text="Design Process" isOnEvenTab={isEven} />
-      <DesignProcessTable />
+      <DesignProcessTable isEven={isEven} />
       <DiscoverSection isOnEvenTab={isEven} />
       <DefineSection isOnEvenTab={isEven} />
       <IdeateSection isOnEvenTab={isEven} />
