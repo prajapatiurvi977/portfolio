@@ -1,23 +1,12 @@
-import type { CSSProperties, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import React from 'react';
 import { LIGHT_FONT, VERTICAL_SPACE } from '../../../constants';
 import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
+import { FigmaFrame } from '../figma-frame';
 import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
 import { ideateColumn } from './design-process-table';
-
-const FigmaFrame = ({
-  src,
-  styleProps,
-}: {
-  src: string;
-  styleProps?: CSSProperties;
-}) => {
-  return (
-    <iframe width="100%" height="550" src={src} style={{ ...styleProps }} />
-  );
-};
 
 const SmallHeading = ({ children }: PropsWithChildren) => {
   return (
