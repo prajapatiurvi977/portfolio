@@ -47,7 +47,7 @@ const ideateColumn: ITableColumn = {
 
     {
       label: 'Visual Design',
-      target: 'Visual Design',
+      target: 'visual-design',
     },
   ],
 };
