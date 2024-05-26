@@ -5,7 +5,11 @@ import type {
 } from 'react';
 import React from 'react';
 import TorontoZooCardSorting from '../../../assets/images/toronto-zoo/card-sorting.png';
+import TorontoZooDesktopSketches from '../../../assets/images/toronto-zoo/desktop-sketches.png';
+import TorontoZooDesktopWireframes from '../../../assets/images/toronto-zoo/desktop-wireframes.png';
 import TorontoZooInformationArchitecture from '../../../assets/images/toronto-zoo/information-architecture.png';
+import TorontoZooMobileSketches from '../../../assets/images/toronto-zoo/mobile-sketches.png';
+import TorontoZooMobileWireframes from '../../../assets/images/toronto-zoo/mobile-wireframes.png';
 import TorontoZooUserFlow from '../../../assets/images/toronto-zoo/user-flow.png';
 import {
   ACCENT_COLOR,
@@ -15,32 +19,39 @@ import {
 } from '../../../constants';
 import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
-import { FigmaFrame } from '../figma-frame';
 import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
 import { ideateColumn } from './design-process-table';
 
-const SmallHeading = ({ children }: PropsWithChildren) => {
+const SmallHeadingLink = ({
+  href,
+  label,
+}: {
+  href: AnchorHTMLAttributes<any>['href'];
+  label: string;
+} & PropsWithChildren) => {
   return (
-    <ColoredText
+    <a
       color="accent"
-      styleProps={{
-        display: 'block',
-        margin: `calc(${VERTICAL_SPACE} / 2) 0 `,
+      style={{
+        color: ACCENT_COLOR,
       }}
+      href={href}
+      target="_blank"
+      rel="noreferrer"
     >
-      {children}
-    </ColoredText>
+      {label}
+    </a>
   );
 };
 
-const ImageWithFigJamLink = ({
-  imgSrc,
-  href,
-}: {
+interface ImageAndHrefProps {
   imgSrc: ImgHTMLAttributes<any>['src'];
+  imgAlt: ImgHTMLAttributes<any>['alt'];
   href: AnchorHTMLAttributes<any>['href'];
-}) => {
+}
+
+const ImageWithFigJamLink = ({ imgSrc, imgAlt, href }: ImageAndHrefProps) => {
   return (
     <div
       style={{
@@ -53,7 +64,7 @@ const ImageWithFigJamLink = ({
     >
       <img
         src={imgSrc}
-        alt="Toronto Zoo Card Sorting"
+        alt={imgAlt}
         style={{
           flex: 1,
           maxWidth: '100%',
@@ -71,6 +82,28 @@ const ImageWithFigJamLink = ({
         </a>{' '}
         link
       </div>
+    </div>
+  );
+};
+
+const SketchWithFigJamLink = ({
+  href,
+  imgAlt,
+  imgSrc,
+  label,
+}: { label: string } & ImageAndHrefProps) => {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        margin: `0 calc(${HORIZONTAL_SPACE} * 2)`,
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '20px',
+      }}
+    >
+      <SmallHeadingLink label={label} href={href} />
+      <img src={imgSrc} alt={imgAlt} width="100%" />
     </div>
   );
 };
@@ -111,6 +144,7 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
       </div>
       <ImageWithFigJamLink
         imgSrc={TorontoZooCardSorting}
+        imgAlt="Toronto Zoo Card Sorting"
         href="https://www.figma.com/board/bMyj3Ce4lz66DDUvUO1a9G/Toronto-Zoo---Card-Sorting%2C-Information-Architecture?node-id=166-4173&t=LHceEt7oOv61RPiW-0"
       />
       <SubHeading
@@ -150,6 +184,7 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
       </div>
       <ImageWithFigJamLink
         imgSrc={TorontoZooInformationArchitecture}
+        imgAlt="Toronto Zoo Information Architecture"
         href="https://www.figma.com/board/bMyj3Ce4lz66DDUvUO1a9G/Toronto-Zoo---Card-Sorting%2C-Information-Architecture?node-id=903-4112&t=LHceEt7oOv61RPiW-1"
       />
       <SubHeading
@@ -181,6 +216,7 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
       <ImageWithFigJamLink
         href="https://www.figma.com/board/bMyj3Ce4lz66DDUvUO1a9G/Toronto-Zoo---Card-Sorting%2C-Information-Architecture?node-id=909-3206&t=LHceEt7oOv61RPiW-1"
         imgSrc={TorontoZooUserFlow}
+        imgAlt="Toronto Zoo User Flow chart"
       />
       <SubHeading
         text="Sketches"
@@ -196,19 +232,28 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         patterns and figuring out how users would move from one screen to
         another.
       </div>
-      <SmallHeading>Desktop Screen Sketches</SmallHeading>
-      <FigmaFrame
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fembed_host%3Dshare%26kind%3Dproto%26node-id%3D112-4091%26page-id%3D1%253A2%26scaling%3Dcontain%26starting-point-node-id%3D112%253A4091%26t%3Do9gKx7qOm16LUJV3-1%26type%3Ddesign%26viewport%3D1407%252C888%252C0.13"
-        styleProps={{
-          marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: VERTICAL_SPACE,
+          margin: `${VERTICAL_SPACE} 0`,
         }}
-      />
+      >
+        <SketchWithFigJamLink
+          label="Desktop Screen Sketches"
+          href="https://www.figma.com/proto/8PBbMggHeXXXcKvLDIHF0N/Toronto-Zoo?page-id=1%3A2&type=design&node-id=112-4091&viewport=1407%2C888%2C0.13&t=QenDS8KEaJItQohv-1&scaling=scale-down&starting-point-node-id=112%3A4091"
+          imgAlt="Desktop Screen Sketches"
+          imgSrc={TorontoZooDesktopSketches}
+        />
 
-      <SmallHeading>Mobile Screen Sketches</SmallHeading>
-      <FigmaFrame
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D2-9%26viewport%3D503%252C293%252C0.14%26t%3DArJJUxwaQLUEL9Ij-1%26scaling%3Dcontain%26starting-point-node-id%3D2%253A9"
-        styleProps={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}
-      />
+        <SketchWithFigJamLink
+          label="Mobile Screen Sketches"
+          href="https://www.figma.com/proto/8PBbMggHeXXXcKvLDIHF0N/Toronto-Zoo?page-id=0%3A1&type=design&node-id=2-9&viewport=503%2C293%2C0.14&t=0iJgF9M8LW1LHjTt-1&scaling=scale-down&starting-point-node-id=2%3A9"
+          imgAlt="Mobile Screen Sketches"
+          imgSrc={TorontoZooMobileSketches}
+        />
+      </div>
       <SubHeading isOnEvenTab={isOnEvenTab} text="Wireframes" />
       <div>
         For the transition from sketches to wireframes, the desktop screens
@@ -224,16 +269,30 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         right, making room for a back button on the left, a shift from the
         previous design.
       </div>
-      <SmallHeading>Desktop Screen Wireframes</SmallHeading>
-      <FigmaFrame
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fpage-id%3D1%253A2%26type%3Ddesign%26node-id%3D272-3517%26viewport%3D236%252C-465%252C0.08%26t%3D12tqKNoljvKnMRfc-1%26scaling%3Dcontain%26starting-point-node-id%3D272%253A3517"
-        styleProps={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}
-      />
-      <SmallHeading>Mobile Screen Wireframes</SmallHeading>
-      <FigmaFrame
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D304-4317%26viewport%3D522%252C-106%252C0.1%26t%3DJ8F0BSObGCnEsUcH-1%26scaling%3Dcontain%26starting-point-node-id%3D304%253A4317"
-        styleProps={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}
-      />
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: VERTICAL_SPACE,
+          margin: `${VERTICAL_SPACE} 0`,
+        }}
+      >
+        <SketchWithFigJamLink
+          label="Desktop Screen Wireframes"
+          href="https://www.figma.com/proto/8PBbMggHeXXXcKvLDIHF0N/Toronto-Zoo?page-id=1%3A2&type=design&node-id=272-3517&viewport=236%2C-465%2C0.08&t=OuDWqQgKULBCAto8-1&scaling=scale-down&starting-point-node-id=272%3A3517"
+          imgAlt="Desktop Screen Wireframes"
+          imgSrc={TorontoZooDesktopWireframes}
+        />
+
+        <SketchWithFigJamLink
+          label="Mobile Screen Wireframes"
+          href="https://www.figma.com/proto/8PBbMggHeXXXcKvLDIHF0N/Toronto-Zoo?page-id=0%3A1&type=design&node-id=304-4317&viewport=522%2C-106%2C0.1&t=9tKTrTwEUHnTjx2K-1&scaling=scale-down&starting-point-node-id=304%3A4317"
+          imgAlt="Mobile Screen Wireframes"
+          imgSrc={TorontoZooMobileWireframes}
+        />
+      </div>
+
       <SubHeading
         text={ideateColumn.links[4].label}
         containerAttributes={{
