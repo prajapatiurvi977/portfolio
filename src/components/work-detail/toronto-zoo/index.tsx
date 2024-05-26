@@ -7,6 +7,7 @@ import { TorontoZooCategories, TorontoZooDescription } from '../../constants';
 import { CommonIntroduction } from '../common-introduction';
 import { SubHeading } from '../sub-heading';
 import { DesignProcessTable } from './design-process-table';
+import { DiscoverSection } from './discover-section';
 
 const TorontoZoo = ({ isEven }: IsEvenProp) => {
   return (
@@ -43,6 +44,7 @@ const TorontoZoo = ({ isEven }: IsEvenProp) => {
       </div>
       <SubHeading text="Design Process" isOnEvenTab={isEven} />
       <DesignProcessTable isEven={isEven} />
+      <DiscoverSection isOnEvenTab={isEven} />
     </div>
   );
 };
