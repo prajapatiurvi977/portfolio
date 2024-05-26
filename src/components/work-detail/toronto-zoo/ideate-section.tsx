@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import React from 'react';
 import { LIGHT_FONT, VERTICAL_SPACE } from '../../../constants';
 import { ColoredText } from '../../colored-text';
@@ -6,8 +7,16 @@ import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
 import { ideateColumn } from './design-process-table';
 
-const FigmaFrame = ({ src }: { src: string }) => {
-  return <iframe width="100%" height="550" src={src} />;
+const FigmaFrame = ({
+  src,
+  styleProps,
+}: {
+  src: string;
+  styleProps?: CSSProperties;
+}) => {
+  return (
+    <iframe width="100%" height="550" src={src} style={{ ...styleProps }} />
+  );
 };
 
 const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
@@ -122,7 +131,35 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         patterns and figuring out how users would move from one screen to
         another.
       </div>
-      {/* TODO: Put Desktop screen sketches here */}
+      <ColoredText
+        color="accent"
+        styleProps={{
+          display: 'block',
+          margin: `calc(${VERTICAL_SPACE} / 2) 0 `,
+        }}
+      >
+        Desktop Screen Sketches
+      </ColoredText>
+      <FigmaFrame
+        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fembed_host%3Dshare%26kind%3Dproto%26node-id%3D112-4091%26page-id%3D1%253A2%26scaling%3Dcontain%26starting-point-node-id%3D112%253A4091%26t%3Do9gKx7qOm16LUJV3-1%26type%3Ddesign%26viewport%3D1407%252C888%252C0.13"
+        styleProps={{
+          marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
+        }}
+      />
+
+      <ColoredText
+        color="accent"
+        styleProps={{
+          display: 'block',
+          margin: `calc(${VERTICAL_SPACE} / 2) 0`,
+        }}
+      >
+        Mobile Screen Sketches
+      </ColoredText>
+      <FigmaFrame
+        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D2-9%26viewport%3D503%252C293%252C0.14%26t%3DArJJUxwaQLUEL9Ij-1%26scaling%3Dcontain%26starting-point-node-id%3D2%253A9"
+        styleProps={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}
+      />
     </div>
   );
 };
