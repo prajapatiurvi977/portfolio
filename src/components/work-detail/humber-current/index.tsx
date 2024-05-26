@@ -1,6 +1,6 @@
 import React from 'react';
+import WorkHumberCurrentIntro from '../../../assets/images/work-humber-current-intro.png';
 import type { IsEvenProp } from '../../../common-types';
-import WorkHumberCurrentIntro from '../../assets/images/work-humber-current-intro.png';
 import {
   HumberCurrentCategories,
   HumberCurrentDescription,
