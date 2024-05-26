@@ -9,6 +9,7 @@ import { SubHeading } from '../sub-heading';
 import { DefineSection } from './define-section';
 import { DesignProcessTable } from './design-process-table';
 import { DiscoverSection } from './discover-section';
+import { IdeateSection } from './ideate-section';
 
 const TorontoZoo = ({ isEven }: IsEvenProp) => {
   return (
@@ -47,6 +48,7 @@ const TorontoZoo = ({ isEven }: IsEvenProp) => {
       <DesignProcessTable isEven={isEven} />
       <DiscoverSection isOnEvenTab={isEven} />
       <DefineSection isOnEvenTab={isEven} />
+      <IdeateSection isOnEvenTab={isEven} />
     </div>
   );
 };
