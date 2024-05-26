@@ -1,12 +1,12 @@
 import React from 'react';
+import type { IsEvenProp } from '../../../common-types';
 import WorkHumberCurrentIntro from '../../assets/images/work-humber-current-intro.png';
-import type { IsEvenProp } from '../../common-types';
 import {
   HumberCurrentCategories,
   HumberCurrentDescription,
-} from '../constants';
-import { CommonIntroduction } from './common-introduction';
-import { SubHeading } from './sub-heading';
+} from '../../constants';
+import { CommonIntroduction } from '../common-introduction';
+import { SubHeading } from '../sub-heading';
 
 const HumberCurrent = ({ isEven }: IsEvenProp) => {
   return (
