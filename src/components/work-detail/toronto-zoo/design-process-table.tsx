@@ -68,8 +68,8 @@ const ideateColumn: ITableColumn = {
     },
   ],
 };
-const prototypeColumn: ITableColumn = {
-  header: 'Prototype',
+const designColumn: ITableColumn = {
+  header: 'Design',
   subHeader: 'Test',
   links: [
     {
@@ -77,8 +77,8 @@ const prototypeColumn: ITableColumn = {
       target: 'design-system',
     },
     {
-      label: 'High-Fidelity Prototype',
-      target: 'high-fidelity-prototype',
+      label: 'Hi-Fi Designs',
+      target: 'hi-fi-designs',
     },
     {
       label: 'What I learned',
@@ -92,7 +92,7 @@ const DesignProcessTable = ({ isEven }: IsEvenProp) => {
     discoverColumn,
     defineColumn,
     ideateColumn,
-    prototypeColumn,
+    designColumn,
   ];
   const [headerRow, dataRows] = getHeaderAndDataRowsFromColumns(columns);
   return (
@@ -149,7 +149,7 @@ const DesignProcessTable = ({ isEven }: IsEvenProp) => {
 export {
   DesignProcessTable,
   defineColumn,
+  designColumn,
   discoverColumn,
   ideateColumn,
-  prototypeColumn,
 };
