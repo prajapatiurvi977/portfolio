@@ -56,7 +56,7 @@ const ImageWithFigJamLink = ({ imgSrc, imgAlt, href }: ImageAndHrefProps) => {
     <div
       style={{
         display: 'flex',
-        margin: `0 calc(${HORIZONTAL_SPACE} * 2)`,
+        margin: `${VERTICAL_SPACE} calc(${HORIZONTAL_SPACE} * 2)`,
         flexDirection: 'column',
         alignItems: 'center',
         gap: '20px',
