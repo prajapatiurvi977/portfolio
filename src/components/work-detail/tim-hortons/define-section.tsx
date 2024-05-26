@@ -4,7 +4,7 @@ import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
 import { HowMightWeStatement } from '../how-might-we-statement';
 import { SectionDivider } from '../section-divider';
-import { SubHeading } from '../sub-heading';
+import { SolutionToHmw } from '../solution-to-hmw';
 import { defineColumn } from './design-process-table';
 
 const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
@@ -36,20 +36,21 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
         information they are looking for where they think the information should
         be.
       </div>
-      <SubHeading
-        text={defineColumn.links[1].label}
-        containerAttributes={{
-          id: defineColumn.links[1].target,
-        }}
+      <SolutionToHmw
         isOnEvenTab={isOnEvenTab}
+        label={defineColumn.links[1].label}
+        target={defineColumn.links[1].target}
+        description={
+          <div>
+            Users search for the information they need, to address this, I
+            customized menu design to see the exact prize and category. For
+            store navigation, added map on screen to give better sense of
+            directions. To enable users to find directions to the exact store
+            they have selected, I want to add a directions CTA on the order
+            confirmation page.
+          </div>
+        }
       />
-      <div style={{ fontFamily: LIGHT_FONT }}>
-        Users search for the information they need, to address this, I
-        customized menu design to see the exact prize and category. For store
-        navigation, added map on screen to give better sense of directions. To
-        enable users to find directions to the exact store they have selected, I
-        want to add a directions CTA on the order confirmation page.
-      </div>
     </>
   );
 };
