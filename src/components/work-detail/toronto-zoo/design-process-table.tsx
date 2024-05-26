@@ -1,4 +1,3 @@
-import type { PropsWithChildren } from 'react';
 import React from 'react';
 import DesignSystemImage from '../../../assets/images/toronto-zoo/design-system-diagram.png';
 import type { IsEvenProp } from '../../../common-types';
@@ -10,23 +9,11 @@ import type {
 import {
   HeaderCell,
   HeaderRow,
+  Row,
   RowCell,
   RowContentWrapper,
   TableWrapper,
 } from '../design-process-table-template';
-
-const Row = ({ children }: PropsWithChildren) => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      {children}
-    </div>
-  );
-};
 
 const DesignProcessTable = ({ isEven }: IsEvenProp) => {
   const headerRow: HeaderRowTemplate = [

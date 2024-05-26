@@ -218,6 +218,7 @@ export {
   DesignProcessTableTemplate,
   HeaderCell,
   HeaderRow,
+  Row,
   RowCell,
   RowContentWrapper,
   TableWrapper,
