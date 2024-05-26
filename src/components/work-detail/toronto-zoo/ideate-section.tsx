@@ -107,11 +107,9 @@ const SketchWithFigJamLink = ({
     </div>
   );
 };
-
-const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
+const CardSorting = ({ isOnEvenTab }: TabElementsConfig) => {
   return (
-    <div style={{ fontFamily: LIGHT_FONT }}>
-      <SectionDivider text="Ideate" isOnEvenTab={isOnEvenTab} />
+    <>
       <SubHeading
         text={ideateColumn.links[0].label}
         containerAttributes={{
@@ -147,6 +145,12 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         imgAlt="Toronto Zoo Card Sorting"
         href="https://www.figma.com/board/bMyj3Ce4lz66DDUvUO1a9G/Toronto-Zoo---Card-Sorting%2C-Information-Architecture?node-id=166-4173&t=LHceEt7oOv61RPiW-0"
       />
+    </>
+  );
+};
+const InformationArchitecture = ({ isOnEvenTab }: TabElementsConfig) => {
+  return (
+    <>
       <SubHeading
         text={ideateColumn.links[1].label}
         containerAttributes={{
@@ -187,6 +191,12 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         imgAlt="Toronto Zoo Information Architecture"
         href="https://www.figma.com/board/bMyj3Ce4lz66DDUvUO1a9G/Toronto-Zoo---Card-Sorting%2C-Information-Architecture?node-id=903-4112&t=LHceEt7oOv61RPiW-1"
       />
+    </>
+  );
+};
+const UserFlow = ({ isOnEvenTab }: TabElementsConfig) => {
+  return (
+    <>
       <SubHeading
         text={ideateColumn.links[2].label}
         containerAttributes={{
@@ -218,6 +228,12 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         imgSrc={TorontoZooUserFlow}
         imgAlt="Toronto Zoo User Flow chart"
       />
+    </>
+  );
+};
+const Sketches = ({ isOnEvenTab }: TabElementsConfig) => {
+  return (
+    <>
       <SubHeading
         text="Sketches"
         containerAttributes={{
@@ -254,6 +270,12 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
           imgSrc={TorontoZooMobileSketches}
         />
       </div>
+    </>
+  );
+};
+const Wireframes = ({ isOnEvenTab }: TabElementsConfig) => {
+  return (
+    <>
       <SubHeading isOnEvenTab={isOnEvenTab} text="Wireframes" />
       <div>
         For the transition from sketches to wireframes, the desktop screens
@@ -292,7 +314,12 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
           imgSrc={TorontoZooMobileWireframes}
         />
       </div>
-
+    </>
+  );
+};
+const IterationBasedDesign = ({ isOnEvenTab }: TabElementsConfig) => {
+  return (
+    <>
       <SubHeading
         text={ideateColumn.links[4].label}
         containerAttributes={{
@@ -313,6 +340,20 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         enhance clarity and improve the user experience during the booking
         process.
       </p>
+    </>
+  );
+};
+
+const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
+  return (
+    <div style={{ fontFamily: LIGHT_FONT }}>
+      <SectionDivider text="Ideate" isOnEvenTab={isOnEvenTab} />
+      <CardSorting isOnEvenTab={isOnEvenTab} />
+      <InformationArchitecture isOnEvenTab={isOnEvenTab} />
+      <UserFlow isOnEvenTab={isOnEvenTab} />
+      <Sketches isOnEvenTab={isOnEvenTab} />
+      <Wireframes isOnEvenTab={isOnEvenTab} />
+      <IterationBasedDesign isOnEvenTab={isOnEvenTab} />
     </div>
   );
 };
