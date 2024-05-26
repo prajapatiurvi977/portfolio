@@ -1,6 +1,18 @@
-import type { PropsWithChildren } from 'react';
+import type {
+  AnchorHTMLAttributes,
+  ImgHTMLAttributes,
+  PropsWithChildren,
+} from 'react';
 import React from 'react';
-import { LIGHT_FONT, VERTICAL_SPACE } from '../../../constants';
+import TorontoZooCardSorting from '../../../assets/images/toronto-zoo/card-sorting.png';
+import TorontoZooInformationArchitecture from '../../../assets/images/toronto-zoo/information-architecture.png';
+import TorontoZooUserFlow from '../../../assets/images/toronto-zoo/user-flow.png';
+import {
+  ACCENT_COLOR,
+  HORIZONTAL_SPACE,
+  LIGHT_FONT,
+  VERTICAL_SPACE,
+} from '../../../constants';
 import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
 import { FigmaFrame } from '../figma-frame';
@@ -19,6 +31,47 @@ const SmallHeading = ({ children }: PropsWithChildren) => {
     >
       {children}
     </ColoredText>
+  );
+};
+
+const ImageWithFigJamLink = ({
+  imgSrc,
+  href,
+}: {
+  imgSrc: ImgHTMLAttributes<any>['src'];
+  href: AnchorHTMLAttributes<any>['href'];
+}) => {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        margin: `0 calc(${HORIZONTAL_SPACE} * 2)`,
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '20px',
+      }}
+    >
+      <img
+        src={imgSrc}
+        alt="Toronto Zoo Card Sorting"
+        style={{
+          flex: 1,
+          maxWidth: '100%',
+        }}
+      />
+      <div>
+        Click here to see{' '}
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: ACCENT_COLOR }}
+        >
+          FigJam
+        </a>{' '}
+        link
+      </div>
+    </div>
   );
 };
 
@@ -56,7 +109,10 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
           <ColoredText color="accent">efficiency</ColoredText>.
         </p>
       </div>
-      <FigmaFrame src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fboard%2FbMyj3Ce4lz66DDUvUO1a9G%2FToronto-Zoo---Card-Sorting%252C-Information-Architecture%3Fnode-id%3D166-4173%26t%3Dya6hV9qU9x3sVJZs-1" />
+      <ImageWithFigJamLink
+        imgSrc={TorontoZooCardSorting}
+        href="https://www.figma.com/board/bMyj3Ce4lz66DDUvUO1a9G/Toronto-Zoo---Card-Sorting%2C-Information-Architecture?node-id=166-4173&t=LHceEt7oOv61RPiW-0"
+      />
       <SubHeading
         text={ideateColumn.links[1].label}
         containerAttributes={{
@@ -92,7 +148,10 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
           simplifying the user&apos;s journey through the site.
         </p>
       </div>
-      <FigmaFrame src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fboard%2FbMyj3Ce4lz66DDUvUO1a9G%2FToronto-Zoo---Card-Sorting%252C-Information-Architecture%3Fnode-id%3D903-4112%26t%3Dya6hV9qU9x3sVJZs-1" />
+      <ImageWithFigJamLink
+        imgSrc={TorontoZooInformationArchitecture}
+        href="https://www.figma.com/board/bMyj3Ce4lz66DDUvUO1a9G/Toronto-Zoo---Card-Sorting%2C-Information-Architecture?node-id=903-4112&t=LHceEt7oOv61RPiW-1"
+      />
       <SubHeading
         text={ideateColumn.links[2].label}
         containerAttributes={{
@@ -119,7 +178,10 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         planned for 03/11/2023, and 2 adults will be accompanying a group of 5
         kids (age between 8-10).
       </p>
-      <FigmaFrame src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fboard%2FbMyj3Ce4lz66DDUvUO1a9G%2FToronto-Zoo---Card-Sorting%252C-Information-Architecture%3Fnode-id%3D909-3206%26t%3Dya6hV9qU9x3sVJZs-1" />
+      <ImageWithFigJamLink
+        href="https://www.figma.com/board/bMyj3Ce4lz66DDUvUO1a9G/Toronto-Zoo---Card-Sorting%2C-Information-Architecture?node-id=909-3206&t=LHceEt7oOv61RPiW-1"
+        imgSrc={TorontoZooUserFlow}
+      />
       <SubHeading
         text="Sketches"
         containerAttributes={{
