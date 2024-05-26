@@ -8,6 +8,7 @@ import { CommonIntroduction } from '../common-introduction';
 import { SubHeading } from '../sub-heading';
 import { DefineSection } from './define-section';
 import { DesignProcessTable } from './design-process-table';
+import { DesignSection } from './design-section';
 import { DiscoverSection } from './discover-section';
 import { IdeateSection } from './ideate-section';
 
@@ -49,6 +50,7 @@ const TorontoZoo = ({ isEven }: IsEvenProp) => {
       <DiscoverSection isOnEvenTab={isEven} />
       <DefineSection isOnEvenTab={isEven} />
       <IdeateSection isOnEvenTab={isEven} />
+      <DesignSection isOnEvenTab={isEven} />
     </div>
   );
 };
