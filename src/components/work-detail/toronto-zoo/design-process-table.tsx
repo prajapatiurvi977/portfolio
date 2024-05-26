@@ -2,10 +2,7 @@ import React from 'react';
 import DesignSystemImage from '../../../assets/images/toronto-zoo/design-system-diagram.png';
 import type { IsEvenProp } from '../../../common-types';
 import { LIGHT_COLOR, LIGHT_FONT } from '../../../constants';
-import type {
-  HeaderRowTemplate,
-  ITableColumn,
-} from '../design-process-table-template';
+import type { ITableColumn } from '../design-process-table-template';
 import {
   HeaderCell,
   HeaderRow,
@@ -13,74 +10,91 @@ import {
   RowCell,
   RowContentWrapper,
   TableWrapper,
+  getHeaderAndDataRowsFromColumns,
 } from '../design-process-table-template';
 
-const DesignProcessTable = ({ isEven }: IsEvenProp) => {
-  const headerRow: HeaderRowTemplate = [
-    { header: 'Discover', subHeader: 'Research' },
-    { header: 'Define', subHeader: 'Insights ' },
-    { header: 'Ideate', subHeader: 'Brainstorm' },
-    { header: 'Prototype', subHeader: 'Test ' },
-  ];
-  const dataRows: Array<ITableColumn['links']> = [
-    [
-      {
-        label: 'Research Process',
-        target: 'research-process',
-      },
-    ],
-    [
-      {
-        label: 'How users feel?',
-        target: 'how-users-feel',
-      },
-      {
-        label: 'HMW-Statement',
-        target: 'hmw-statement',
-      },
-      {
-        label: 'Solution to HMW',
-        target: 'solution-to-hmw',
-      },
-    ],
-    [
-      {
-        label: 'Card Sorting',
-        target: 'card-sorting',
-      },
-      {
-        label: 'Information Architecture',
-        target: 'information-architecture',
-      },
+const discoverColumn: ITableColumn = {
+  header: 'Discover',
+  subHeader: 'Research',
+  links: [
+    {
+      label: 'Research Process',
+      target: 'research-process',
+    },
+  ],
+};
+const defineColumn: ITableColumn = {
+  header: 'Define',
+  subHeader: 'Insights',
+  links: [
+    {
+      label: 'How users feel?',
+      target: 'how-users-feel',
+    },
+    {
+      label: 'HMW-Statement',
+      target: 'hmw-statement',
+    },
+    {
+      label: 'Solution to HMW',
+      target: 'solution-to-hmw',
+    },
+  ],
+};
+const ideateColumn: ITableColumn = {
+  header: 'Ideate',
+  subHeader: 'Brainstorm',
+  links: [
+    {
+      label: 'Card Sorting',
+      target: 'card-sorting',
+    },
+    {
+      label: 'Information Architecture',
+      target: 'information-architecture',
+    },
 
-      {
-        label: 'Pruning User Flow',
-        target: 'pruning-user-flow',
-      },
-      {
-        label: 'Sketches and Wireframes',
-        target: 'sketches',
-      },
-      {
-        label: 'Iteration based design',
-        target: 'iteration-based-design',
-      },
-    ],
-    [
-      {
-        label: 'Design System',
-        target: 'design-system',
-      },
-      {
-        label: 'High-Fidelity Prototype',
-        target: 'high-fidelity-prototype',
-      },
-      {
-        label: 'What I learned',
-        target: 'what-i-learned',
-      },
-    ],
+    {
+      label: 'Pruning User Flow',
+      target: 'pruning-user-flow',
+    },
+    {
+      label: 'Sketches and Wireframes',
+      target: 'sketches',
+    },
+    {
+      label: 'Iteration based design',
+      target: 'iteration-based-design',
+    },
+  ],
+};
+const prototypeColumn: ITableColumn = {
+  header: 'Prototype',
+  subHeader: 'Test',
+  links: [
+    {
+      label: 'Design System',
+      target: 'design-system',
+    },
+    {
+      label: 'High-Fidelity Prototype',
+      target: 'high-fidelity-prototype',
+    },
+    {
+      label: 'What I learned',
+      target: 'what-i-learned',
+    },
+  ],
+};
+
+const DesignProcessTable = ({ isEven }: IsEvenProp) => {
+  const columns: ITableColumn[] = [
+    discoverColumn,
+    defineColumn,
+    ideateColumn,
+    prototypeColumn,
   ];
+  const [headerRow, dataRows] = getHeaderAndDataRowsFromColumns(columns);
   return (
     <TableWrapper isEven={isEven}>
       <HeaderRow isEven={isEven}>
@@ -132,4 +146,10 @@ const DesignProcessTable = ({ isEven }: IsEvenProp) => {
   );
 };
 
-export { DesignProcessTable };
+export {
+  DesignProcessTable,
+  defineColumn,
+  discoverColumn,
+  ideateColumn,
+  prototypeColumn,
+};

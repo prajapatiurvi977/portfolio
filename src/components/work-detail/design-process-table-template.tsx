@@ -142,7 +142,20 @@ const TableWrapper = ({ isEven, children }: ITableWrapper) => {
   );
 };
 
-type HeaderRowTemplate = Array<Pick<ITableColumn, 'header' | 'subHeader'>>;
+type HeaderTexts = Pick<ITableColumn, 'header' | 'subHeader'>;
+type HeaderRowTemplate = HeaderTexts[];
+
+const getHeaderAndDataRowsFromColumns = (
+  columns: ITableColumn[],
+): [HeaderTexts[], Array<ITableColumn['links']>] => {
+  const headerRow: HeaderTexts[] = [];
+  const dataRow: Array<ITableColumn['links']> = [];
+  columns.forEach(({ header, subHeader, links }) => {
+    headerRow.push({ header, subHeader });
+    dataRow.push(links);
+  });
+  return [headerRow, dataRow];
+};
 
 const DesignProcessTableTemplate = ({
   discoverColumn,
@@ -152,21 +165,15 @@ const DesignProcessTableTemplate = ({
   deliverColumn,
   isEven,
 }: ITableStructure) => {
-  const headerRow: HeaderRowTemplate = [
+  const columns: ITableColumn[] = [
     discoverColumn,
     defineColumn,
     ideateColumn,
     designColumn,
     deliverColumn,
-  ].map(({ header, subHeader }) => ({ header, subHeader }));
-
-  const dataRows: Array<ITableColumn['links']> = [
-    discoverColumn.links,
-    defineColumn.links,
-    ideateColumn.links,
-    designColumn.links,
-    deliverColumn.links,
   ];
+  const [headerRow, dataRows] = getHeaderAndDataRowsFromColumns(columns);
+
   return (
     <TableWrapper isEven={isEven}>
       <HeaderRow isEven={isEven}>
@@ -222,7 +229,9 @@ export {
   RowCell,
   RowContentWrapper,
   TableWrapper,
+  getHeaderAndDataRowsFromColumns,
   type HeaderRowTemplate,
+  type HeaderTexts,
   type ITableColumn,
   type Link,
 };
