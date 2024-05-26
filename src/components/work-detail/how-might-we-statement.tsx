@@ -8,14 +8,15 @@ import {
 } from '../../constants';
 import type { TabElementsConfig } from '../tab';
 import { SubHeading } from './sub-heading';
-import { defineColumn } from './tim-hortons/design-process-table';
 
 interface IHowMightWeStatement extends TabElementsConfig {
+  containerId: string;
   problem: React.JSX.Element;
   statement: React.JSX.Element;
 }
 
 const HowMightWeStatement = ({
+  containerId,
   problem,
   statement,
   isOnEvenTab,
@@ -25,7 +26,7 @@ const HowMightWeStatement = ({
       <SubHeading
         text="How might we statement"
         containerAttributes={{
-          id: defineColumn.links[0].target,
+          id: containerId,
         }}
         isOnEvenTab={isOnEvenTab}
       />

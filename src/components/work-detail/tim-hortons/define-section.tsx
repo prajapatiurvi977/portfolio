@@ -12,6 +12,7 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
     <>
       <SectionDivider text="Define" isOnEvenTab={isOnEvenTab} />
       <HowMightWeStatement
+        containerId={defineColumn.links[0].target}
         isOnEvenTab={isOnEvenTab}
         problem={
           <div>
