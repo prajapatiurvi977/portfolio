@@ -81,6 +81,10 @@ const designColumn: ITableColumn = {
       target: 'hi-fi-designs',
     },
     {
+      label: 'Achievements',
+      target: 'achievements',
+    },
+    {
       label: 'What I learned',
       target: 'what-i-learned',
     },
