@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties, PropsWithChildren } from 'react';
 import React from 'react';
 import { LIGHT_FONT, VERTICAL_SPACE } from '../../../constants';
 import { ColoredText } from '../../colored-text';
@@ -16,6 +16,20 @@ const FigmaFrame = ({
 }) => {
   return (
     <iframe width="100%" height="550" src={src} style={{ ...styleProps }} />
+  );
+};
+
+const SmallHeading = ({ children }: PropsWithChildren) => {
+  return (
+    <ColoredText
+      color="accent"
+      styleProps={{
+        display: 'block',
+        margin: `calc(${VERTICAL_SPACE} / 2) 0 `,
+      }}
+    >
+      {children}
+    </ColoredText>
   );
 };
 
@@ -131,15 +145,7 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         patterns and figuring out how users would move from one screen to
         another.
       </div>
-      <ColoredText
-        color="accent"
-        styleProps={{
-          display: 'block',
-          margin: `calc(${VERTICAL_SPACE} / 2) 0 `,
-        }}
-      >
-        Desktop Screen Sketches
-      </ColoredText>
+      <SmallHeading>Desktop Screen Sketches</SmallHeading>
       <FigmaFrame
         src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fembed_host%3Dshare%26kind%3Dproto%26node-id%3D112-4091%26page-id%3D1%253A2%26scaling%3Dcontain%26starting-point-node-id%3D112%253A4091%26t%3Do9gKx7qOm16LUJV3-1%26type%3Ddesign%26viewport%3D1407%252C888%252C0.13"
         styleProps={{
@@ -147,17 +153,34 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         }}
       />
 
-      <ColoredText
-        color="accent"
-        styleProps={{
-          display: 'block',
-          margin: `calc(${VERTICAL_SPACE} / 2) 0`,
-        }}
-      >
-        Mobile Screen Sketches
-      </ColoredText>
+      <SmallHeading>Mobile Screen Sketches</SmallHeading>
       <FigmaFrame
         src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D2-9%26viewport%3D503%252C293%252C0.14%26t%3DArJJUxwaQLUEL9Ij-1%26scaling%3Dcontain%26starting-point-node-id%3D2%253A9"
+        styleProps={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}
+      />
+      <SubHeading isOnEvenTab={isOnEvenTab} text="Wireframes" />
+      <div>
+        For the transition from sketches to wireframes, the desktop screens
+        transitioned well, but the mobile screens appeared cluttered. I reworked
+        the mobile layout, creating a{' '}
+        <ColoredText color="accent">cleaner header</ColoredText> to balance{' '}
+        <ColoredText color="accent">
+          business needs and user engagement
+        </ColoredText>
+        . I relocated key buttons like Donate, Tickets, and Membership to a more
+        accessible footer, ensuring they are always within reach with a fixed
+        position. I also strategically repositioned the hamburger icon to the
+        right, making room for a back button on the left, a shift from the
+        previous design.
+      </div>
+      <SmallHeading>Desktop Screen Wireframes</SmallHeading>
+      <FigmaFrame
+        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fpage-id%3D1%253A2%26type%3Ddesign%26node-id%3D272-3517%26viewport%3D236%252C-465%252C0.08%26t%3D12tqKNoljvKnMRfc-1%26scaling%3Dcontain%26starting-point-node-id%3D272%253A3517"
+        styleProps={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}
+      />
+      <SmallHeading>Mobile Screen Wireframes</SmallHeading>
+      <FigmaFrame
+        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F8PBbMggHeXXXcKvLDIHF0N%2FToronto-Zoo%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D304-4317%26viewport%3D522%252C-106%252C0.1%26t%3DJ8F0BSObGCnEsUcH-1%26scaling%3Dcontain%26starting-point-node-id%3D304%253A4317"
         styleProps={{ marginBottom: `calc(${VERTICAL_SPACE} / 2)` }}
       />
     </div>
