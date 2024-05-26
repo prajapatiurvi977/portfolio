@@ -1,11 +1,14 @@
 import React from 'react';
+import LocationMarkerImgLight from '../../assets/images/location-marker-light.svg';
 import LocationMarkerImg from '../../assets/images/location-marker.svg';
+import PersonaImgLight from '../../assets/images/persona-light.png';
 import PersonaImg from '../../assets/images/persona.png';
 import {
   ACCENT_COLOR,
   DARK_COLOR,
   DARK_FONT,
   FONT_SIZE,
+  HORIZONTAL_SPACE,
   LIGHT_COLOR,
   LIGHT_FONT,
   VERTICAL_SPACE,
@@ -67,7 +70,6 @@ const Persona = ({
         display: 'flex',
         flexDirection: 'column',
         border: `4px solid ${ACCENT_COLOR}`,
-        padding: '20px',
         fontFamily: LIGHT_FONT,
         margin: `calc(${VERTICAL_SPACE} *  1.5) 0`,
         color: isOnEvenTab ? DARK_COLOR : LIGHT_COLOR,
@@ -76,139 +78,176 @@ const Persona = ({
       <div
         style={{
           display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingBottom: '20px',
+          flexDirection: 'column',
+          padding: '20px',
         }}
       >
-        <div style={{ flex: leftColFlex }}>
-          <img src={PersonaImg} alt="Persona" aria-hidden />
-        </div>
         <div
-          style={{ flex: rightColFlex, display: 'flex', flexDirection: 'row' }}
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingBottom: '20px',
+          }}
         >
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
-          >
-            <div
-              style={{
-                fontFamily: DARK_FONT,
-                fontSize: `calc(${FONT_SIZE} / 2)`,
-              }}
-            >
-              {name}
-            </div>
-            <div style={{ fontSize: `calc(${FONT_SIZE} / 2.5)` }}>
-              <ColoredText color="dark">Age:</ColoredText> {age}
-            </div>
+          <div style={{ flex: leftColFlex }}>
+            <img
+              src={isOnEvenTab ? PersonaImg : PersonaImgLight}
+              width="60%"
+              alt="Persona"
+              aria-hidden
+            />
           </div>
           <div
             style={{
+              flex: rightColFlex,
               display: 'flex',
-              flexDirection: 'column',
-              marginLeft: 'auto',
-              gap: '20px',
-              alignItems: 'flex-end',
+              flexDirection: 'row',
             }}
           >
             <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                gap: '8px',
-              }}
+              style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
             >
-              <img src={LocationMarkerImg} alt="Location marker" aria-hidden />
+              <div
+                style={{
+                  fontFamily: DARK_FONT,
+                  fontSize: `calc(${FONT_SIZE} / 2)`,
+                }}
+              >
+                {name}
+              </div>
               <div style={{ fontSize: `calc(${FONT_SIZE} / 2.5)` }}>
-                {location}
+                <ColoredText
+                  color="dark"
+                  styleProps={{
+                    ...(!isOnEvenTab && {
+                      color: LIGHT_COLOR,
+                    }),
+                  }}
+                >
+                  Age:
+                </ColoredText>{' '}
+                {age}
               </div>
             </div>
-            <div style={{ fontSize: `calc(${FONT_SIZE} / 3)` }}>{position}</div>
-          </div>
-        </div>
-      </div>
-      {data.map(({ leftColumn, rightColumn, shouldBoldRightColumn }) => (
-        <div
-          key={leftColumn}
-          style={{
-            borderTop: divider,
-            display: 'flex',
-            flexDirection: 'row',
-            padding: '20px',
-          }}
-        >
-          <div
-            style={{
-              fontFamily: DARK_FONT,
-              fontSize: leftColFontSize,
-              flex: leftColFlex,
-            }}
-          >
-            {leftColumn}
-          </div>
-          <div style={{ flex: rightColFlex }}>
-            <ul
+            <div
               style={{
-                margin: 0,
-                paddingLeft: '20px',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '8px',
-                fontSize: rightColFontSize,
-                ...(Boolean(shouldBoldRightColumn) && {
-                  fontFamily: DARK_FONT,
-                }),
+                marginLeft: 'auto',
+                gap: '20px',
+                alignItems: 'flex-end',
               }}
             >
-              {rightColumn.map((entry) => (
-                <li key={entry}>{entry}</li>
-              ))}
-            </ul>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: '8px',
+                }}
+              >
+                <img
+                  src={isOnEvenTab ? LocationMarkerImg : LocationMarkerImgLight}
+                  alt="Location marker"
+                  aria-hidden
+                />
+                <div style={{ fontSize: `calc(${FONT_SIZE} / 2.5)` }}>
+                  {location}
+                </div>
+              </div>
+              <div style={{ fontSize: `calc(${FONT_SIZE} / 3)` }}>
+                {position}
+              </div>
+            </div>
           </div>
         </div>
-      ))}
-      {opportunity !== undefined && opportunity.length > 0 && (
-        <div
-          style={{
-            borderTop: divider,
-            display: 'flex',
-            flexDirection: 'row',
-            color: ACCENT_COLOR,
-          }}
-        >
+        {data.map(({ leftColumn, rightColumn, shouldBoldRightColumn }) => (
           <div
+            key={leftColumn}
             style={{
-              fontFamily: DARK_FONT,
-              fontSize: leftColFontSize,
-              flex: leftColFlex,
+              borderTop: divider,
+              display: 'flex',
+              flexDirection: 'row',
+              padding: '20px',
             }}
           >
-            Opportunity
-          </div>
-          <div style={{ flex: rightColFlex, fontSize: rightColFontSize }}>
-            <ul
+            <div
               style={{
-                margin: 0,
-                paddingLeft: '20px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '8px',
                 fontFamily: DARK_FONT,
+                fontSize: leftColFontSize,
+                flex: leftColFlex,
               }}
             >
-              {opportunity.map((entry) => (
-                <li key={entry}>{entry}</li>
-              ))}
-            </ul>
+              {leftColumn}
+            </div>
+            <div style={{ flex: rightColFlex }}>
+              <ul
+                style={{
+                  margin: 0,
+                  paddingLeft: '20px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  fontSize: rightColFontSize,
+                  ...(Boolean(shouldBoldRightColumn) && {
+                    fontFamily: DARK_FONT,
+                  }),
+                }}
+              >
+                {rightColumn.map((entry) => (
+                  <li key={entry}>{entry}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      )}
+        ))}
+        {opportunity !== undefined && opportunity.length > 0 && (
+          <div
+            style={{
+              borderTop: divider,
+              display: 'flex',
+              flexDirection: 'row',
+              color: ACCENT_COLOR,
+              padding: '20px',
+            }}
+          >
+            <div
+              style={{
+                fontFamily: DARK_FONT,
+                fontSize: leftColFontSize,
+                flex: leftColFlex,
+              }}
+            >
+              Opportunity
+            </div>
+            <div style={{ flex: rightColFlex, fontSize: rightColFontSize }}>
+              <ul
+                style={{
+                  margin: 0,
+                  paddingLeft: '20px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  fontFamily: DARK_FONT,
+                }}
+              >
+                {opportunity.map((entry) => (
+                  <li key={entry}>{entry}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
       {Boolean(userQuote) && (
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            fontSize: '40px',
+            borderTop: `4px solid ${ACCENT_COLOR}`,
+            padding: `${VERTICAL_SPACE} calc(${HORIZONTAL_SPACE} * 2)`,
           }}
         >
           <div>&quot;{userQuote}&quot;</div>
