@@ -14,7 +14,7 @@ const HumberCurrent = ({ isEven }: IsEvenProp) => {
         subTitle={HumberCurrentDescription}
         isEven={isEven}
         categories={[...HumberCurrentCategories]}
-        description="Revamped the Humber Current website to enhance student portfolio showcases, streamline skill development, and improve recruiter access to top talent."
+        description="Introduced the Humber Current website to enhance student portfolio showcases, streamline skill development, and improve recruiter access to top talent."
         role="UX/UI Designer, UX Researcher, Visual Designer"
         screenSize="iPhone 13 & 14"
         duration="May 2022 - July 2022"
