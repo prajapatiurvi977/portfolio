@@ -1,12 +1,18 @@
 import React from 'react';
-import IdeateFlowChart from '../../../assets/images/timhortons/ideate-flow-chart.png';
-import LowFiDesigns from '../../../assets/images/timhortons/low-fi-designs.png';
 import { LIGHT_FONT, VERTICAL_SPACE } from '../../../constants';
-import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
+import { Carousel } from '../carousel';
 import { SectionDivider } from '../section-divider';
 import { SubHeading } from '../sub-heading';
 import { ideateColumn } from './design-process-table';
+
+import Moodboard from '../../../assets/images/humber-current/moodboard.png';
+import Sketch_1 from '../../../assets/images/humber-current/sketch-1.png';
+import Sketch_2 from '../../../assets/images/humber-current/sketch-2.png';
+import Sketch_3 from '../../../assets/images/humber-current/sketch-3.png';
+import Sketch_4 from '../../../assets/images/humber-current/sketch-4.png';
+import Sketch_5 from '../../../assets/images/humber-current/sketch-5.png';
+import VisualDesign from '../../../assets/images/humber-current/visual-design.png';
 
 const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
   return (
@@ -19,17 +25,23 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         }}
         isOnEvenTab={isOnEvenTab}
       />
-      <img
-        src={IdeateFlowChart}
-        alt="Tim's flow chart"
-        width="100%"
-        style={{ margin: `${VERTICAL_SPACE} 0` }}
-      />
-      <div style={{ marginBottom: VERTICAL_SPACE }}>
-        I focused on{' '}
-        <ColoredText color="dark">minimizing the number of clicks</ColoredText>{' '}
-        the user would have to make to reach the key features.
+      <div>
+        I brainstormed the solution and started my ideas drawing on plain cards
+        first.
       </div>
+      <Carousel
+        items={[Sketch_1, Sketch_2, Sketch_3, Sketch_4, Sketch_5].map(
+          (imageSrc, index) => (
+            <img
+              src={imageSrc}
+              alt={`Sketch ${index}`}
+              key={index}
+              height="392px"
+            />
+          ),
+        )}
+      />
+
       <SubHeading
         text={ideateColumn.links[1].label}
         containerAttributes={{
@@ -38,19 +50,17 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         isOnEvenTab={isOnEvenTab}
       />
       <div>
-        I brainstormed the solution and started my ideas drawing on plain cards
-        first.
+        I brainstormed the moodboard to fulfill student&apos;s curiosity to
+        watch other&apos;s portfolios.
       </div>
-      <img
-        src={LowFiDesigns}
-        alt="Low-Fi designs"
-        width="100%"
-        style={{ margin: `${VERTICAL_SPACE} 0` }}
-      />
-      <div style={{ marginBottom: VERTICAL_SPACE }}>
-        Conducted moderated usability tests on sketches with 5 participants via
-        Zoom.
+      <div
+        style={{
+          margin: VERTICAL_SPACE,
+        }}
+      >
+        <img src={Moodboard} alt="Humber Current Moodboard" height="647px" />
       </div>
+
       <SubHeading
         text={ideateColumn.links[2].label}
         containerAttributes={{
@@ -58,21 +68,22 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         }}
         isOnEvenTab={isOnEvenTab}
       />
-      <div style={{ marginBottom: VERTICAL_SPACE }}>
-        After conducting a usability test, feedback revealed several issues with
-        the design. Users expressed{' '}
-        <ColoredText color="dark">frustration</ColoredText> with the{' '}
-        <ColoredText color="dark">navigation</ColoredText> to the cart, finding
-        it cumbersome. Although they appreciated the{' '}
-        <ColoredText color="accent">directions button</ColoredText>{' '}
-        post-checkout, they disliked having to{' '}
-        <ColoredText color="dark">scroll</ColoredText> to locate desired items.
-        There was a clear preference for more immediate steps to add items to
-        the cart. Additionally, users reported{' '}
-        <ColoredText color="dark">
-          difficulty in quickly locating menu
-        </ColoredText>{' '}
-        items on the homepage, suggesting a need for a more intuitive layout.
+      <div>
+        First, I tried to make cool Logo design. After several attempts I
+        finalized the design which suits to Humber website.
+      </div>
+      <div
+        style={{
+          margin: VERTICAL_SPACE,
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <img
+          src={VisualDesign}
+          alt="Humber Current Logo Design"
+          height="323px"
+        />
       </div>
     </div>
   );
