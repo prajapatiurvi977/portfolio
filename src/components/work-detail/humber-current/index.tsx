@@ -40,6 +40,8 @@ const HumberCurrent = ({ isEven }: IsEvenProp) => {
       <DiscoverSection isOnEvenTab={isEven} />
       <DefineSection isOnEvenTab={isEven} />
       <IdeateSection isOnEvenTab={isEven} />
+
+      {/* TODO FROM HERE */}
       <DesignSection isOnEvenTab={isEven} />
       <DeliverSection isOnEvenTab={isEven} />
     </div>
