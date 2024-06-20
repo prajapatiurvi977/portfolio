@@ -16,40 +16,44 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
         isOnEvenTab={isOnEvenTab}
         problem={
           <div>
-            Customer wants to <ColoredText color="accent">checkout</ColoredText>{' '}
-            as soon as possible from the{' '}
-            <ColoredText color="accent">order process</ColoredText> to pick up
-            the order.
+            A <ColoredText color="accent">Networking hub</ColoredText> that
+            offers <ColoredText color="accent">digital channels</ColoredText>{' '}
+            and resources for communication, story sharing , and collaboration
+            to let <ColoredText color="accent">connect with alumni</ColoredText>{' '}
+            and engage with each other.
           </div>
         }
         statement={
           <div>
-            How might we <ColoredText color="accent">checkout</ColoredText>{' '}
-            customers quickly from the{' '}
-            <ColoredText color="accent">order process</ColoredText>?
+            How might we create a networking hub that provides digital channels
+            and resources for communication, story-sharing, and collaboration to
+            facilitate connections and engagement among alumni?
           </div>
         }
       />
       <div style={{ fontFamily: LIGHT_FONT }}>
-        I wanted to better understand our user&apos;s mental model to inform how
-        the ordering process should be. I want the users to be able to find the
-        information they are looking for where they think the information should
-        be.
+        Based on user journey mapping, the user flow highlights the primary task
+        streams that the high-quality prototype would focus on: As there are
+        many courses, providing a search option for obtaining course-related
+        information is a necessity.
       </div>
       <SolutionToHmw
         isOnEvenTab={isOnEvenTab}
         label={defineColumn.links[1].label}
         target={defineColumn.links[1].target}
-        description={
-          <div>
-            Users search for the information they need, to address this, I
-            customized menu design to see the exact prize and category. For
-            store navigation, added map on screen to give better sense of
-            directions. To enable users to find directions to the exact store
-            they have selected, I want to add a directions CTA on the order
-            confirmation page.
-          </div>
-        }
+        descriptions={[
+          <div key="hc-description-1" style={{ fontFamily: LIGHT_FONT }}>
+            Integrating a <ColoredText color="dark">new Logo</ColoredText> which
+            attracts students to encourage meeting other students.
+          </div>,
+          <div key="hc-description-2" style={{ fontFamily: LIGHT_FONT }}>
+            Revamp the design of Humber Current website to{' '}
+            <ColoredText color="dark">
+              show related information only
+            </ColoredText>{' '}
+            related to student work.
+          </div>,
+        ]}
       />
     </>
   );

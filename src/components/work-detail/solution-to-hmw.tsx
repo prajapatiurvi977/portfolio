@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  DARK_COLOR,
+  ACCENT_COLOR,
   DARK_FONT,
   HORIZONTAL_SPACE,
   LIGHT_COLOR,
+  VERTICAL_SPACE,
 } from '../../constants';
 import type { TabElementsConfig } from '../tab';
 import { SubHeading } from './sub-heading';
@@ -11,13 +12,13 @@ import { SubHeading } from './sub-heading';
 interface ISolutionToHmw extends TabElementsConfig {
   label: string;
   target: string;
-  description: React.JSX.Element;
+  descriptions: React.JSX.Element[];
 }
 
 const SolutionToHmw = ({
   label,
   target,
-  description,
+  descriptions: description,
   isOnEvenTab,
 }: ISolutionToHmw) => {
   return (
@@ -31,13 +32,24 @@ const SolutionToHmw = ({
       />
       <div
         style={{
-          fontFamily: DARK_FONT,
-          padding: '20px 55px',
-          border: `1px solid ${isOnEvenTab ? DARK_COLOR : LIGHT_COLOR}`,
-          margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: VERTICAL_SPACE,
         }}
       >
-        {description}
+        {description.map((descr, index) => (
+          <div
+            key={`description-${index}`}
+            style={{
+              fontFamily: DARK_FONT,
+              padding: '20px 55px',
+              border: `1px solid ${isOnEvenTab ? ACCENT_COLOR : LIGHT_COLOR}`,
+              margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
+            }}
+          >
+            {descr}
+          </div>
+        ))}
       </div>
     </>
   );

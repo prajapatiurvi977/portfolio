@@ -77,8 +77,8 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
         isOnEvenTab={isOnEvenTab}
         label={defineColumn.links[2].label}
         target={defineColumn.links[2].target}
-        description={
-          <div>
+        descriptions={[
+          <div key="tz-description-1">
             To address the &ldquo;How might we&rdquo; statement, we could
             develop a{' '}
             <ColoredText color="accent">unified ticketing platform</ColoredText>{' '}
@@ -90,8 +90,8 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
             <ColoredText color="accent">user navigation</ColoredText>, and
             ensure a cohesive aesthetic experience from start to finish,
             effectively prioritizing user experience.
-          </div>
-        }
+          </div>,
+        ]}
       />
     </>
   );

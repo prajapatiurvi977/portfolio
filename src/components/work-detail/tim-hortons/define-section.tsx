@@ -40,16 +40,16 @@ const DefineSection = ({ isOnEvenTab }: TabElementsConfig) => {
         isOnEvenTab={isOnEvenTab}
         label={defineColumn.links[1].label}
         target={defineColumn.links[1].target}
-        description={
-          <div>
+        descriptions={[
+          <div key="th-description-1">
             Users search for the information they need, to address this, I
             customized menu design to see the exact prize and category. For
             store navigation, added map on screen to give better sense of
             directions. To enable users to find directions to the exact store
             they have selected, I want to add a directions CTA on the order
             confirmation page.
-          </div>
-        }
+          </div>,
+        ]}
       />
     </>
   );
