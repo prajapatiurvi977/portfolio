@@ -4,6 +4,7 @@ import {
   DARK_COLOR,
   DARK_FONT,
   HORIZONTAL_SPACE,
+  LIGHT_COLOR,
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../../constants';
@@ -15,21 +16,56 @@ import { deliverColumn } from './design-process-table';
 
 const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
   const whatNextPart1 = (
-    <div>
-      The <ColoredText color="dark">minimum order threshold of $9</ColoredText>{' '}
-      currently reveals itself only at the cart page, a late stage in the user
-      journey. I&apos;m gearing up to dive deep and creatively untangle this
-      issue, ensuring clarity from the outset for a smoother shopping
-      experience.
-    </div>
+    <span>
+      I will <ColoredText color="dark">conduct Usability test</ColoredText> on
+      current prototype and will iterate on design.
+    </span>
   );
 
   const whatNextPart2 = (
-    <div>
-      Dive into <ColoredText color="dark">usability testing</ColoredText> for
-      other pathways of the Tim Hortons app, exploring and enhancing user flows
-      to ensure every interaction is as seamless and quick as their brews.
-    </div>
+    <span>
+      I implemented{' '}
+      <ColoredText color="dark">mobile-first design approach</ColoredText>, so I
+      will start with Desktop designs.
+    </span>
+  );
+  const whatNextPart3 = (
+    <span>
+      <ColoredText color="dark">
+        Implementation of search functionality
+      </ColoredText>{' '}
+      to directly search through website.
+    </span>
+  );
+  const learnedPart1 = (
+    <span>
+      The lesson here is to{' '}
+      <ColoredText color="accent">prioritize user needs</ColoredText> and
+      preferences when designing an interface to make it more intuitive and
+      user-friendly.
+    </span>
+  );
+
+  const learnedPart2 = (
+    <span>
+      When information is{' '}
+      <ColoredText color="accent">well organized</ColoredText>, users can more
+      easily <ColoredText color="accent">explore and discover</ColoredText> the
+      content they seek.
+    </span>
+  );
+
+  const achievementsPart1 = (
+    <span>
+      <ColoredText color="accent">45% students started connecting</ColoredText>{' '}
+      on Humber Current website to connect with past students.
+    </span>
+  );
+  const achievementsPart2 = (
+    <span>
+      <ColoredText color="accent">42%</ColoredText> Rise in{' '}
+      <ColoredText color="accent">User Reach & engagement</ColoredText>
+    </span>
   );
   return (
     <div
@@ -47,7 +83,7 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
         }}
         isOnEvenTab={isOnEvenTab}
       />
-      {[whatNextPart1, whatNextPart2].map((whatNext, index) => (
+      {[whatNextPart1, whatNextPart2, whatNextPart3].map((whatNext, index) => (
         <div
           key={`what-next-${index}`}
           style={{
@@ -66,22 +102,19 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
         }}
         isOnEvenTab={isOnEvenTab}
       />
-      <ul>
-        <li>
-          <ColoredText color="dark">
-            I have more assumptions and biases
-          </ColoredText>{' '}
-          than I thought. I must rely on the evidence in the research to reach
-          meaningful insights.
+      {[learnedPart1, learnedPart2].map((learned, index) => (
+        <li
+          key={`learned-${index}`}
+          style={{
+            fontFamily: DARK_FONT,
+            border: `1px solid ${ACCENT_COLOR}`,
+            padding: '20px',
+            margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE}) 0 calc(2 * ${HORIZONTAL_SPACE})`,
+          }}
+        >
+          {learned}
         </li>
-        <li>
-          <ColoredText color="dark">
-            Users determine how specific the problem is
-          </ColoredText>{' '}
-          and a more specific problem can make it easier to brainstorm broader
-          solution ideas.
-        </li>
-      </ul>
+      ))}
       <SubHeading
         text={deliverColumn.links[2].label}
         containerAttributes={{
@@ -96,29 +129,24 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
           display: 'flex',
           flexDirection: 'column',
           gap: VERTICAL_SPACE,
-          color: ACCENT_COLOR,
+          color: LIGHT_COLOR,
           fontFamily: DARK_FONT,
           marginBottom: VERTICAL_SPACE,
           marginLeft: `calc(2 * ${HORIZONTAL_SPACE})`,
           marginRight: `calc(2 * ${HORIZONTAL_SPACE})`,
         }}
       >
-        <li
-          style={{
-            padding: '20px',
-            backgroundColor: DARK_COLOR,
-          }}
-        >
-          25% users retention
-        </li>
-        <li
-          style={{
-            padding: '20px',
-            backgroundColor: DARK_COLOR,
-          }}
-        >
-          18% increase in mobile order
-        </li>
+        {[achievementsPart1, achievementsPart2].map((achievement, index) => (
+          <li
+            key={`achievement-${index}`}
+            style={{
+              padding: '20px',
+              backgroundColor: DARK_COLOR,
+            }}
+          >
+            {achievement}
+          </li>
+        ))}
       </div>
     </div>
   );
