@@ -34,6 +34,7 @@ const DesignSection = ({ isOnEvenTab }: TabElementsConfig) => {
         According to Usability test results, I changed major design flows.
       </div>
       <Carousel
+        identifier="Tim-Hortons-design"
         items={[HiFi1, HiFi2, HiFi3, HiFi4, HiFi5, HiFi6, HiFi7, HiFi8].map(
           (imageSrc, index) => (
             <img

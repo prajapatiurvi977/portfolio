@@ -30,6 +30,7 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         first.
       </div>
       <Carousel
+        identifier="Humber-Current-Ideate"
         items={[Sketch_1, Sketch_2, Sketch_3, Sketch_4, Sketch_5].map(
           (imageSrc, index) => (
             <img

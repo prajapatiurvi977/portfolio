@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import ChevronRight from '../../assets/images/chevron-right.svg';
 import { VERTICAL_SPACE } from '../../constants';
-const Carousel = ({ items }: { items: React.JSX.Element[] }) => {
+const Carousel = ({
+  items,
+  identifier = 'Carousel',
+}: {
+  items: React.JSX.Element[];
+  identifier: string;
+}) => {
   const [focusedIndex, setFocusedIndex] = useState<number>(0);
   return (
     <div
@@ -18,6 +24,7 @@ const Carousel = ({ items }: { items: React.JSX.Element[] }) => {
           onClick={() => {
             setFocusedIndex((prev) => prev - 1);
           }}
+          identifier={identifier}
         />
       )}
       <div
@@ -33,8 +40,8 @@ const Carousel = ({ items }: { items: React.JSX.Element[] }) => {
       >
         {items.map((item, index) => (
           <div
-            id={getIdFromIndex(index)}
-            key={getIdFromIndex(index)}
+            id={getIdFromIndex(index, identifier)}
+            key={getIdFromIndex(index, identifier)}
             style={{
               width: '50%',
             }}
@@ -52,26 +59,30 @@ const Carousel = ({ items }: { items: React.JSX.Element[] }) => {
           onClick={() => {
             setFocusedIndex((prev) => prev + 1);
           }}
+          identifier={identifier}
         />
       )}
     </div>
   );
 };
 
-const getIdFromIndex = (index: number): string => `carousel-item-${index}`;
+const getIdFromIndex = (index: number, identifier: string): string =>
+  `${identifier}-carousel-item-${index}`;
 
 const Arrow = ({
   targetIndex,
   onClick,
   orientation,
+  identifier,
 }: {
   targetIndex: number;
   onClick: () => void;
   orientation: 'right' | 'left';
+  identifier: string;
 }) => {
   return (
     <a
-      href={`#${getIdFromIndex(targetIndex)}`}
+      href={`#${getIdFromIndex(targetIndex, identifier)}`}
       style={{
         position: 'absolute',
         top: '50%',
