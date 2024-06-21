@@ -31,6 +31,27 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
       to ensure every interaction is as seamless and quick as their brews.
     </div>
   );
+
+  const learnedPart1 = (
+    <span>
+      <ColoredText color="dark">I have more assumptions and biases</ColoredText>{' '}
+      than I thought. I must rely on the evidence in the research to reach
+      meaningful insights.
+    </span>
+  );
+
+  const learnedPart2 = (
+    <span>
+      <ColoredText color="dark">
+        Users determine how specific the problem is
+      </ColoredText>{' '}
+      and a more specific problem can make it easier to brainstorm broader
+      solution ideas.
+    </span>
+  );
+
+  const achievementsPart1 = '25% users retention';
+  const achievementsPart2 = '18% increase in mobile order';
   return (
     <div
       style={{
@@ -66,22 +87,19 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
         }}
         isOnEvenTab={isOnEvenTab}
       />
-      <ul>
-        <li>
-          <ColoredText color="dark">
-            I have more assumptions and biases
-          </ColoredText>{' '}
-          than I thought. I must rely on the evidence in the research to reach
-          meaningful insights.
+      {[learnedPart1, learnedPart2].map((learned, index) => (
+        <li
+          key={`learned-${index}`}
+          style={{
+            fontFamily: DARK_FONT,
+            border: `1px solid ${ACCENT_COLOR}`,
+            padding: '20px',
+            margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE}) 0 calc(2 * ${HORIZONTAL_SPACE})`,
+          }}
+        >
+          {learned}
         </li>
-        <li>
-          <ColoredText color="dark">
-            Users determine how specific the problem is
-          </ColoredText>{' '}
-          and a more specific problem can make it easier to brainstorm broader
-          solution ideas.
-        </li>
-      </ul>
+      ))}
       <SubHeading
         text={deliverColumn.links[2].label}
         containerAttributes={{
@@ -103,22 +121,17 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
           marginRight: `calc(2 * ${HORIZONTAL_SPACE})`,
         }}
       >
-        <li
-          style={{
-            padding: '20px',
-            backgroundColor: DARK_COLOR,
-          }}
-        >
-          25% users retention
-        </li>
-        <li
-          style={{
-            padding: '20px',
-            backgroundColor: DARK_COLOR,
-          }}
-        >
-          18% increase in mobile order
-        </li>
+        {[achievementsPart1, achievementsPart2].map((achievement, index) => (
+          <li
+            key={`achievement-${index}`}
+            style={{
+              padding: '20px',
+              backgroundColor: DARK_COLOR,
+            }}
+          >
+            {achievement}
+          </li>
+        ))}
       </div>
     </div>
   );
