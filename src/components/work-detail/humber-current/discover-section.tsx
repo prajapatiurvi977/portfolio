@@ -2,6 +2,7 @@ import React from 'react';
 import {
   DARK_COLOR,
   FONT_SIZE,
+  HORIZONTAL_SPACE,
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../../constants';
@@ -45,7 +46,7 @@ const DiscoverSection = ({ isOnEvenTab }: TabElementsConfig) => {
           border: `1px solid ${DARK_COLOR}`,
           padding: `calc(${VERTICAL_SPACE} / 2)`,
           fontSize: `calc(${FONT_SIZE} / 2.5)`,
-          margin: `${FONT_SIZE}`,
+          margin: `${FONT_SIZE} calc(2 * ${HORIZONTAL_SPACE})`,
         }}
       >
         From the heuristic evaluation, I learned that enhancing the user
