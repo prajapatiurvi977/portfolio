@@ -51,7 +51,7 @@ const HiFiDesignSubSection = ({
         display: 'flex',
         flexDirection: 'column',
         gap: `calc(${VERTICAL_SPACE} / 2)`,
-        marginBottom: VERTICAL_SPACE,
+        margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE})`,
       }}
     >
       <ColoredText color="accent">{heading}</ColoredText>
