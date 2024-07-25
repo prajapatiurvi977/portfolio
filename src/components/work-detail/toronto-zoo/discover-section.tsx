@@ -26,6 +26,7 @@ const Insight = ({ heading, description }: InsightProps) => {
         padding: `calc(${VERTICAL_SPACE} / 2)`,
         gap: `calc(${VERTICAL_SPACE} / 2)`,
         fontFamily: DARK_FONT,
+        margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
       }}
     >
       <ColoredText color="accent">{heading}</ColoredText>
