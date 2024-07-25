@@ -77,7 +77,7 @@ const IdeateSection = ({ isOnEvenTab }: TabElementsConfig) => {
         style={{
           margin: VERTICAL_SPACE,
           display: 'flex',
-          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <img
