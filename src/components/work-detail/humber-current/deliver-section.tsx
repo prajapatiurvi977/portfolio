@@ -125,7 +125,6 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
 
       <div
         style={{
-          paddingLeft: '20px',
           display: 'flex',
           flexDirection: 'column',
           gap: VERTICAL_SPACE,
