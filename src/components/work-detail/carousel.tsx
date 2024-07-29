@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ChevronRight from '../../assets/images/chevron-right.svg';
-import { VERTICAL_SPACE } from '../../constants';
+import { DARK_COLOR, VERTICAL_SPACE } from '../../constants';
 
 const Carousel = ({
   items,
@@ -135,7 +135,7 @@ const Arrow = ({
       style={{
         position: 'absolute',
         top: '50%',
-        border: '1px solid',
+        border: `1px solid ${DARK_COLOR}`,
         alignItems: 'center',
         display: 'flex',
         ...(orientation === 'left'
