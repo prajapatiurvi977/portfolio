@@ -13,6 +13,7 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../constants';
+import { useUIContext } from '../../state/ui-context';
 import { ColoredText } from '../colored-text';
 import type { TabElementsConfig } from '../tab';
 
@@ -40,6 +41,7 @@ const Persona = ({
   opportunity,
   userQuote,
 }: IPersona) => {
+  const { isMobileView } = useUIContext();
   const divider = `1px solid ${isOnEvenTab ? DARK_COLOR : LIGHT_COLOR}`;
   const leftColFlex = 0.25;
   const rightColFlex = 0.75;
@@ -247,7 +249,11 @@ const Persona = ({
             alignItems: 'center',
             fontSize: '40px',
             borderTop: `4px solid ${ACCENT_COLOR}`,
-            padding: `${VERTICAL_SPACE} calc(${HORIZONTAL_SPACE} * 2)`,
+            ...(isMobileView
+              ? { padding: VERTICAL_SPACE }
+              : {
+                  padding: `${VERTICAL_SPACE} calc(${HORIZONTAL_SPACE} * 2)`,
+                }),
           }}
         >
           <div>&quot;{userQuote}&quot;</div>
