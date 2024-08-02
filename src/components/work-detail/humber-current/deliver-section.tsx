@@ -8,6 +8,7 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../../constants';
+import { useUIContext } from '../../../state/ui-context';
 import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
 import { SectionDivider } from '../section-divider';
@@ -15,6 +16,7 @@ import { SubHeading } from '../sub-heading';
 import { deliverColumn } from './design-process-table';
 
 const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
+  const { isMobileView } = useUIContext();
   const whatNextPart1 = (
     <span>
       I will <ColoredText color="dark">conduct Usability test</ColoredText> on
@@ -88,7 +90,13 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
           key={`what-next-${index}`}
           style={{
             border: '1px solid',
-            margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE}) 0 calc(2 * ${HORIZONTAL_SPACE})`,
+            ...(isMobileView
+              ? {
+                  marginBottom: VERTICAL_SPACE,
+                }
+              : {
+                  margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE}) 0 calc(2 * ${HORIZONTAL_SPACE})`,
+                }),
             padding: '20px',
           }}
         >
@@ -109,7 +117,13 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
             fontFamily: DARK_FONT,
             border: `1px solid ${ACCENT_COLOR}`,
             padding: '20px',
-            margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE}) 0 calc(2 * ${HORIZONTAL_SPACE})`,
+            ...(isMobileView
+              ? {
+                  marginBottom: VERTICAL_SPACE,
+                }
+              : {
+                  margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE}) 0 calc(2 * ${HORIZONTAL_SPACE})`,
+                }),
           }}
         >
           {learned}
@@ -131,8 +145,10 @@ const DeliverSection = ({ isOnEvenTab }: TabElementsConfig) => {
           color: LIGHT_COLOR,
           fontFamily: DARK_FONT,
           marginBottom: VERTICAL_SPACE,
-          marginLeft: `calc(2 * ${HORIZONTAL_SPACE})`,
-          marginRight: `calc(2 * ${HORIZONTAL_SPACE})`,
+          ...(!isMobileView && {
+            marginLeft: `calc(2 * ${HORIZONTAL_SPACE})`,
+            marginRight: `calc(2 * ${HORIZONTAL_SPACE})`,
+          }),
         }}
       >
         {[achievementsPart1, achievementsPart2].map((achievement, index) => (
