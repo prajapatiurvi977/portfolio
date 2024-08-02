@@ -162,7 +162,7 @@ const DesignProcessTableTemplate = ({
     ideateColumn,
     designColumn,
     deliverColumn,
-  ].filter((col) => col);
+  ].filter((col) => col !== undefined) as ITableColumn[];
 
   return (
     <TableWrapper isEven={isEven}>
