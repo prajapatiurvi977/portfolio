@@ -1,7 +1,6 @@
 import React from 'react';
-import DesignSystemImage from '../../../assets/images/toronto-zoo/design-system-diagram.png';
+import DoubleDiamondMethodImage from '../../../assets/images/toronto-zoo/double-diamond-method.png';
 import type { IsEvenProp } from '../../../common-types';
-import { useUIContext } from '../../../state/ui-context';
 import type { ITableColumn } from '../design-process-table-template';
 import { DesignProcessTableTemplate } from '../design-process-table-template';
 
@@ -84,12 +83,9 @@ const designColumn: ITableColumn = {
 };
 
 const DesignProcessTable = ({ isEven }: IsEvenProp) => {
-  const { isMobileView } = useUIContext();
   return (
     <>
-      {isMobileView && (
-        <img src={DesignSystemImage} alt={'Design System'} width="100%" />
-      )}
+      <img src={DoubleDiamondMethodImage} alt={'Design System'} width="100%" />
       <DesignProcessTableTemplate
         isEven={isEven}
         discoverColumn={discoverColumn}
