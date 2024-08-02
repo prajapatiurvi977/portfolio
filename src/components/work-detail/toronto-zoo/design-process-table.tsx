@@ -1,17 +1,9 @@
 import React from 'react';
 import DesignSystemImage from '../../../assets/images/toronto-zoo/design-system-diagram.png';
 import type { IsEvenProp } from '../../../common-types';
-import { LIGHT_COLOR, LIGHT_FONT } from '../../../constants';
+import { useUIContext } from '../../../state/ui-context';
 import type { ITableColumn } from '../design-process-table-template';
-import {
-  HeaderCell,
-  HeaderRow,
-  Row,
-  RowCell,
-  RowContentWrapper,
-  TableWrapper,
-  getHeaderAndDataRowsFromColumns,
-} from '../design-process-table-template';
+import { DesignProcessTableTemplate } from '../design-process-table-template';
 
 const discoverColumn: ITableColumn = {
   header: 'Discover',
@@ -92,61 +84,20 @@ const designColumn: ITableColumn = {
 };
 
 const DesignProcessTable = ({ isEven }: IsEvenProp) => {
-  const columns: ITableColumn[] = [
-    discoverColumn,
-    defineColumn,
-    ideateColumn,
-    designColumn,
-  ];
-  const [headerRow, dataRows] = getHeaderAndDataRowsFromColumns(columns);
+  const { isMobileView } = useUIContext();
   return (
-    <TableWrapper isEven={isEven}>
-      <HeaderRow isEven={isEven}>
-        {headerRow.map(({ header, subHeader }) => (
-          <HeaderCell
-            key={header}
-            isEven={isEven}
-            header={header}
-            subHeader={subHeader}
-          />
-        ))}
-      </HeaderRow>
-      <Row>
+    <>
+      {isMobileView && (
         <img src={DesignSystemImage} alt={'Design System'} width="100%" />
-      </Row>
-      <Row>
-        {dataRows.map((links, index) => (
-          <RowContentWrapper key={`data-row-${index}`}>
-            <RowCell isEven={isEven}>
-              <ul
-                style={{
-                  margin: 0,
-                  paddingLeft: '20px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  listStyleType: 'none',
-                }}
-              >
-                {links.map(({ label, target }) => (
-                  <li key={label}>
-                    <a
-                      href={`#${target}`}
-                      style={{
-                        fontFamily: LIGHT_FONT,
-                        color: LIGHT_COLOR,
-                      }}
-                    >
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </RowCell>
-          </RowContentWrapper>
-        ))}
-      </Row>
-    </TableWrapper>
+      )}
+      <DesignProcessTableTemplate
+        isEven={isEven}
+        discoverColumn={discoverColumn}
+        defineColumn={defineColumn}
+        ideateColumn={ideateColumn}
+        designColumn={designColumn}
+      />
+    </>
   );
 };
 
