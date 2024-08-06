@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ChevronRight from '../../assets/images/chevron-right.svg';
-import { VERTICAL_SPACE } from '../../constants';
+import { DARK_COLOR, VERTICAL_SPACE } from '../../constants';
+
 const Carousel = ({
   items,
   identifier = 'Carousel',
@@ -8,7 +9,47 @@ const Carousel = ({
   items: React.JSX.Element[];
   identifier: string;
 }) => {
-  const [focusedIndex, setFocusedIndex] = useState<number>(0);
+  const [leftFocusedIndex, setLeftFocusedIndex] = useState<number>(0);
+  const [rightFocusedIndex, setRightFocusedIndex] = useState<number>(0);
+  const itemsLength = items.length;
+  const containerElementRef = useRef<HTMLDivElement>(null);
+  const elementRefs: HTMLDivElement[] = useMemo(() => [], []);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const elementLeft = e.intersectionRect.left;
+          const elementRight = e.intersectionRect.right;
+          const containerLeft = e.rootBounds?.left ?? 0;
+          const containerRight = e.rootBounds?.right ?? 0;
+
+          if (elementLeft === containerLeft) {
+            const index = Number(e.target.getAttribute('data-loop-index') ?? 0);
+            setLeftFocusedIndex(index);
+            return;
+          }
+
+          if (elementRight === containerRight) {
+            const index = Number(e.target.getAttribute('data-loop-index') ?? 0);
+            setRightFocusedIndex(index);
+          }
+        });
+      },
+      {
+        root: containerElementRef.current,
+        threshold: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+      },
+    );
+    elementRefs.forEach((ele) => {
+      observer.observe(ele);
+    });
+
+    return () => {
+      elementRefs.forEach((ele) => {
+        observer.unobserve(ele);
+      });
+    };
+  }, [elementRefs, identifier]);
   return (
     <div
       style={{
@@ -16,13 +57,15 @@ const Carousel = ({
         flex: 1,
         margin: `${VERTICAL_SPACE} 0`,
       }}
+      id={identifier}
+      ref={containerElementRef}
     >
-      {focusedIndex > 0 && (
+      {leftFocusedIndex > 0 && (
         <Arrow
-          targetIndex={focusedIndex - 1}
+          targetIndex={leftFocusedIndex - 1}
           orientation="left"
           onClick={() => {
-            setFocusedIndex((prev) => prev - 1);
+            setLeftFocusedIndex((prev) => Math.min(prev - 1, 0));
           }}
           identifier={identifier}
         />
@@ -42,8 +85,14 @@ const Carousel = ({
           <div
             id={getIdFromIndex(index, identifier)}
             key={getIdFromIndex(index, identifier)}
+            data-loop-index={index}
             style={{
               width: '50%',
+            }}
+            ref={(ref) => {
+              if (ref != null) {
+                elementRefs.push(ref);
+              }
             }}
           >
             <div style={{ transition: 'all ease-in', height: '100%' }}>
@@ -52,12 +101,12 @@ const Carousel = ({
           </div>
         ))}
       </div>
-      {focusedIndex >= 0 && focusedIndex < items.length - 1 && (
+      {rightFocusedIndex >= 0 && rightFocusedIndex < itemsLength - 1 && (
         <Arrow
-          targetIndex={focusedIndex + 1}
+          targetIndex={rightFocusedIndex + 1}
           orientation="right"
           onClick={() => {
-            setFocusedIndex((prev) => prev + 1);
+            setRightFocusedIndex((prev) => Math.max(prev + 1, itemsLength));
           }}
           identifier={identifier}
         />
@@ -86,7 +135,7 @@ const Arrow = ({
       style={{
         position: 'absolute',
         top: '50%',
-        border: '1px solid',
+        border: `1px solid ${DARK_COLOR}`,
         alignItems: 'center',
         display: 'flex',
         ...(orientation === 'left'

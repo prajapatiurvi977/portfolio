@@ -9,6 +9,7 @@ import {
   LIGHT_COLOR,
   LIGHT_FONT,
 } from '../../constants';
+import { useUIContext } from '../../state/ui-context';
 
 interface Link {
   label: string;
@@ -21,11 +22,11 @@ interface ITableColumn {
 }
 
 interface ITableStructure extends IsEvenProp {
-  discoverColumn: ITableColumn;
-  defineColumn: ITableColumn;
-  ideateColumn: ITableColumn;
-  designColumn: ITableColumn;
-  deliverColumn: ITableColumn;
+  discoverColumn?: ITableColumn;
+  defineColumn?: ITableColumn;
+  ideateColumn?: ITableColumn;
+  designColumn?: ITableColumn;
+  deliverColumn?: ITableColumn;
 }
 
 interface IHeaderCell extends IsEvenProp {
@@ -84,12 +85,13 @@ interface IRow extends PropsWithChildren {
   style?: CSSProperties;
 }
 const Row = ({ children, style }: IRow) => {
+  const { isMobileView } = useUIContext();
   return (
     <div
       style={{
         ...style,
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: isMobileView ? 'column' : 'row',
       }}
     >
       {children}
@@ -129,12 +131,13 @@ interface ITableWrapper extends IsEvenProp {
     | Array<ReactElement<ITableChildren, 'div'>>;
 }
 const TableWrapper = ({ isEven, children }: ITableWrapper) => {
+  const { isMobileView } = useUIContext();
   return (
     <div
       style={{
         display: 'flex',
         border: `1px solid ${isEven ? DARK_COLOR : LIGHT_COLOR}`,
-        flexDirection: 'column',
+        flexDirection: isMobileView ? 'column' : 'row',
       }}
     >
       {children}
@@ -144,18 +147,6 @@ const TableWrapper = ({ isEven, children }: ITableWrapper) => {
 
 type HeaderTexts = Pick<ITableColumn, 'header' | 'subHeader'>;
 type HeaderRowTemplate = HeaderTexts[];
-
-const getHeaderAndDataRowsFromColumns = (
-  columns: ITableColumn[],
-): [HeaderTexts[], Array<ITableColumn['links']>] => {
-  const headerRow: HeaderTexts[] = [];
-  const dataRow: Array<ITableColumn['links']> = [];
-  columns.forEach(({ header, subHeader, links }) => {
-    headerRow.push({ header, subHeader });
-    dataRow.push(links);
-  });
-  return [headerRow, dataRow];
-};
 
 const DesignProcessTableTemplate = ({
   discoverColumn,
@@ -171,52 +162,45 @@ const DesignProcessTableTemplate = ({
     ideateColumn,
     designColumn,
     deliverColumn,
-  ];
-  const [headerRow, dataRows] = getHeaderAndDataRowsFromColumns(columns);
+  ].filter((col) => col !== undefined) as ITableColumn[];
 
   return (
     <TableWrapper isEven={isEven}>
-      <HeaderRow isEven={isEven}>
-        {headerRow.map(({ header, subHeader }) => (
+      {columns.map(({ header, subHeader, links }) => (
+        <div key={header} style={{ flex: 1 }}>
           <HeaderCell
             key={header}
             isEven={isEven}
             header={header}
             subHeader={subHeader}
           />
-        ))}
-      </HeaderRow>
-      <Row>
-        {dataRows.map((links, index) => (
-          <RowContentWrapper key={`data-row-${index}`}>
-            <RowCell isEven={isEven}>
-              <ul
-                style={{
-                  margin: 0,
-                  paddingLeft: '20px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                }}
-              >
-                {links.map(({ label, target }) => (
-                  <li key={label}>
-                    <a
-                      href={`#${target}`}
-                      style={{
-                        fontFamily: LIGHT_FONT,
-                        color: isEven ? DARK_COLOR : LIGHT_COLOR,
-                      }}
-                    >
-                      {label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </RowCell>
-          </RowContentWrapper>
-        ))}
-      </Row>
+          <RowCell isEven={isEven}>
+            <ul
+              style={{
+                margin: 0,
+                paddingLeft: '20px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px',
+              }}
+            >
+              {links.map(({ label, target }) => (
+                <li key={label}>
+                  <a
+                    href={`#${target}`}
+                    style={{
+                      fontFamily: LIGHT_FONT,
+                      color: isEven ? DARK_COLOR : LIGHT_COLOR,
+                    }}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </RowCell>
+        </div>
+      ))}
     </TableWrapper>
   );
 };
@@ -229,7 +213,6 @@ export {
   RowCell,
   RowContentWrapper,
   TableWrapper,
-  getHeaderAndDataRowsFromColumns,
   type HeaderRowTemplate,
   type HeaderTexts,
   type ITableColumn,

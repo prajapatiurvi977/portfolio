@@ -6,6 +6,7 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../../constants';
+import { useUIContext } from '../../../state/ui-context';
 import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
 import { SectionDivider } from '../section-divider';
@@ -17,6 +18,7 @@ interface InsightProps {
   description: React.JSX.Element;
 }
 const Insight = ({ heading, description }: InsightProps) => {
+  const { isMobileView } = useUIContext();
   return (
     <div
       style={{
@@ -26,7 +28,7 @@ const Insight = ({ heading, description }: InsightProps) => {
         padding: `calc(${VERTICAL_SPACE} / 2)`,
         gap: `calc(${VERTICAL_SPACE} / 2)`,
         fontFamily: DARK_FONT,
-        margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
+        margin: isMobileView ? 0 : `0 calc(2 * ${HORIZONTAL_SPACE})`,
       }}
     >
       <ColoredText color="accent">{heading}</ColoredText>

@@ -282,7 +282,9 @@ const OpenedTab: FC<IOpenedTab> = ({
         id="tab-title-opened"
         animationDuration={ANIMATION_DURATION}
         styleProps={{
-          padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
+          ...(!isMobileView && {
+            padding: `${VERTICAL_SPACE} ${HORIZONTAL_SPACE} ${VERTICAL_SPACE} ${HORIZONTAL_SPACE}`,
+          }),
           ...titleContainerStyleProps,
         }}
       >
@@ -299,6 +301,10 @@ const OpenedTab: FC<IOpenedTab> = ({
           scrollBehavior: 'smooth',
           letterSpacing: 'normal',
           width: `calc(100% - ${HORIZONTAL_SPACE} * 2)`,
+          ...(isMobileView && {
+            width: '100%',
+            padding: 0,
+          }),
         }}
       >
         {content}

@@ -8,6 +8,7 @@ import {
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../../constants';
+import { useUIContext } from '../../../state/ui-context';
 import { ColoredText } from '../../colored-text';
 import type { TabElementsConfig } from '../../tab';
 import { FigmaFrame } from '../figma-frame';
@@ -45,13 +46,20 @@ const HiFiDesignSubSection = ({
   heading: string;
   details: React.JSX.Element[];
 }) => {
+  const { isMobileView } = useUIContext();
   return (
     <div
       style={{
         display: 'flex',
         flexDirection: 'column',
         gap: `calc(${VERTICAL_SPACE} / 2)`,
-        margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE})`,
+        ...(isMobileView
+          ? {
+              marginBottom: VERTICAL_SPACE,
+            }
+          : {
+              margin: `${VERTICAL_SPACE} calc(2 * ${HORIZONTAL_SPACE})`,
+            }),
       }}
     >
       <ColoredText color="accent">{heading}</ColoredText>
@@ -160,6 +168,7 @@ const HiFiDesignSection = ({ isOnEvenTab }: TabElementsConfig) => {
 };
 
 const AchievementsSection = ({ isOnEvenTab }: TabElementsConfig) => {
+  const { isMobileView } = useUIContext();
   const achievement1 = (
     <span>
       Improved{' '}
@@ -209,7 +218,9 @@ const AchievementsSection = ({ isOnEvenTab }: TabElementsConfig) => {
               backgroundColor: LIGHT_COLOR,
               padding: `calc(${VERTICAL_SPACE} / 2)`,
               color: DARK_COLOR,
-              margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
+              ...(!isMobileView && {
+                margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
+              }),
             }}
           >
             {achievement}
@@ -221,6 +232,7 @@ const AchievementsSection = ({ isOnEvenTab }: TabElementsConfig) => {
 };
 
 const LearningsSection = ({ isOnEvenTab }: TabElementsConfig) => {
+  const { isMobileView } = useUIContext();
   const learning1 =
     'By reviewing user feedback and performing usability tests, I pinpointed necessary improvements and opportunities for betterment. The main insight was the critical need to prioritize user preferences to develop a more intuitive and user-friendly interface.';
   const learning2 =
@@ -253,7 +265,9 @@ const LearningsSection = ({ isOnEvenTab }: TabElementsConfig) => {
               backgroundColor: DARK_COLOR,
               padding: `calc(${VERTICAL_SPACE} / 2)`,
               color: LIGHT_COLOR,
-              margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
+              ...(!isMobileView && {
+                margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
+              }),
               border: `1px solid ${ACCENT_COLOR}`,
             }}
           >

@@ -6,6 +6,7 @@ import {
   HORIZONTAL_SPACE,
   LIGHT_COLOR,
 } from '../../constants';
+import { useUIContext } from '../../state/ui-context';
 import type { TabElementsConfig } from '../tab';
 import { SubHeading } from './sub-heading';
 
@@ -21,6 +22,7 @@ const HowMightWeStatement = ({
   statement,
   isOnEvenTab,
 }: IHowMightWeStatement) => {
+  const { isMobileView } = useUIContext();
   return (
     <>
       <SubHeading
@@ -38,7 +40,7 @@ const HowMightWeStatement = ({
           fontFamily: DARK_FONT,
           fontSize: `calc(${FONT_SIZE} / 2.5)`,
           border: `1px solid ${isOnEvenTab ? DARK_COLOR : LIGHT_COLOR}`,
-          margin: `32px calc(2 * ${HORIZONTAL_SPACE})`,
+          margin: isMobileView ? '32px' : `32px calc(2 * ${HORIZONTAL_SPACE})`,
         }}
       >
         <div

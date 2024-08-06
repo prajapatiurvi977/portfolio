@@ -79,17 +79,14 @@ const Work: FC = () => {
       }}
     >
       {WorkItems.map(
-        (
-          {
-            backgroundImage,
-            title,
-            labels,
-            description,
-            containerStyleProps,
-            destination,
-          },
-          index,
-        ) => (
+        ({
+          backgroundImage,
+          title,
+          labels,
+          description,
+          containerStyleProps,
+          destination,
+        }) => (
           <WorkItem
             key={title}
             backgroundImage={backgroundImage}

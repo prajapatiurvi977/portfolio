@@ -6,6 +6,7 @@ import {
   LIGHT_COLOR,
   VERTICAL_SPACE,
 } from '../../constants';
+import { useUIContext } from '../../state/ui-context';
 import type { TabElementsConfig } from '../tab';
 import { SubHeading } from './sub-heading';
 
@@ -21,6 +22,7 @@ const SolutionToHmw = ({
   descriptions: description,
   isOnEvenTab,
 }: ISolutionToHmw) => {
+  const { isMobileView } = useUIContext();
   return (
     <>
       <SubHeading
@@ -44,7 +46,7 @@ const SolutionToHmw = ({
               fontFamily: DARK_FONT,
               padding: '20px 55px',
               border: `1px solid ${isOnEvenTab ? ACCENT_COLOR : LIGHT_COLOR}`,
-              margin: `0 calc(2 * ${HORIZONTAL_SPACE})`,
+              margin: isMobileView ? 0 : `0 calc(2 * ${HORIZONTAL_SPACE})`,
             }}
           >
             {descr}

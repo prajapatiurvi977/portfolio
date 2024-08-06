@@ -14,8 +14,10 @@ import { SubHeading } from '../sub-heading';
 import { discoverColumn } from './design-process-table';
 
 import UserJourneyMap from '../../../assets/images/humber-current/user-journey-map.png';
+import { useUIContext } from '../../../state/ui-context';
 
 const DiscoverSection = ({ isOnEvenTab }: TabElementsConfig) => {
+  const { isMobileView } = useUIContext();
   return (
     <>
       <SectionDivider text="Discover" isOnEvenTab={isOnEvenTab} />
@@ -46,7 +48,13 @@ const DiscoverSection = ({ isOnEvenTab }: TabElementsConfig) => {
           border: `1px solid ${DARK_COLOR}`,
           padding: `calc(${VERTICAL_SPACE} / 2)`,
           fontSize: `calc(${FONT_SIZE} / 2.5)`,
-          margin: `${FONT_SIZE} calc(2 * ${HORIZONTAL_SPACE})`,
+          ...(isMobileView
+            ? {
+                margin: `${FONT_SIZE} 0`,
+              }
+            : {
+                margin: `${FONT_SIZE} calc(2 * ${HORIZONTAL_SPACE})`,
+              }),
         }}
       >
         From the heuristic evaluation, I learned that enhancing the user

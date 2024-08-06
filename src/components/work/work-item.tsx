@@ -29,7 +29,7 @@ const WorkItem: FC<IWorkItem> = ({
   containerStyleProps,
   destination,
 }) => {
-  const [hovered, setIsHovered] = useState<boolean>(false);
+  const [hovered, setHovered] = useState<boolean>(false);
   const navigate = useNavigate();
   return (
     <div
@@ -47,10 +47,10 @@ const WorkItem: FC<IWorkItem> = ({
         ...containerStyleProps,
       }}
       onMouseEnter={() => {
-        setIsHovered(true);
+        setHovered(true);
       }}
       onMouseLeave={() => {
-        setIsHovered(false);
+        setHovered(false);
       }}
       onClick={() => {
         navigate(destination);
@@ -58,6 +58,7 @@ const WorkItem: FC<IWorkItem> = ({
     >
       <img
         src={backgroundImage}
+        alt=""
         style={{
           position: 'absolute',
           width: '100%',
