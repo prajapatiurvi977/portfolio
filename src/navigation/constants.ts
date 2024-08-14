@@ -1,5 +1,5 @@
 const ROUTE_NAMES = {
-  ROOT: '/',
+  ROOT: '',
   WORK_DETAIL: {
     ROOT: 'work-detail',
     TIM_HORTONS: 'tim-hortons',
