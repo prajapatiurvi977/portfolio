@@ -1,5 +1,5 @@
 const ROUTE_NAMES = {
-  ROOT: '',
+  ROOT: '/',
   WORK_DETAIL: {
     ROOT: 'work-detail',
     TIM_HORTONS: 'tim-hortons',
@@ -18,7 +18,7 @@ const expandRoutes = <T extends Partial<RouteNameType>>(routes: T): T => {
       // @ts-expect-error Type 'string' is not assignable to type RouteNameKeys;
       routes[key] = [routes.ROOT, route].join('/');
     } else {
-      route.ROOT = [routes.ROOT, route.ROOT].join('/');
+      route.ROOT = [routes.ROOT, route.ROOT].join('');
       expandRoutes(route);
     }
   }
