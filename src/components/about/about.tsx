@@ -20,7 +20,7 @@ const AboutSections: IAboutSections[] = [
   {
     title: "WHERE I'M FROM",
     description:
-      "I was born and raised in Mumbai, India. I am glad that I was raised in Mumbai, a city in a multicultural country. There is a lot to eat, and the food is definitely better than where you're from.",
+      "I was born and raised in Mumbai, India. I am glad that I was raised in Mumbai, a city in a multicultural country. There is a lot to eat, and the food here is really delicious. I think you'll enjoy it!",
   },
   {
     title: 'WHAT I USED TO DO',
