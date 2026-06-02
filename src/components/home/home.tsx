@@ -54,14 +54,18 @@ const Home: FC = () => {
           }}
         >
           I started as a
-          <ColoredText color="dark">front-end developer</ColoredText> building
+          <ColoredText color="dark"> front-end developer </ColoredText> building
           websites & SaaS products. Today I design
-          <ColoredText color="dark">B2C experiences at IamMaturity</ColoredText>
+          <ColoredText color="dark">
+            {' '}
+            B2C experiences at IamMaturity{' '}
+          </ColoredText>
           and drive
-          <ColoredText color="dark">social media strategy,</ColoredText>
+          <ColoredText color="dark"> social media strategy, </ColoredText>
           bringing a rare mix of
           <ColoredText color="dark">
-            design thinking, user empathy, and engineering
+            {' '}
+            design thinking, user empathy, and engineering{' '}
           </ColoredText>
           fluency to every product I touch.
         </div>
