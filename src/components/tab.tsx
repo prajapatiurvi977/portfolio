@@ -143,6 +143,7 @@ const Tab: FC<ITabProps> = ({
           titleContainerStyleProps={{
             fontSize,
             lineHeight: `calc(${fontSize} + 2px)`,
+            color: `GrayText`,
           }}
           backNavButtonTarget={backNavButtonTarget}
         />

@@ -5,6 +5,7 @@ import {
   DARK_COLOR,
   DARK_FONT,
   FONT_SIZE,
+  GREY_COLOR,
   LIGHT_FONT,
   VERTICAL_SPACE,
 } from '../../constants';
@@ -32,28 +33,37 @@ const Home: FC = () => {
       >
         <div
           style={{
-            marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
-            fontSize: `calc(${FONT_SIZE} / 2.5)`,
-          }}
-        >
-          👋 Hi, I am Urvi !
-        </div>
-        <div
-          style={{
             fontSize: `calc(${FONT_SIZE} / 1.5)`,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
             textAlign: 'start',
             lineHeight: `calc(${FONT_SIZE} / 1.5 + 2px)`,
+            marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
           }}
         >
           <div>
-            i <ColoredText color="accent">design</ColoredText> and
-            <ColoredText color="accent"> develop</ColoredText> websites.
+            From <ColoredText color="accent">DEV</ColoredText> to
+            <ColoredText color="accent"> Designer</ColoredText>
           </div>
-          <br />
-          <div>i bridge the gap between user needs & innovative solutions.</div>
+        </div>
+        <div
+          style={{
+            color: `${GREY_COLOR}`,
+            fontSize: `calc(${FONT_SIZE} / 3)`,
+          }}
+        >
+          I started as a
+          <ColoredText color="dark">front-end developer</ColoredText> building
+          websites & SaaS products. Today I design
+          <ColoredText color="dark">B2C experiences at IamMaturity</ColoredText>
+          and drive
+          <ColoredText color="dark">social media strategy,</ColoredText>
+          bringing a rare mix of
+          <ColoredText color="dark">
+            design thinking, user empathy, and engineering
+          </ColoredText>
+          fluency to every product I touch.
         </div>
       </div>
       <div
