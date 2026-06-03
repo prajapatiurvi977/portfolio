@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import React from 'react';
 import PinkHeart from '../../assets/images/pink-heart.svg';
 import {
+  ACCENT_COLOR,
   DARK_COLOR,
   DARK_FONT,
   FONT_SIZE,
@@ -33,18 +34,44 @@ const Home: FC = () => {
       >
         <div
           style={{
-            fontSize: `calc(${FONT_SIZE} / 1.5)`,
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            fontFamily: LIGHT_FONT,
+            fontSize: `calc(${FONT_SIZE} / 5)`,
+            marginBottom: `calc(${VERTICAL_SPACE} / 1)`,
+          }}
+        >
+          <div
+            style={{
+              width: `8px`,
+              height: `8px`,
+              background: ACCENT_COLOR,
+              borderRadius: `50%`,
+              animation: `pulse 2s infinite`,
+            }}
+          ></div>
+          <div style={{ marginLeft: '0.5rem' }}>
+            Open to Product Designer, UX UI Designer Roles
+          </div>
+        </div>
+        <div
+          style={{
+            fontSize: `calc(${FONT_SIZE} )`,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
             textAlign: 'start',
             lineHeight: `calc(${FONT_SIZE} / 1.5 + 2px)`,
-            marginBottom: `calc(${VERTICAL_SPACE} / 2)`,
+            marginBottom: `calc(${VERTICAL_SPACE} / 1)`,
           }}
         >
           <div>
             From <ColoredText color="accent">DEV</ColoredText> to
-            <ColoredText color="accent"> Designer</ColoredText>
+            <ColoredText color="accent">
+              {' '}
+              <i>Designer</i>
+            </ColoredText>
           </div>
         </div>
         <div
