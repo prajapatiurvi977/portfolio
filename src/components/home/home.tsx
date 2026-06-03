@@ -57,7 +57,7 @@ const Home: FC = () => {
         </div>
         <div
           style={{
-            fontSize: `calc(${FONT_SIZE} )`,
+            fontSize: `calc(${FONT_SIZE} / 3 )`,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',

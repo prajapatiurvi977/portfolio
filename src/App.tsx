@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import { About } from './components/about/about';
 import { Home } from './components/home/home';
 import type { ITabListProps } from './components/tab-list';
